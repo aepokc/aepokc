@@ -1,0 +1,78 @@
+<b>
+  <%= @profile.member.firstname + " " + @profile.member.lastname %>
+</b>
+<div class="hr">
+</div>
+<p>
+	<% if @profile.avatar_file_name.nil? %>
+		No<br />Picture<br />Added
+	<% else %>
+		<%= link_to image_tag(@profile.avatar.url(:display)), @profile.avatar.url %>
+	<% end %>
+</p>
+<% unless @profile.email.blank? %>
+	<p>
+		<b>Email:</b>
+		<%= link_to @profile.email, "mailto:" + @profile.email %>
+	</p>
+<% end %>
+<% unless @profile.phone.blank? %>
+	<p>
+		<b>Phone:</b>
+		<%= number_to_phone(@profile.phone, :area_code => true) %>
+	</p>
+<% end %>
+<% unless @profile.hometown.blank? %>
+	<p>
+		<b>Hometown:</b>
+		<%= @profile.hometown %>
+	</p>
+<% end %>
+<% unless @profile.college.blank? %>
+	<p>
+		<b>College:</b>
+		<%= @profile.college %>
+	</p>
+<% end %>
+<% unless @profile.degree.blank? %>
+	<p>
+		<b>Degree:</b>
+		<%= @profile.degree %>
+	</p>
+<% end %>
+<% unless @profile.occupation.blank? %>
+	<p>
+		<b>Occupation:</b>
+		<%= @profile.occupation %>
+	</p>
+<% end %>
+<% unless @profile.interests.blank? %>
+	<p>
+		<b>Interests:</b>
+		<%= @profile.interests %>
+	</p>
+<% end %>
+<% unless @profile.status.blank? %>
+	<p>
+		<b>Status:</b>
+		<%= @profile.status %>
+	</p>
+<% end %>
+<p>
+	<% if @profile.fname.blank? %>
+	<% else %>
+		<%= link_to image_tag('/images/gf.png', :mouseover => '/images/f.png'), "http://facebook.com/" + @profile.fname %>
+	<% end %>
+	<% if @profile.tname.blank? %>
+	<% else %>
+		<%= link_to image_tag('/images/gt.png', :mouseover => '/images/t.png'), "http://twitter.com/" + @profile.tname %>
+	<% end %>
+	<% if @profile.lname.blank? %>
+	<% else %>
+		<%= link_to image_tag('/images/gl.png', :mouseover => '/images/l.png'), "http://linkedin.com/in/" + @profile.lname %>
+	<% end %>
+</p>
+<% if @profile.member_id == current_member.id %>
+	<%= link_to 'Edit Profile', edit_members_profile_path(@profile) %>
+<% else %>
+<% end %>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>aep | the Alliance of Emerging Professionals</title>
+		<%= stylesheet_link_tag "application", "common", "style" %>
+		<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/base/jquery-ui.css" %>
+		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js" %>
+		<%= javascript_include_tag "jquery.rails.js" %>
+		<%= javascript_include_tag "application.js" %>
+		<%= javascript_include_tag "analytics.js" %>
+		<%= csrf_meta_tag %>
+	</head>
+	<body>
+		<div class="signup" >
+			<%= link_to image_tag('/images/signup.png', :mouseover => '/images/onsignup.png'), 'http://visitor.constantcontact.com/email.jsp?m=1101983411682&lang=en' %>
+		</div>
+		<div class="wrapper">
+			<div class="beta" >
+				<%= image_tag("beta.png") %>
+			</div>
+			<%= render "/partials/logout" %>
+			<div class="header">
+			</div>
+			<%= render "/partials/navbar" %>
+			<div class="content">
+				<div class="contentlt">
+					<div class="ltheader font11">
+						Members
+					</div>
+					<div class="ltnav font11">
+						<div class="ltnavitem">
+							<%= link_to 'Resources', '/resources' %>
+						</div>
+						<div class="ltnavitem">
+							<% if action_name == 'directory' %>
+								Directory
+							<% else %>
+								<%= link_to 'Directory', '/members/profiles/directory' %>
+							<% end %>
+						</div>
+						<div class="ltnavitem">
+							<% if controller_name == 'sessions' || controller_name == 'passwords' %>
+								<%= link_to 'My Profile', '/members/profiles/new' %>	
+							<% else %>					
+								<% if controller_name == 'profiles' && action_name == 'edit' || action_name == 'new' || action_name == 'show' %>
+									My Profile
+								<% else %>
+									<% if current_member.profile.nil? %>
+										<%= link_to 'My Profile', '/members/profiles/new' %>
+									<% else %>
+										<%= link_to 'My Profile', '/members/profiles/' + current_member.profile.id.to_s %>
+									<% end %>
+								<% end %>
+							<% end %>
+						</div>
+						<div class="ltnavitem">
+							<% if controller_name == 'registrations' %>
+								My Account
+							<% else %>
+								<%= link_to 'My Account', edit_member_registration_path %>
+							<% end %>
+						</div>
+					</div>
+					<div class="clear">
+					</div>
+				</div>
+				<div class="contentrt font11" style="line-height: 1.6em; text-align: justify;">
+					<div class="flash">
+						<%= flash[:notice] %>
+						<%= flash[:alert] %>
+					</div>
+					<%= yield %>
+				</div>
+				<div class="clear">
+				</div>
+			</div>
+		</div>
+		<%= render "/partials/footer" %>
+	</body>
+</html>

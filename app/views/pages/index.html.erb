@@ -1,0 +1,48 @@
+<b>
+	Pages Map
+</b>
+<div class="hr">
+</div>
+
+*the top <b>six (6)</b> parent pages will show up on as navigation tabs in order of <u>position</u> attribute*
+
+<table>
+	<tr>
+		<th></th>
+		<th>Title</th>
+		<th>Link</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+
+	<% @pages.each do |p| %>
+		<tr>
+			<td><%= p.position %></td>
+			<td><%= link_to p.title, "/" + p.link %></td>
+			<td>/<%= p.link %></td>
+			<td></td>
+			<td><%= link_to 'Edit', edit_page_path(p) %></td>
+			<td></td>
+			<td><%= link_to 'Destroy', p, :confirm => 'Are you sure?', :method => :delete %></td>
+		</tr>
+		<% p.subpages.each do |sp| %>
+			<tr>
+				<td></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to sp.title, "/" + p.link + "/" + sp.link %></td>
+				<td>/<%= p.link %>/<%= sp.link %></td>
+				<td></td>
+				<td><%= link_to 'Edit', edit_page_path(sp) %></td>
+				<td></td>
+				<td><%= link_to 'Destroy', sp, :confirm => 'Are you sure?', :method => :delete %></td>
+			</tr>
+		<% end %> 
+	<% end %>
+
+</table>
+
+<br />
+
+<%= link_to 'New Page', new_page_path %>

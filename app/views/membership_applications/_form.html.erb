@@ -1,0 +1,91 @@
+<%= form_for(@membership_application) do |f| %>
+  <% if @membership_application.errors.any? %>
+    <div id="error_explanation">
+      <%= pluralize(@membership_application.errors.count, "error") %> prohibited this membership_application from being saved:
+
+      <ul>
+      <% @membership_application.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br />
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br />
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :associations %><br />
+    <%= f.text_area :associations %>
+  </div>
+  <div class="field">
+    <%= f.label :interests %><br />
+    <%= f.text_area :interests %>
+  </div>
+  <div class="field">
+    <%= f.label :first %><br />
+    <%= f.select(:first, '<option value="Membership">Membership</option><option value="Social">Social</option><option value="Volunteer">Volunteer</option><option value="Marketing">Marketing</option>') %>
+  </div>
+  <div class="field">
+    <%= f.label :second %><br />
+    <%= f.select(:second, '<option value="Social">Social</option><option value="Volunteer">Volunteer</option><option value="Marketing">Marketing</option><option value="Membership">Membership</option>') %>
+  </div>
+  <div class="field">
+    <%= f.label :third %><br />
+    <%= f.select(:third, '<option value="Volunteer">Volunteer</option><option value="Marketing">Marketing</option><option value="Membership">Membership</option><option value="Social">Social</option>') %>
+  </div>
+  <br />
+  <div class="toc">
+    <b><u>Terms & Conditions:</b></u><br />
+  	The Alliance of Emerging Professionals, Inc ("aep") is a 501(c)(6) nonprofit membership organization. 
+  	Membership dues are twenty dollars ($20.00) payable annually, and are not tax-deductible.
+  	Membership applications are reviewed by a committee of volunteers, and are considered on the basis of the applicant's gainful employment, educational pursuits, and interest in community involvement. 
+  	Applicants are not considered on the basis of gender, race, ethnicity, age, or other demographic information.
+  	<br />
+  	By submitting this application, I agree that the information contained herein is true and correct and that I wish to join aep under these Terms & Conditions.
+  </div>
+  <div class="field">
+    <%= f.check_box :agreement %>
+    <%= f.label "I agree" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

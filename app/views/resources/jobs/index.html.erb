@@ -1,0 +1,35 @@
+<b>
+	Available Jobs
+</b>
+<div class="hr">
+</div>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Employer</th>
+    <th>Type</th>
+    <th>Location</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%= link_to job.title, '/resources/jobs/' + job.id.to_s %></td>
+    <td><%= link_to job.employer, job.link %></td>
+    <td><%= job.time %></td>
+    <td><%= job.location %></td>
+    <% if member_signed_in? %>
+		  <% if job.member_id == current_member.id %>
+				<td><%= link_to 'Edit', edit_resources_job_path(job) %></td>
+				<td><%= link_to 'Destroy', [:resources, job], :confirm => 'Are you sure?', :method => :delete %></td>
+			<% else %>
+			<% end %>
+		<% else %>
+			<td></td>
+			<td></td>
+		<% end %>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'Add a Job', new_resources_job_path %>

@@ -1,0 +1,18 @@
+<div class="eventsheader font12">
+	UPCOMING EVENTS &gt;
+</div>
+<div class="eventsfeed font10">
+	<% @feed_events.each do |event| %>
+		<div class="feeditem" style="line-height: 1.8em;">
+			<b>
+				<%= link_to event.title, [:resources, event] %>
+			</b>
+			<br />
+				<%= event.date.to_s(:formatted_date) %>
+			<br />
+			<br />
+		</div>
+	<% end %>
+	<div class="clear">
+	</div>
+</div>

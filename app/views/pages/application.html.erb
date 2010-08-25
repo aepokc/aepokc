@@ -1,0 +1,95 @@
+<b>
+	Membership Application
+</b>
+<div class="hr">
+</div>
+<%= form_for(@member) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this application from being submitted:</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	Personal Information (all will be kept confidential)
+	<div class="field">
+		<b><%= f.label "First Name" %></b>
+			 <%= f.text_field %> 
+		<b><%= f.label "Last Name" %></b>
+			 <%= f.text_field %>
+	</div>
+	<div class="field">
+		<b><%= f.label "Email" %></b>
+			 <%= f.text_field %> 
+	</div>
+	<div class="field">
+		<b><%= f.label "Address" %></b>
+			 <%= f.text_field %> 
+	</div>
+	<div class="field">
+		<b><%= f.label "City" %></b>
+			 <%= f.text_field %> 
+		<b><%= f.label "State" %></b>
+			 <%= f.text_field %> 
+		<b><%= f.label "Zip" %></b>
+			 <%= f.text_field %> 
+	</div>
+	<div class="field">
+		<b><%= f.label "Phone" %></b>
+			 <%= f.text_field %> 
+	</div>
+	<div class="field">
+		<b><%= f.label "Company or College" %></b>
+			 <%= f.text_field %> 
+	</div>
+	<div class="field">
+		<b><%= f.label "Job Title or Student" %></b>
+			 <%= f.text_field %> 
+	</div>
+	<div class="field">
+		<b><%= f.label "Memberships & Associations" %></b>
+			 <%= f.text_box %> 
+	</div>
+	<div class="field">
+		<b><%= f.label "Interests & Activities" %></b>
+			 <%= f.text_field %> 
+	</div>
+	AEP’s committees are the lifeblood of the organization and the wheels that keep our organization moving forward.
+	We encourage our members join a committee to learn more about the organization and to foster development of
+	new ideas and create the critical mass necessary for the organization to remain a leading edge contributor within
+	the community. <br />
+	Please rank your top three committee preferences below.<br />
+	Membership: recruitment, member benefits and the AEP Ambassador program<br />
+	Social: monthly meetings, venue selection, speakers and volunteer partners<br />
+	Marketing: creative design, press releases, website and branding<br />
+	Internal Affairs: finance, budgeting, fundraising and policy development<br />
+	<div class="field">
+		<b><%= f.label "First" %></b>
+			 <%= f.text_field %> 
+	</div>
+	<div class="field">
+		<b><%= f.label "Second" %></b>
+			 <%= f.text_field %> 
+	</div>
+	<div class="field">
+		<b><%= f.label "Third" %></b>
+			 <%= f.text_field %> 
+	</div>
+	<br />
+	By signing below, I confirm that the information below is true and correct. I wish to join the Alliance of Emerging
+	Professionals and understand that dues are $20 annually.
+	<div class="field">
+		<b><%= f.label "Signature" %></b>
+			 <%= f.text_field %> 
+	</div>
+	<div class="field">
+		<b><%= f.label "Email" %></b>
+			 <%= f.hidden_text_field :Date.now.to_s %> 
+	</div>
+
+<% end %>

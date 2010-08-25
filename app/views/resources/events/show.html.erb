@@ -1,0 +1,40 @@
+<b>
+  <%= @event.title %>
+</b>
+<div class="hr">
+</div>
+<% if @event.sanctioned? %>
+	<p>
+		OFFICIAL aep EVENT
+	</p>
+<% end %>
+<p>
+  <b>Date:</b>
+  <%= @event.date.to_s(:formatted_date) %>
+</p>
+<p>
+  <b>Time:</b>
+	<%= @event.time %>
+</p>
+<p>
+  <%= auto_link(simple_format(@event.details)) %>
+</p>
+<% unless @event.member.nil? %>
+	<% unless @event.member.profile.nil? %>
+		<p>
+			<b>Created by:</b>
+			<br />
+			<%= image_tag @event.member.profile.avatar.url(:thumb) %>
+			<br />
+			<%= link_to @event.member.firstname + " " + @event.member.lastname, '/members/profiles/' + @event.member.profile.id.to_s %>
+		</p>
+	<% end %>
+	<% if member_signed_in? %>
+		<% if @event.member.id == current_member.id %>
+			<%= link_to 'Edit This Event', edit_resources_event_path(@event) %> | <%= link_to "Events List", resources_events_path %>
+		<% else %>
+		<% end %>
+	<% else %>
+		<%= link_to "Events List", resources_events_path %>
+	<% end %>
+<% end %>

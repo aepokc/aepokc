@@ -1,0 +1,121 @@
+.wrapper	{
+	position: relative;
+	width: 850px;
+	margin: auto;
+	height: 550px;
+	text-align: left;
+}
+
+.logo {
+	position: absolute;
+	top: 55px;
+	left: 10px;
+	width: 300px;
+	height: 110px;
+	display: block;
+	z-index: 20;
+}
+
+.mainimg	{
+	position: absolute;
+	top: 45px;
+	left: 0;
+	z-index: 10;
+}
+
+.eventsheader	{
+	position: absolute;
+	top: 437px;
+	left: 0;
+	padding: 8px 0 8px 10px;
+	width: 840px;
+	\width: 850px;
+	w\idth: 840px;
+	color: #fff;
+	background: #a1410e;
+}
+
+.eventsfeed	{
+	position: absolute;
+	top: 467px;
+	left: 0;
+	border: 10px solid #534741;
+	width: 830px;
+	\width: 850px;
+	w\idth: 830px;
+	color: #fff;
+	background: url(/images/eventsbg.gif) repeat-y;
+}
+
+.feeditem	{
+	float: left;
+	padding: 5px 10px 5px 5px;
+	width: 260px;
+}
+
+.footer	{
+	padding: 10px 0 0 0;
+	width: 850px;
+	margin: auto;
+	color: #fff;
+	border-top: 0;
+}
+
+.footerlt	{
+	padding: 0 0 0 10px;
+	float: left;
+	width: 273px;
+	text-align: left;
+}
+
+.footerct	{
+	width: 283px;
+	text-align: center;
+}
+
+.flogo	{
+}
+
+.tlogo	{
+}
+
+.llogo	{
+}
+
+.footerrt	{
+	float: right;
+	width: 283px;
+	text-align: right;
+}
+
+.footerlabel {
+	text-align: center;
+	width: 179px;
+	float: right;
+}
+
+/* Rotate Image */
+
+#rotate	{ 
+	position: relative; 
+	border: 10px solid #fff;
+	width: 830px;
+	\width: 850px;
+	w\idth: 830px;
+	height: 367px; 
+	margin: 0; 
+	padding: 0;
+}
+
+#rotate li	{
+	display: block;
+}
+
+/* Nav */
+
+.nav	{
+	position: absolute;
+	top: 10px;
+	left: 0;
+	width: 850px;
+}

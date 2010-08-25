@@ -1,0 +1,37 @@
+<b>
+	Membership Applications
+</b>
+<div class="hr">
+</div>
+<table>
+  <tr>
+  	<th>Member? |</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>Company</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @membership_applications.each do |ma| %>
+	<tr>
+		<% if Member.all(:conditions => {:email => ma.email}).blank? %>
+		 	<td><span class="pending">*NO*</span></td>
+			<td><%= ma.firstname %></td>
+			<td><%= ma.lastname %></td>
+			<td><%= ma.email %></td>
+			<td><%= ma.company %></td>
+			<td><%= link_to 'Show', ma %></td>
+			<td><%= link_to 'Destroy', ma, :confirm => 'Are you sure?', :method => :delete %></td>
+		<% else %>
+			<td><%= image_tag('/images/check.gif') %></td>
+			<td><%= ma.firstname %></td>
+			<td><%= ma.lastname %></td>
+			<td><%= ma.email %></td>
+			<td><%= ma.company %></td>
+			<td><%= link_to 'Show', ma %></td>
+			<td><%= link_to 'Destroy', ma, :confirm => 'Are you sure?', :method => :delete %></td>
+		<% end %>
+	</tr>	
+<% end %>
+</table>

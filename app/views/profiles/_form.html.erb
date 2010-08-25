@@ -1,0 +1,72 @@
+<%= form_for [:members, @profile], :html => { :multipart => true } do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="field">
+		<%= f.label :avatar %><span class="ghost"> (Will be resized to 150 x 150 pixels)</span><br />
+    <%= f.file_field :avatar %>
+	</div>
+  <div class="field">
+    <%= f.hidden_field :member_id, :value => current_member.id %>
+  </div>    
+  <div class="field">
+    <%= f.label :email %>
+    <div class="example">
+    	(Your registration email will not be visible to other members.<br />
+    	Enter one here that you are willing to share.)<br />
+		</div>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><span class="ghost"> (Format: 4058182257)</span><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :hometown %><br />
+    <%= f.text_field :hometown %>
+  </div>
+  <div class="field">
+    <%= f.label :college %><br />
+    <%= f.text_field :college %>
+  </div>
+  <div class="field">
+    <%= f.label :degree %><br />
+    <%= f.text_field :degree %>
+  </div>
+  <div class="field">
+    <%= f.label :occupation %><br />
+    <%= f.text_field :occupation %>
+  </div>
+  <div class="field">
+    <%= f.label :interests %><br />
+    <%= f.text_area :interests %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><span class="ghost"> (Examples: Single, Married, Emotionally Unavailable...)</span><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label 'Facebook username' %><br />
+    <%= f.text_field :fname %>&nbsp;&nbsp;(<span class="ghost">http://www.facebook.com/</span><span class="example"><b>markzuckerberg</b></span>)
+  </div>
+  <div class="field">
+    <%= f.label 'Twitter username' %><br />
+    <%= f.text_field :tname %>&nbsp;&nbsp;(<span class="ghost">http://www.twitter.com/</span><span class="example"><b>ev</b></span>)
+  </div>
+  <div class="field">
+    LinkedIn username<br />
+    <%= f.text_field :lname %>&nbsp;&nbsp;(<span class="ghost">http://www.linkedin.com/in/</span><span class="example"><b>reidhoffman</b></span>)
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

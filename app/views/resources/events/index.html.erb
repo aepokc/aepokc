@@ -1,0 +1,81 @@
+<b>
+	Upcoming Events
+</b>
+<div class="hr">
+</div>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Title</th>
+  	<th></th>
+    <th></th>
+    <th></th>
+  </tr>
+	<% @upcoming_events.each do |event| %>
+		<% if member_signed_in? %>
+			<tr>
+				<td><%= event.date.to_s(:formatted_date) %></td>
+				<td><%= link_to event.title, [:resources, event] %></td>
+		 		<td><%= event.sanctioned? ? 'OFFICIAL aep EVENT' : '' %></td>
+				<% if event.member_id == current_member.id %>
+					<td>| <%= link_to 'Edit', edit_resources_event_path(event) %></td>
+					<td>| <%= link_to 'Destroy', [:resources, event], :confirm => 'Are you sure?', :method => :delete %></td>
+				<% else %>
+				<% end %>
+			</tr>
+		<% else %>
+			<% if event.sanctioned? %>
+				<tr>
+					<td><%= event.date.to_s(:formatted_date) %></td>
+					<td><%= link_to event.title, [:resources, event] %></td>
+			 		<td>OFFICIAL aep EVENT</td>
+				</tr>
+			<% else %>
+			<% end %>
+		<% end %>
+	<% end %>
+</table>
+<br />
+<br />
+<b>
+	Past Events
+</b>
+<div class="hr">
+</div>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Title</th>
+  	<th></th>
+    <th></th>
+    <th></th>
+  </tr>
+	<% @past_events.each do |event| %>
+		<% if member_signed_in? %>
+			<tr>
+				<td><%= event.date.to_s(:formatted_date) %></td>
+				<td><%= link_to event.title, [:resources, event] %></td>
+		 		<td><%= event.sanctioned? ? 'OFFICIAL aep EVENT' : '' %></td>
+				<% if event.member_id == current_member.id %>
+					<td>| <%= link_to 'Edit', edit_resources_event_path(event) %></td>
+					<td>| <%= link_to 'Destroy', [:resources, event], :confirm => 'Are you sure?', :method => :delete %></td>
+				<% else %>
+				<% end %>
+			</tr>
+		<% else %>
+			<% if event.sanctioned? %>
+				<tr>
+					<td><%= event.date.to_s(:formatted_date) %></td>
+					<td><%= link_to event.title, [:resources, event] %></td>
+			 		<td>OFFICIAL aep EVENT</td>
+				</tr>
+			<% else %>
+			<% end %>
+		<% end %>
+	<% end %>
+</table>
+<br />
+<% if member_signed_in? %>
+	<%= link_to 'Create an Event', new_resources_event_path %>
+<% else %>
+<% end %>

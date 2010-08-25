@@ -1,0 +1,172 @@
+.wrapper	{
+	position: relative;
+	border: 5px solid #fff;
+	width: 850px;
+	\width: 860px;
+	w\idth: 850px;
+	height: auto !important;
+	margin: auto;
+	text-align: left;
+	background: #fff;
+}
+
+.header	{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 850px;
+	height: 162px;
+	z-index: 5;
+	background: url(/images/header.jpg) no-repeat #fff;
+}
+
+.logo a	{
+	position: absolute repeat-n;
+	top: 0;
+	left: 0;
+	width: 350px;
+	height: 120px;
+	display: block;
+	z-index: 20;
+}
+
+.content	{
+	position: relative;
+	padding: 160px 0 0 0;
+	width: 850px;
+	background: url(/images/contentbg.gif) repeat-y;
+}
+
+.contentlt	{
+	float: left;
+	width: 250px;
+	height: auto !important;
+	height: 270px;
+}
+
+.contentrt	{
+	float: left;
+	color: #222;
+	padding: 20px;
+	width: 560px;
+	\width: 600px;
+	w\idth: 560px;
+	min-height: 270px;
+}
+
+.flash	{
+	float: right;
+	color: #157f1f;
+}
+
+.pending	{
+	color: #F00;
+	font-weight: bold;fl
+}
+
+.contentrt a	{
+	color: #069;
+}
+
+.footer	{
+	padding: 10px 0 0 0;
+	width: 860px;
+	margin: auto;
+	color: #fff;
+	border-top: 0;
+}
+
+.footerlt	{
+	padding: 0 0 0 10px;
+	float: left;
+	width: 280px;
+	text-align: left;
+}
+
+.footerct	{
+	width: 286px;
+	text-align: center;
+}
+
+.flogo	{
+}
+
+.tlogo	{
+}
+
+.llogo	{
+}
+
+.footerrt	{
+	float: right;
+	width: 287px;
+	text-align: right;
+}
+
+.footerlabel {
+	text-align: center;
+	width: 179px;
+	float: right;
+}
+
+.ltheader	{
+	float: left;
+	padding: 8px 0 8px 10px;
+	width: 240px;
+	\width: 250px;
+	w\idth: 240px;
+	color: #fff;
+	font-weight: bold;
+	background: #362f2d;
+}
+
+.logout	{
+	position: absolute;
+	top: 93px;
+	right: 0;
+	padding: 10px 0;
+	width: 200px;
+	text-align: center;
+	z-index: 20;
+	background: #fff;
+}
+
+.logout a	{
+	color: #069;
+}
+
+.app img	{
+	vertical-align: middle;
+}
+
+/* Nav */
+
+.ltnav	{
+	float: left;
+	padding: 15px 15px 5px 15px;
+	width: 220px;
+	\width: 250px;
+	w\idth: 220px;
+	background: #534741;
+}
+
+.ltnavitem	{
+	padding-left: 20px;
+	margin-bottom: 10px;
+	width: 200px;
+	\width: 220px;
+	w\idth: 200px;
+	color: #fff;
+	background: url(/images/arrow.gif) no-repeat;
+}
+
+.nav	{
+	position: absolute;
+	top: 125px;
+	left: 0;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	width: 850px;
+	z-index: 20;
+	background: #000;
+}

@@ -1,0 +1,8 @@
+<b>
+	Edit Profile
+</b>
+<div class="hr">
+</div>
+<%= render 'form' %>
+<br />
+<%= link_to "View Current Profile", "/members/profiles/" + @profile.id.to_s %> | <%= link_to 'Remove My Profile', members_profile_path, :confirm => 'Are you sure? This will remove only your profile, and your account will remain active.', :method => :delete %>

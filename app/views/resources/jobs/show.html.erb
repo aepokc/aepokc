@@ -1,0 +1,55 @@
+<b>
+	<%= @job.title %>
+</b>
+<div class="hr">
+</div>
+<p>
+  <b>Employer:</b>
+  <%= link_to @job.employer, @job.link %>
+</p>
+<p>
+  <b>Type:</b>
+  <%= @job.time %>
+</p>
+<p>
+  <b>Location:</b>
+  <%= @job.location %>
+</p>
+<p>
+  <b>Industry:</b>
+  <%= @job.industry %>
+</p>
+<p>
+  <b>Experience:</b>
+  <%= @job.experience %>
+</p>
+<p>
+  <b>Education:</b>
+  <%= @job.education %>
+</p>
+<p>
+  <b>Salary:</b>
+  <%= number_to_currency(@job.salary, :precision => 0) %>
+</p>
+<p>
+  <b>Description:</b>
+  <%= @job.description %>
+</p>
+<p>
+  <b>Contact:</b>
+  <%= link_to @job.email, 'mailto:' + @job.email %> <%= number_to_phone(@job.phone, :area_code => true) %>
+</p>
+<% unless @job.member.nil? %>
+	<p>
+		<b>Job created by:</b>
+		<br />
+		<%= image_tag @job.member.profile.avatar.url(:thumb) %>
+		<br />
+		<%= link_to @job.member.firstname + " " + @job.member.lastname, '/members/profiles/' + @job.member.profile.id.to_s %>
+	</p>
+	<% if @job.member_id == current_member.id %>
+		<%= link_to 'Edit This Job', edit_resources_job_path(@job) %> | <%= link_to 'Jobs List', "/resources/jobs" %>
+	<% else %>
+		<%= link_to 'Jobs List', "/resources/jobs" %>
+	<% end %>
+<% end %>

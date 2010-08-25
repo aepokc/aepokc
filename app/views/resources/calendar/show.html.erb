@@ -1,0 +1,28 @@
+<%= link_to "Add new event", new_resources_event_path %> | <%= link_to "Browse all events", resources_events_path %>
+<div class="hr">
+</div>
+<div id="calendar">
+	<h2 id="month">
+		<%= link_to "<", :month => (@date.beginning_of_month-1) %>
+		<%=h @date.strftime("%B %Y") %>
+		<%= link_to ">", :month => (@date.end_of_month+1) %>
+	</h2>
+	<%= calendar_for @events, :year => @date.year, :month => @date.month do |calendar| %>
+		<%= calendar.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday') %>
+		<%= calendar.day(:day_method => :date) do |date, events| %>
+			<%= date.day %>
+			<ul>
+				<% for event in events %>
+					<% if member_signed_in? %>
+						<li><%= link_to h(event.title), [:resources, event] %></li>
+					<% else %>
+						<% if event.sanctioned? %>
+							<li><%= link_to h(event.title), [:resources, event] %></li>
+						<% else %>
+						<% end %>
+					<% end %>
+				<% end %>
+			</ul>
+		<% end %>
+	<% end %>
+</div>

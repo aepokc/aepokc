@@ -1,0 +1,28 @@
+<b>
+	Edit My Account
+</b>
+
+<div class="hr">
+</div>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+  
+  <p><%= @member.firstname %> <%= @member.lastname %></p>
+
+  <p>Registration Email <i>(not displayed to other members)</i><br />
+  <%= f.text_field :email %></p>
+
+  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <%= f.password_field :current_password %></p>
+  
+  <p><%= f.label "New Password" %> <i>(leave blank if you don't want to change it)</i><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label "New Password Confirmation" %><br />
+  <%= f.password_field :password_confirmation %></p>
+
+  <p><%= f.submit "Update" %></p>
+<% end %>
+
+<p><%= link_to "Remove My Account", registration_path(resource_name), :confirm => "Are you sure? Your profile, events, and job postings will be permanently removed!", :method => :delete %></p>

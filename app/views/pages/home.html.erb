@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>aep | the Alliance of Emerging Professionals</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-language" content="en-us" />
+		<meta name="copyright" content="Alliance of Emerging Professionals, Inc" />
+		<meta name="author" content="Ex Capita, LLC" />
+		<meta name="description" content="AEP is a group of Oklahoma City young professionals dedicated to volunteer activities and community building. Partnered with the OKC Chamber, AEP facilitates networking events to enhance its members' careers and success in business." />
+		<meta name="keywords" content="aepokc,aep Oklahoma City,young professionals organizations,yp organizations,alliance of emerging professionals,Oklahoma City yp,Oklahoma City young professionals,Oklahoma yp,Oklahoma young professionals,young professionals networking,Oklahoma City jobs,Oklahoma jobs,Oklahoma City professional networking,Oklahoma City job fair,Oklahoma job fair,Oklahoma City career fair,Oklahoma job fair,Oklahoma City volunteer,Oklahoma City leadership,Oklahoma City adult sports" />
+		<meta name="robots" content="index, all, follow" />
+		<%= stylesheet_link_tag 'common', 'home' %>
+		<%= javascript_include_tag :defaults %>
+		<%= javascript_include_tag 'crossfade.js' %>
+		<%= csrf_meta_tag %>
+		<link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<div class="signup" >
+			<%= link_to image_tag('/images/signup.png', :mouseover => '/images/onsignup.png'), 'http://visitor.constantcontact.com/email.jsp?m=1101983411682&lang=en' %>
+		</div>
+		<div class="wrapper">
+			<%= render '/partials/navbar' %>
+			<div class="logo">
+				<%= image_tag('/images/logo.jpg') %>
+			</div>
+			<div class="mainimg">
+				<div class="beta" >
+					<%= image_tag("beta.png") %>
+				</div>
+				<ul id="rotate">
+				<li><%= image_tag('/images/main1.jpg') %></li>
+				<li><%= image_tag('/images/main2.jpg') %></li>
+				<li><%= image_tag('/images/main3.jpg') %></li>
+				</ul>
+			</div>
+			<%= render "/partials/eventsfeed" %>
+		</div>
+		<%= render "/partials/footer" %>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+<div class="nav font11">
+	<div class="login">
+		<% if member_signed_in? %>
+			<%= link_to "Members Area", members_profiles_path %>
+		<% else %>
+		  <%= link_to "Member Login", new_member_session_path %>
+		<% end %>
+	</div>
+	<% @tabs.each do |page| %>
+		<div class="tab">
+			<%= link_to page.title, "/" + page.link %>
+		</div>
+	<% end %>
+	<div class="clear">
+	</div>
+</div>

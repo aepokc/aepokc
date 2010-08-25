@@ -1,0 +1,50 @@
+<b>
+	Member Directory
+</b>
+<div class="hr">
+</div>
+
+<table>
+	<% @members.each do |m| %>
+		<tr>
+			<% if m.profile.nil? %>
+				<td>No<br />Profile<br />Created</td>
+				<td><%= m.firstname + " " + m.lastname %></td>
+				<td></td>
+				<% if m == current_member %>
+					<td><%= link_to 'Create Profile', new_members_profile_path %></td>
+					<td></td>
+				<% else %>
+					<td></td>
+					<td></td>
+				<% end %>
+			<% else %>
+				<% if m.profile.avatar_file_name.nil? %>
+					<td>No<br />Picture<br />Added</td>
+				<% else %>
+					<td><%= link_to image_tag(m.profile.avatar.url(:thumb)), m.profile.avatar.url %></td>
+				<% end %>
+				<td><%= link_to m.firstname + " " + m.lastname, m.profile.id.to_s %></td>
+				<td><% if m.profile.fname.blank? %>
+					<% else %>
+						<%= link_to image_tag('/images/gf.png', :mouseover => '/images/f.png'), "http://facebook.com/" + m.profile.fname %>
+					<% end %>
+					<% if m.profile.tname.blank? %>
+					<% else %>
+						<%= link_to image_tag('/images/gt.png', :mouseover => '/images/t.png'), "http://twitter.com/" + m.profile.tname %>
+					<% end %>
+					<% if m.profile.lname.blank? %>
+					<% else %>
+						<%= link_to image_tag('/images/gl.png', :mouseover => '/images/l.png'), "http://linkedin.com/in/" + m.profile.lname %>
+					<% end %></td>
+				<% if m == current_member %>
+					<td>| <%= link_to 'Edit', edit_members_profile_path(m.profile) %></td>
+					<td>| <%= link_to 'Remove', [:members, m.profile], :confirm => 'Are you sure?', :method => :delete %></td>
+				<% else %>
+					<td></td>
+					<td></td>
+				<% end %>
+			<% end %>
+		</tr>
+	<% end %>
+</table>

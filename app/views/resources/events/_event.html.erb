@@ -1,0 +1,9 @@
+<div class="event">
+  <h3>
+    <%= link_to event.title, reources_event %>
+  </h3>
+  <div class="actions">
+    <%= link_to "Edit", edit_resources_event_path(event) %> |
+    <%= link_to "Destroy", resources_event, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+</div>

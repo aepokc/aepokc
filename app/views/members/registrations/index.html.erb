@@ -1,0 +1,26 @@
+<b>
+  Members List
+</b>
+
+<div class="hr">
+</div>
+
+<table>
+  <tr>
+  	<th>Leader? |</th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+
+<% @members.each do |member| %>
+  <tr>
+   	<td><%= member.leader? ? image_tag('/images/check.gif') : '' %></td>
+    <td><%= link_to member.lastname + ', ' + member.firstname, '/members/' + member.id.to_s %></td>
+    <td><%= link_to member.email, 'mailto:' + member.email %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Member', new_member_registration_path %>

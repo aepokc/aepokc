@@ -1,0 +1,24 @@
+<b>
+	Member Record
+</b>
+
+<div class="hr">
+</div>
+<% if @member.leader? %>
+	<p>
+		***LEADER***
+	</p>
+<% end %>
+  
+<p>
+  <b>Name:</b>
+  <%= @member.firstname %>
+  <%= @member.lastname %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @member.email %>
+</p>
+
+<%= link_to 'View All Members', members_path %>

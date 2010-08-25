@@ -1,0 +1,35 @@
+*Applicant Information*
+
+Firstname: <%= @membership_application.firstname %>
+
+Lastname: <%= @membership_application.lastname %>
+
+Email: <%= @membership_application.email %>
+
+Address: <%= @membership_application.address %>
+
+City:<%= @membership_application.city %>
+
+State: <%= @membership_application.state %>
+
+Zip: <%= @membership_application.zip %>
+
+Phone: <%= @membership_application.phone %>
+
+Company: <%= @membership_application.company %>
+
+Title: <%= @membership_application.title %>
+
+Associations: <%= @membership_application.associations %>
+
+Interests: <%= @membership_application.interests %>
+
+*COMMITTEE PREFERENCES*
+
+First: <%= @membership_application.first %>
+
+Second: <%= @membership_application.second %>
+
+Third: <%= @membership_application.third %>
+
+<%= link_to 'Add this member to aepokc.com', "http://localhost:3000" + new_member_registration_path %>

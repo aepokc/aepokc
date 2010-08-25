@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  avatar_file_name: MyString
+  avatar_content_type: MyString
+  avatar_file_size: 1
+  avatar_updated_at: 2010-07-28 13:32:47
+  phone: MyString
+  email: MyString
+  hometown: MyString
+  college: MyString
+  degree: MyString
+  occupation: MyString
+  interests: MyText
+  status: MyString
+  fname: MyString
+  tname: MyString
+  lname: MyString
+
+two:
+  avatar_file_name: MyString
+  avatar_content_type: MyString
+  avatar_file_size: 1
+  avatar_updated_at: 2010-07-28 13:32:47
+  phone: MyString
+  email: MyString
+  hometown: MyString
+  college: MyString
+  degree: MyString
+  occupation: MyString
+  interests: MyText
+  status: MyString
+  fname: MyString
+  tname: MyString
+  lname: MyString

@@ -1,0 +1,38 @@
+<div class="ltheader font11">
+	<% if @page.nil? %>
+		<%= action_name.camelcase %>
+	<% else %>
+		<% if @page.parent_id.nil? %>
+			<%= @page.title %>
+		<% else %>
+			<%= @page.parent.title %>
+		<% end %>
+	<% end %>
+</div>
+<div class="ltnav font11">
+	<% if @page.nil? %>
+		<div class="ltnavitem">
+			<%= controller_name.camelcase %>
+		</div>
+	<% else %>
+		<% if @page.parent_id.nil? %>
+				<% @page.subpages.sort_by{|sp| sp.position}.each do |sp| %>
+					<div class="ltnavitem">
+						<%= link_to sp.title, "/" + sp.parent.link + "/" + sp.link %>
+					</div>
+				<% end %>
+		<% else %>
+				<% @page.parent.subpages.sort_by{|sp| sp.position}.each do |sp| %>
+					<div class="ltnavitem" <%= "id = 'current'" if @page && @page == sp %>>
+						<% if @page && @page == sp %>
+							<%= sp.title %>
+						<% else %>
+							<%= link_to sp.title, "/" + sp.parent.link + "/" + sp.link %>
+						<% end %>
+					</div>
+				<% end %>
+		<% end %>
+	<% end %>
+</div>
+<div class="clear">
+</div>

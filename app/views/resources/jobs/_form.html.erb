@@ -1,0 +1,70 @@
+<%= form_for([:resources, @job]) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.hidden_field :member_id, :value => current_member.id %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label 'Employer Name' %><br />
+    <%= f.text_field :employer %>
+  </div>
+  <div class="field">
+    <%= f.label 'Employer Link' %><br />
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label 'Type' %><br />
+    <%= f.select(:time, '<option value="Full Time">Full Time</option><option value="Part Time">Part Time</option><option value="Temporary">Temporary</option><option value="Contract">Contract</option>') %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :industry %><br />
+    <%= f.text_field :industry %>
+  </div>
+  <div class="field">
+    <%= f.label 'Experience Required' %><br />
+    <%= f.select(:experience, '<option value="None">None</option><option value="< 2 years">< 2 Years</option><option value="> 2 Years">> 2 Years</option>') %>
+  </div>
+  <div class="field">
+    <%= f.label 'Minimum Education' %><br />
+    <%= f.select(:education, '<option value="None">None</option><option value="Associates Degree">Associates Degree</option><option value="Bachelors Degree">Bachelors Degree</option><option value="Graduate Degree">Graduate Degree</option>') %>
+  </div>
+  <div class="field">
+    <%= f.label 'Annual Salary' %>
+    <span class="ghost"> (Format: 50000)</span><br />
+    <%= f.text_field :salary %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label 'Contact Email' %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label 'Contact Phone' %>
+    <span class="ghost"> (Format: 4058182257)</span><br />
+    <%= f.text_field :phone %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

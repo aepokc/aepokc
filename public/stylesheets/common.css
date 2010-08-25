@@ -1,0 +1,138 @@
+body {
+	padding: 0;
+	margin: auto;
+	text-align: center;
+	background: #362f2d;
+}
+
+a	{
+	color: #fff;
+	text-decoration: underline;
+}
+
+a:hover	{
+	color: #fff;
+	text-decoration: none;
+}
+
+img	{
+	border: 0;
+}
+
+form	{
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+input, textarea, select	{
+	font: 11px tahoma, 'times new roman', serif;
+}
+
+.font10	{
+	font: 10px tahoma, 'times new roman', serif;
+}
+
+.font11	{
+	font: 11px tahoma, 'times new roman', serif;
+}
+
+.font12	{
+	font: 12px tahoma, 'times new roman', serif;
+}
+
+.font14	{
+	font: 14px tahoma, 'times new roman', serif;
+}
+
+.clear	{
+	clear: both;
+	margin: 0;
+	padding: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+}
+
+.alt	{
+	display: none;
+}
+
+.center	{
+	text-align: center;
+}
+
+.hr	{
+	border-bottom: 1px solid #333;
+	padding-top: 10px;
+	margin-bottom: 10px;
+}
+
+.notice	{
+	float: right;
+	width: 280px;
+	text-align: right;
+	color: #060;
+}
+
+
+.ghost {
+	color: #C0C0C0;
+}
+
+.example {
+	color: #009900;
+}
+
+/* Nav */
+
+.tab a	{
+	float: left;
+	padding-top: 5px;
+	margin-left: 1px;
+	width: 114px;
+	height: 25px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	background: url(/images/navbg.gif) no-repeat;
+}
+
+.tab a:hover	{
+	background-position: 0 -30px;
+}
+
+.login a	{
+	float: left;
+	padding: 5px 0 0 10px;
+	width: 150px;
+	\width: 160px;
+	w\idth: 150px;
+	height: 25px;
+	color: #fff;
+	text-decoration: none;
+	background: url(/images/login.gif) no-repeat;
+}
+
+.login a:hover	{
+	background-position: 0 -30px;
+}
+
+.indent {
+	text-indent: 30px;
+}
+
+.beta {
+	border:medium none;
+	position:absolute;
+	right:0;
+	top:0;
+	z-index:99;
+}
+
+.signup {
+	display:scroll;
+	position:fixed;
+	right:0;
+	top:200px;
+}
