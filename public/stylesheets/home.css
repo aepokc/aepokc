@@ -53,47 +53,6 @@
 	width: 260px;
 }
 
-.footer	{
-	padding: 10px 0 0 0;
-	width: 850px;
-	margin: auto;
-	color: #fff;
-	border-top: 0;
-}
-
-.footerlt	{
-	padding: 0 0 0 10px;
-	float: left;
-	width: 273px;
-	text-align: left;
-}
-
-.footerct	{
-	width: 283px;
-	text-align: center;
-}
-
-.flogo	{
-}
-
-.tlogo	{
-}
-
-.llogo	{
-}
-
-.footerrt	{
-	float: right;
-	width: 283px;
-	text-align: right;
-}
-
-.footerlabel {
-	text-align: center;
-	width: 179px;
-	float: right;
-}
-
 /* Rotate Image */
 
 #rotate	{ 

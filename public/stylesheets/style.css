@@ -68,47 +68,6 @@
 	color: #069;
 }
 
-.footer	{
-	padding: 10px 0 0 0;
-	width: 860px;
-	margin: auto;
-	color: #fff;
-	border-top: 0;
-}
-
-.footerlt	{
-	padding: 0 0 0 10px;
-	float: left;
-	width: 280px;
-	text-align: left;
-}
-
-.footerct	{
-	width: 286px;
-	text-align: center;
-}
-
-.flogo	{
-}
-
-.tlogo	{
-}
-
-.llogo	{
-}
-
-.footerrt	{
-	float: right;
-	width: 287px;
-	text-align: right;
-}
-
-.footerlabel {
-	text-align: center;
-	width: 179px;
-	float: right;
-}
-
 .ltheader	{
 	float: left;
 	padding: 8px 0 8px 10px;

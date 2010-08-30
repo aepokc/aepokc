@@ -130,9 +130,90 @@ input, textarea, select	{
 	z-index:99;
 }
 
-.signup {
-	display:scroll;
-	position:fixed;
-	right:0;
-	top:200px;
+.signup a {
+	background: url(/images/signup.png) no-repeat;
+	display: scroll;
+	position: fixed;
+	right: 0;
+	top: 200px;
+	width: 40px;
+	height: 160px;
+}
+
+.signup a:hover {
+	background-position: -40px 0;
+}
+
+/* Footer */
+
+.footer	{
+	padding: 10px 0 0 0;
+	width: 850px;
+	margin: auto;
+	color: #fff;
+	border-top: 0;
+}
+
+.footerlt	{
+	padding: 0 0 0 10px;
+	float: left;
+	width: 270px;
+	text-align: left;
+}
+
+.footerct	{
+	float: left;
+	width: 290px;
+	text-align: center;
+}
+
+.flogo a {
+	float: left;
+	background: url(/images/facebook.png) no-repeat;
+	margin: 0 0 0 67px;
+	padding: 0 3px 0 0;
+	width: 50px;
+	height: 50px;
+}
+
+.flogo a:hover {
+	background-position: 0 -50px;
+}
+
+.tlogo a {
+	float: left;
+	background: url(/images/twitter.png) no-repeat;
+	margin: 0 0 0 0;
+	padding: 0 3px 0 0;
+	width: 50px;
+	height: 50px;
+}
+
+.tlogo a:hover {
+	background-position: 0 -50px;
+}
+
+.llogo a {
+	float: left;
+	background: url(/images/linkedin.png) no-repeat;
+	margin: 0 67px 0 0;
+	padding: 0 0 0 0;
+	width: 50px;
+	height: 50px;
+}
+
+.llogo a:hover {
+	background-position: 0 -50px;
+}
+
+.footerrt	{
+	float: right;
+	width: 280px;
+	text-align: right;
+}
+
+.footerlabel {
+	text-align: center;
+	width: 179px;
+	float: right;
 }
