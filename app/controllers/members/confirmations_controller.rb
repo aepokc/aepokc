@@ -5,7 +5,7 @@ class Members::ConfirmationsController < Devise::ConfirmationsController
 
     if resource.errors.empty?
       set_flash_message :notice, :confirmed
-      sign_in_and_redirect_to(members_profiles_path)
+      sign_in_and_redirect_to("/members/profiles")
     else
       render_with_scope :new
     end
