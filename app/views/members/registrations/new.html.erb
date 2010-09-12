@@ -19,12 +19,12 @@
   
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
-
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+  
+  <p>Random Password: <%= rp = ActiveSupport::SecureRandom.hex(5) %></p>
+  
+  <p><%= f.hidden_field :random_password, :value => rp %></p>
+  <p><%= f.hidden_field :password, :value => rp %></p>
+  <p><%= f.hidden_field :password_confirmation, :value => rp %></p>
 
   <p><%= f.submit "Create Member" %></p>
 <% end %>

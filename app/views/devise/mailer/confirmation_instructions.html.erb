@@ -1,3 +1,7 @@
 <p>Welcome <%= @member.firstname %> <%= @member.lastname %>!</p>
 
-<p>An account has been created for you to take full advantage of the online aep community! In order to confirm your new account, please <%= link_to 'click here.', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p>An account has been created for you to take full advantage of the online aep community!</p>
+
+<p>Your temporary password is: <%= @member.random_password %>. We recommend changing this to something that is easy to remember.</p>
+
+<p>In order to confirm your new account, please <%= link_to 'click here.', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
