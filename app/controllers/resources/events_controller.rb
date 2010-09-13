@@ -1,8 +1,20 @@
 class Resources::EventsController < ApplicationController
 
-	layout 'resources'
+	before_filter :verify_changed_password  
+  
+	def verify_changed_password
+		if member_signed_in?
+			unless current_member.random_password == 'replaced'
+				redirect_to '/members/edit', :notice => 'You must replace your temporary password before proceeding.'
+			end
+		else
+		end
+	end
+	
 	before_filter :authenticate_member!, :except => [:index, :show]
 
+	layout 'resources'
+	
   def index
     @past_events = Event.find_past
     @upcoming_events = Event.find_upcoming
