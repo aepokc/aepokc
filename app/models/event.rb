@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
 	end
 	
 	def self.find_feed
-		Event.find(:all, :conditions => ['sanctioned = "t" AND date > current_date'], :order => 'date', :limit => 3)
+		Event.find(:all, :conditions => ['sanctioned = true AND date > current_date'], :order => 'date', :limit => 3)
 	end
 	
 end
