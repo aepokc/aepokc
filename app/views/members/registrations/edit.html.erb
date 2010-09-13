@@ -21,6 +21,8 @@
 
   <p><%= f.label "New Password Confirmation" %><br />
   <%= f.password_field :password_confirmation %></p>
+  
+  <p><%= f.hidden_field :random_password, :value => 'replaced' %></p>
 
   <p><%= f.submit "Update" %></p>
 <% end %>
