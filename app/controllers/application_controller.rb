@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 	layout :by_controller
   
   before_filter :get_tabs
-  
+ 
   def get_tabs
    	@tabs = Page.find(:all, :conditions => ["parent_id IS NULL", true], :limit => 6, :order => 'position')
   end
