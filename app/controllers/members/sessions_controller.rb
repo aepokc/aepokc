@@ -14,8 +14,8 @@ class Members::SessionsController < Devise::SessionsController
 
   def destroy
     set_flash_message :notice, :signed_out if signed_in?(resource_name)
-    sign_out(resource_name) #change redirect from edit to profiles index
-    redirect_to members_profiles_path
+    sign_out(resource_name) #change redirect from edit to sign_in
+    redirect_to new_member_session_path
   end
 
 end
