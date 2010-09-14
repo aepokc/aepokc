@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 8) do
     t.integer  "salary"
     t.text     "description"
     t.string   "email"
-    t.integer  "phone"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(:version => 8) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "email"
     t.string   "hometown"
     t.string   "college"

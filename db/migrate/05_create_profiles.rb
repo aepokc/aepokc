@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string 		:avatar_content_type
       t.integer 	:avatar_file_size
       t.datetime 	:avatar_updated_at
-      t.integer		:phone
+      t.string		:phone
       t.string 		:email
       t.string 		:hometown
       t.string 		:college

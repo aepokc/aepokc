@@ -13,7 +13,7 @@ class CreateJobs < ActiveRecord::Migration
       t.integer :salary
       t.text 		:description
       t.string 	:email
-      t.integer :phone
+      t.string  :phone
 
       t.timestamps
     end
