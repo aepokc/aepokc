@@ -1,4 +1,8 @@
-<h2>Change your password</h2>
+<b>
+  Change password
+</b>
+<div class="hr">
+</div>
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
