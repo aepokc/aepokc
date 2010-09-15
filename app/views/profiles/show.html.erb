@@ -59,19 +59,24 @@
 	</p>
 <% end %>
 <p>
-	<% if @profile.fname.blank? %>
-	<% else %>
-		<%= link_to image_tag('/images/gf.png', :mouseover => '/images/f.png'), "http://facebook.com/" + @profile.fname %>
-	<% end %>
-	<% if @profile.tname.blank? %>
-	<% else %>
-		<%= link_to image_tag('/images/gt.png', :mouseover => '/images/t.png'), "http://twitter.com/" + @profile.tname %>
-	<% end %>
-	<% if @profile.lname.blank? %>
-	<% else %>
-		<%= link_to image_tag('/images/gl.png', :mouseover => '/images/l.png'), "http://linkedin.com/in/" + @profile.lname %>
-	<% end %>
+<% unless @profile.fname.blank? %>
+	<span class="sflogo">
+		<%= link_to "", "http://facebook.com/" + @profile.fname %>
+	</span>
+<% end %>
+<% unless @profile.tname.blank? %>
+	<span class="stlogo">
+		<%= link_to "", "http://twitter.com/" + @profile.tname %>
+	</span>
+<% end %>
+<% unless @profile.lname.blank? %>
+	<span class="sllogo">
+		<%= link_to "", "http://linkedin.com/in/" + @profile.lname %>
+	</span>
+<% end %>
 </p>
+<br />
+<br />
 <% if @profile.member_id == current_member.id %>
 	<%= link_to 'Edit Profile', edit_members_profile_path(@profile) %>
 <% else %>

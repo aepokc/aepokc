@@ -98,6 +98,43 @@
 	vertical-align: middle;
 }
 
+.sflogo a {
+	float: left;
+	background: url(/images/f.png) no-repeat;
+	margin: 0 2px 0 2px;
+	padding: 0 0 0 0;
+	width: 20px;
+	height: 20px;
+}
+
+.sflogo a:hover {
+	background-position: 0 -20px;
+}
+
+.stlogo a {
+	float: left;
+	background: url(/images/t.png) no-repeat;
+	margin: 0 2px 0 2px;
+	width: 20px;
+	height: 20px;
+}
+
+.stlogo a:hover {
+	background-position: 0 -20px;
+}
+
+.sllogo a {
+	float: left;
+	background: url(/images/l.png) no-repeat;
+	margin: 0 2px 0 2px;
+	width: 20px;
+	height: 20px;
+}
+
+.sllogo a:hover {
+	background-position: 0 -20px;
+}
+
 /* Nav */
 
 .ltnav	{
