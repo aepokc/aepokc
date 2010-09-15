@@ -1,5 +1,4 @@
 .bundle
-.gitignore
 db/*.sqlite3
 log/
 tmp/**/*
