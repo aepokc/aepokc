@@ -32,7 +32,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
   def update
     if resource.update_with_password(params[resource_name])
       set_flash_message :notice, :updated
-      redirect_to '/members/profiles/directory'
+      redirect_to '/members/profiles'
     else
       clean_up_passwords(resource)
       render_with_scope :edit
