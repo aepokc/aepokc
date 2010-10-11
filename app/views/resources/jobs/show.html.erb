@@ -5,7 +5,7 @@
 </div>
 <p>
   <b>Employer:</b>
-  <%= link_to @job.employer, @job.link %>
+  <%= link_to @job.employer, @job.link %></a>
 </p>
 <p>
   <b>Type:</b>
@@ -39,7 +39,9 @@
   <b>Contact:</b>
   <%= link_to @job.email, 'mailto:' + @job.email %> <%= number_to_phone(@job.phone, :area_code => true) %>
 </p>
-<% unless @job.member.nil? %>
+<% if @job.member.nil? %>
+	<%= link_to 'Jobs List', "/resources/jobs" %>
+<% else %>
 	<p>
 		<b>Job created by:</b>
 		<br />

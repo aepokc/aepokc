@@ -15,7 +15,7 @@
 <% @jobs.each do |job| %>
   <tr>
     <td><%= link_to job.title, '/resources/jobs/' + job.id.to_s %></td>
-    <td><%= link_to job.employer, job.link %></td>
+    <td><%= link_to job.employer, job.link %></a></td>
     <td><%= job.time %></td>
     <td><%= job.location %></td>
     <% if member_signed_in? %>
