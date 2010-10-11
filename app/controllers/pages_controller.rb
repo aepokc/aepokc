@@ -18,6 +18,10 @@ class PagesController < ApplicationController
    	render :layout => false
   end
   
+  def demo
+  	render :layout => false
+  end
+  
   def admin
   end
   
