@@ -16,7 +16,7 @@
 			<tr>
 				<td><%= event.date.to_s(:formatted_date) %></td>
 				<td><%= link_to event.title, [:resources, event] %></td>
-		 		<td><%= event.sanctioned? ? 'OFFICIAL aep EVENT' : '' %></td>
+		 		<td><%= event.sanctioned? ? image_tag('official.png') : '' %></td>
 				<% if event.member_id == current_member.id %>
 					<td>| <%= link_to 'Edit', edit_resources_event_path(event) %></td>
 					<td>| <%= link_to 'Destroy', [:resources, event], :confirm => 'Are you sure?', :method => :delete %></td>
@@ -28,7 +28,7 @@
 				<tr>
 					<td><%= event.date.to_s(:formatted_date) %></td>
 					<td><%= link_to event.title, [:resources, event] %></td>
-			 		<td>OFFICIAL aep EVENT</td>
+			 		<td><%= image_tag('official.png') %></td>
 				</tr>
 			<% else %>
 			<% end %>
@@ -55,7 +55,7 @@
 			<tr>
 				<td><%= event.date.to_s(:formatted_date) %></td>
 				<td><%= link_to event.title, [:resources, event] %></td>
-		 		<td><%= event.sanctioned? ? 'OFFICIAL aep EVENT' : '' %></td>
+		 		<td><%= event.sanctioned? ? image_tag('official.png') : '' %></td>
 				<% if event.member_id == current_member.id %>
 					<td>| <%= link_to 'Edit', edit_resources_event_path(event) %></td>
 					<td>| <%= link_to 'Destroy', [:resources, event], :confirm => 'Are you sure?', :method => :delete %></td>
@@ -67,7 +67,7 @@
 				<tr>
 					<td><%= event.date.to_s(:formatted_date) %></td>
 					<td><%= link_to event.title, [:resources, event] %></td>
-			 		<td>OFFICIAL aep EVENT</td>
+			 		<td><%= image_tag('official.png') %></td>
 				</tr>
 			<% else %>
 			<% end %>
