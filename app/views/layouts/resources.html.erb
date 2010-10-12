@@ -9,6 +9,7 @@
 		<%= javascript_include_tag "jquery.rails.js" %>
 		<%= javascript_include_tag "application.js" %>
 		<%= javascript_include_tag "analytics.js" %>
+		<%= javascript_include_tag "http://widgets.twimg.com/j/2/widget.js" %>
 		<%= csrf_meta_tag %>
 	</head>
 	<body>
@@ -53,6 +54,10 @@
 					</div>
 					<div class="clear">
 					</div>
+					<% if member_signed_in? %>
+						<%= render "/partials/twitter" %>
+					<% else %>
+					<% end %>
 				</div>
 				<div class="contentrt font11" style="line-height: 1.6em; text-align: justify;">
 					<div class="flash">
