@@ -3,7 +3,6 @@
 </b>
 <div class="hr">
 </div>
-
 <table>
 	<% @members.each do |m| %>
 		<tr>
@@ -20,7 +19,7 @@
 				<% end %>
 			<% else %>
 				<% if m.profile.avatar_file_name.nil? %>
-					<td>No<br />Picture<br />Added</td>
+					<td><%= image_tag('/images/noavatar.gif') %></td>
 				<% else %>
 					<td><%= link_to image_tag(m.profile.avatar.url(:thumb)), m.profile.avatar.url %></td>
 				<% end %>

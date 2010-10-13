@@ -5,7 +5,7 @@
 </div>
 <p>
 	<% if @profile.avatar_file_name.nil? %>
-		No<br />Picture<br />Added
+		<%= image_tag('/images/noavatar.gif') %>
 	<% else %>
 		<%= link_to image_tag(@profile.avatar.url(:display)), @profile.avatar.url %>
 	<% end %>
