@@ -37,7 +37,10 @@
 </p>
 <p>
   <b>Contact:</b>
-  <%= link_to @job.email, 'mailto:' + @job.email %> <%= number_to_phone(@job.phone, :area_code => true) %>
+  <%= link_to @job.email, 'mailto:' + @job.email %> 
+  <% unless @job.phone.blank? %>
+  	<%= number_to_phone(@job.phone, :area_code => true) %>
+  <% end %>
 </p>
 <% if @job.member.nil? %>
 	<%= link_to 'Jobs List', "/resources/jobs" %>
