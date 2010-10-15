@@ -5,7 +5,11 @@
 </div>
 <p>
   <b>Employer:</b>
-  <%= link_to @job.employer, @job.link %></a>
+  <% if @job.link.empty? %>
+  	<%= @job.employer %>
+  <% else %>
+  	<%= link_to @job.employer, @job.link %>
+  <% end %>
 </p>
 <p>
   <b>Type:</b>
