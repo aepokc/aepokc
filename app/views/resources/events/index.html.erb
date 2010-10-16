@@ -21,6 +21,8 @@
 					 		<td><%= image_tag('official.png') %></td>
 						</tr>
 					<% else %>
+						<tr>
+							<td><p>Please <%= link_to "sign in", new_member_session_path %> to see today's member-only events!</p></td>
 					<% end %>
 				<% end %>
 			<% end %>
