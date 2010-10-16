@@ -6,6 +6,10 @@ class Event < ActiveRecord::Base
 		Date.today
 	end
 
+	def self.find_current
+		Event.find(:all, :conditions => ["date = current_date", true], :order => 'date')
+	end
+	
 	def self.find_past
 		Event.find(:all, :conditions => ["date < current_date", true], :order => 'date desc')
 	end
@@ -15,7 +19,7 @@ class Event < ActiveRecord::Base
 	end
 	
 	def self.find_feed
-		Event.find(:all, :conditions => ['sanctioned = true AND date > current_date'], :order => 'date', :limit => 3)
+		Event.find(:all, :conditions => ['sanctioned = true AND (date > current_date OR date = current_date)'], :order => 'date', :limit => 3)
 	end
 	
 end
