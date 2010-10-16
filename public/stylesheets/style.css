@@ -62,9 +62,16 @@
 	color: #157f1f;
 }
 
+.today	{
+	line-height: 0.5em;
+	font-weight: bold;
+	border: 10px solid #168050;
+	margin: auto;
+}
+
 .pending	{
 	color: #F00;
-	font-weight: bold;fl
+	font-weight: bold;
 }
 
 .contentrt a	{
@@ -99,6 +106,17 @@
 
 .app img	{
 	vertical-align: middle;
+}
+
+.frsvp a {
+	float: left;
+	background: url(/images/rsvp.png) no-repeat;
+	width: 50px;
+	height: 50px;
+}
+
+.frsvp a:hover {
+	background-position: 0 -50px;
 }
 
 .sflogo a {
