@@ -16,6 +16,7 @@ class Resources::EventsController < ApplicationController
 	layout 'resources'
 	
   def index
+  	@current_events = Event.find_current
     @past_events = Event.find_past
     @upcoming_events = Event.find_upcoming
   end

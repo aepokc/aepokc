@@ -1,3 +1,41 @@
+<% unless @current_events.empty? %>
+	<b>
+		TODAY!
+	</b>
+	<div class="hr">
+	</div>
+	<table>
+		<tr>
+		  <th>Title</th>
+			<th></th>
+		  <th></th>
+		  <th></th>
+		</tr>
+		<% @current_events.each do |event| %>
+			<% if member_signed_in? %>
+				<tr>
+					<td><%= link_to event.title, [:resources, event] %></td>
+			 		<td><%= event.sanctioned? ? image_tag('official.png') : '' %></td>
+					<% if event.member_id == current_member.id %>
+						<td>| <%= link_to 'Edit', edit_resources_event_path(event) %></td>
+						<td>| <%= link_to 'Destroy', [:resources, event], :confirm => 'Are you sure?', :method => :delete %></td>
+					<% else %>
+					<% end %>
+				</tr>
+			<% else %>
+				<% if event.sanctioned? %>
+					<tr>
+						<td><%= link_to event.title, [:resources, event] %></td>
+				 		<td><%= image_tag('official.png') %></td>
+					</tr>
+				<% else %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</table>
+	<br />
+	<br />
+<% end %>
 <b>
 	Upcoming Events
 </b>
