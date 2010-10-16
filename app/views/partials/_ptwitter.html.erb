@@ -1,0 +1,34 @@
+<div id="ptwitter">
+	<script>
+		new TWTR.Widget({
+			version: 2,
+			type: 'list',
+			rpp: 100,
+			interval: 6000,
+			title: 'tweets from',
+			subject: 'community partners',
+			width: 'auto',
+			height: 'auto',
+			theme: {
+				shell: {
+					background: '#988675',
+					color: '#988675'
+				},
+				tweets: {
+					background: '#988675',
+					color: '#fff',
+					links: '#ccc'
+				}
+			},
+			features: {
+				scrollbar: false,
+				loop: false,
+				live: true,
+				hashtags: true,
+				timestamp: true,
+				avatars: true,
+				behavior: 'default'
+			}
+		}).render().setList('aepokc', 'places-we-love').start();
+	</script>
+</div>

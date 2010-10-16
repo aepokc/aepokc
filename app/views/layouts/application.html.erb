@@ -28,8 +28,9 @@
 				<div class="contentlt">
 					<%= render "/partials/contentlt" %>
 					<% if member_signed_in? %>
-						<%= render "/partials/twitter" %>
+						<%= render "/partials/mtwitter" %>
 					<% else %>
+						<%= render "/partials/ptwitter" %>
 					<% end %>
 				</div>
 				<div class="contentrt font11" style="line-height: 1.6em; text-align: justify;">
