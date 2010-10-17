@@ -60,7 +60,7 @@
 						<%= render "/partials/ptwitter" %>
 					<% end %>
 				</div>
-				<div class="contentrt font11">
+				<div class="contentrt font11" <% unless controller_name == "events" && action_name == "index" %>style="line-height: 1.6em; text-align: justify;"<% end %>>
 					<div class="flash">
 						<%= flash[:notice] %>
 						<%= flash[:alert] %>
