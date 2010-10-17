@@ -1,30 +1,21 @@
 <b>
   Create Member
 </b>
-
 <div class="hr">
 </div>
-
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
   <p><%= f.label :leader %><br />
   <%= f.check_box :leader %></p>
-    
   <p><%= f.label :firstname %><br />
   <%= f.text_field :firstname %></p>
-  
   <p><%= f.label :lastname %><br />
   <%= f.text_field :lastname %></p>
-  
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
-  
-  <p>Random Password: <%= rp = ActiveSupport::SecureRandom.hex(5) %></p>
-  
+  <% rp = ActiveSupport::SecureRandom.hex(5) %>
   <p><%= f.hidden_field :random_password, :value => rp %></p>
   <p><%= f.hidden_field :password, :value => rp %></p>
   <p><%= f.hidden_field :password_confirmation, :value => rp %></p>
-
   <p><%= f.submit "Create Member" %></p>
 <% end %>
