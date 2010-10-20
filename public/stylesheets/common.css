@@ -122,14 +122,6 @@ input, textarea, select	{
 	text-indent: 30px;
 }
 
-.beta {
-	border:medium none;
-	position:absolute;
-	right:0;
-	top:0;
-	z-index:99;
-}
-
 .signup a {
 	background: url(/images/signup.png) no-repeat;
 	display: scroll;

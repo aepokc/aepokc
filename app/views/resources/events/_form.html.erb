@@ -31,8 +31,16 @@
     <%= f.text_field :time %>
   </div>
   <div class="field">
-    <%= f.label :details %><br />
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :details %>&nbsp;&nbsp;(<span class="ghost">links can be created using "http://..."</span>)<br />
     <%= f.text_area :details %>
+  </div>
+  <div class="field">
+    <%= f.label 'Facebook Event ID' %><br />
+    <%= f.text_field :feid %>&nbsp;&nbsp;(<span class="ghost">http://www.facebook.com/event.php?eid=</span><span class="example"><b>157345660962108</b></span>)
   </div>
   <div class="actions">
     <%= f.submit %>

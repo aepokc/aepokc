@@ -17,7 +17,22 @@
 	<%= @event.time %>
 </p>
 <p>
+  <b>Location:</b>
+	<%= @event.location %>
+</p>
+<p>
   <%= auto_link(simple_format(@event.details)) %>
+</p>
+<p>
+	<% unless @event.feid.blank? %>
+		<span class="frsvp">
+			<%= link_to "", "http://facebook.com/event.php?eid=" + @event.feid %>
+		</span>
+		<br />
+		<br />
+		<br />
+		<br />
+	<% end %>
 </p>
 <% unless @event.member.nil? %>
 	<% unless @event.member.profile.nil? %>
