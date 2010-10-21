@@ -186,3 +186,11 @@
 	z-index: 20;
 	background: #000;
 }
+
+.footer	{
+	padding: 10px 0 0 0;
+	width: 860px;
+	margin: auto;
+	color: #fff;
+	border-top: 0;
+}

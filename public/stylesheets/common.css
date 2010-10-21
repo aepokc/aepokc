@@ -138,14 +138,6 @@ input, textarea, select	{
 
 /* Footer */
 
-.footer	{
-	padding: 10px 0 0 0;
-	width: 860px;
-	margin: auto;
-	color: #fff;
-	border-top: 0;
-}
-
 .footerlt	{
 	padding: 0 0 0 10px;
 	float: left;

@@ -78,3 +78,11 @@
 	left: 0;
 	width: 850px;
 }
+
+.footer	{
+	padding: 10px 0 0 0;
+	width: 851px;
+	margin: auto;
+	color: #fff;
+	border-top: 0;
+}
