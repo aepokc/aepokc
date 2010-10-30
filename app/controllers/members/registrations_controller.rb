@@ -1,13 +1,9 @@
 class Members::RegistrationsController < Devise::RegistrationsController
 
-	prepend_before_filter :require_no_authentication, :only => [:index, :show, :new, :create, :cancel]
+	prepend_before_filter :require_no_authentication, :only => [:show, :new, :create, :cancel]
   prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]
-	before_filter :authenticate_admin!, :only => [:index, :show, :new, :create, :cancel]
+	before_filter :authenticate_admin!, :only => [:show, :new, :create, :cancel]
 	layout 'admin'
-
-	def index
-		@members = Member.order("lastname")
-  end
  
 	def show
 		@member = Member.find(params[:id])

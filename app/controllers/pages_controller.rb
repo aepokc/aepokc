@@ -3,6 +3,10 @@ class PagesController < ApplicationController
 	before_filter :authenticate_admin!, :except => [:show, :home, :application]
 	layout 'admin'
 
+	def members
+		@members = Member.order("lastname")
+  end
+  
 	def show
 		if params[:link]
 		  @page = Page.find_by_link(params[:link])

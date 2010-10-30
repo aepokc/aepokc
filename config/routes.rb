@@ -5,12 +5,11 @@ Aepokc::Application.routes.draw do |map|
   	resources :profiles
   end
 
-	match 'demo' => 'pages#demo'
+  match 'members' => 'pages#members'
 	match 'admin' => 'pages#admin'
   devise_for :admin, :controllers => { :sessions => "admin/sessions" }
   devise_for :members, :controllers => { :registrations => "members/registrations", :sessions => "members/sessions" }
   
-  match 'members' => 'members/registrations#index'
   match 'members/:id' => 'members/registrations#show', :as => 'member'
   
   match 'membership/applications' => 'membership_applications#index'
