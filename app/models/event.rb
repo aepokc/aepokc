@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
 	belongs_to :member
 
 	def current_date
-		Date.today
+		Date.today-1
 	end
 
 	def self.find_current
