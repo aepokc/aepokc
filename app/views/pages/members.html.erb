@@ -6,7 +6,6 @@
 <table>
   <tr>
   	<th>Confirmed? |</th>
-  	<th>Profile? |</th>
   	<th>Leader? |</th>
     <th>Name</th>
     <th>Email</th>
@@ -14,13 +13,12 @@
 <% @members.each do |member| %>
   <tr>
   	<td><%= member.confirmed? ? image_tag('/images/check.gif') : '' %></td>
-  	<td>
-  		<% unless member.profile.nil? %>
-  			<%= image_tag('/images/check.gif') %>
-  		<% end %>
-  	</td>
    	<td><%= member.leader? ? image_tag('/images/check.gif') : '' %></td>
-    <td><%= link_to member.lastname + ', ' + member.firstname, '/members/' + member.id.to_s %></td>
+    <td>
+    	<% unless member.profile.nil? %>
+    		<%= link_to member.lastname + ', ' + member.firstname, '/members/profiles/' + member.profile.id.to_s %>
+    	<% end %>
+    </td>
     <td><%= link_to member.email, 'mailto:' + member.email %></td>
   </tr>
 <% end %>
