@@ -7,15 +7,15 @@ class Event < ActiveRecord::Base
 	end
 
 	def self.find_current
-		Event.find :all, :conditions => ["date = ?", current_date], :order => 'date'
+		Event.find :all, :conditions => ['(date = current_date)'], :order => 'date'
 	end
 	
 	def self.find_past
-		Event.find :all, :conditions => ["date < ?", current_date], :order => 'date desc'
+		Event.find :all, :conditions => ['(date < current_date)'], :order => 'date desc'
 	end
 	
 	def self.find_upcoming
-		Event.find :all, :conditions => ["date > ?", current_date], :order => 'date'
+		Event.find :all, :conditions => ['(date > current_date)'], :order => 'date'
 	end
 	
 	def self.find_feed
