@@ -44,7 +44,7 @@
 					<% end %>
 					<% unless m.profile.lname.blank? %>
 						<span class="sllogo">
-							<%= link_to "", "http://linkedin.com/in/" + m.profile.lname %>
+							<%= link_to "", m.profile.lname %>
 						</span>
 					<% end %></td>
 				<% if m == current_member %>

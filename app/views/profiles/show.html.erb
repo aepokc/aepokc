@@ -71,7 +71,7 @@
 <% end %>
 <% unless @profile.lname.blank? %>
 	<span class="sllogo">
-		<%= link_to "", "http://linkedin.com/in/" + @profile.lname %>
+		<%= link_to "", @profile.lname %>
 	</span>
 <% end %>
 </p>
