@@ -1,4 +1,4 @@
-body {
+﻿body {
 	padding: 0;
 	margin: auto;
 	text-align: center;
@@ -25,24 +25,34 @@ form	{
 	display: inline;
 }
 
+@font-face {
+  font-family: tahoma;
+  src: url(tahoma.ttf);
+}
+
 input, textarea, select	{
-	font: 11px tahoma, 'times new roman', serif;
+	font-family: tahoma;
+	font-size: 11px;
 }
 
 .font10	{
-	font: 10px tahoma, 'times new roman', serif;
+	font-family: tahoma;
+	font-size: 10px;
 }
 
 .font11	{
-	font: 11px tahoma, 'times new roman', serif;
+	font-family: tahoma;
+	font-size: 11px;
 }
 
 .font12	{
-	font: 12px tahoma, 'times new roman', serif;
+	font-family: tahoma;
+	font-size: 12px;
 }
 
 .font14	{
-	font: 14px tahoma, 'times new roman', serif;
+	font-family: tahoma;
+	font-size: 14px;
 }
 
 .clear	{
