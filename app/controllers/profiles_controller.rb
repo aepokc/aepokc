@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
 	layout 'profiles'
 	
 	def directory
-    @members = Member.order("lastname")
+    @members = Member.paginate :page=>params[:page], :order=>'lastname', :per_page => 10
 
     respond_to do |format|
       format.html
