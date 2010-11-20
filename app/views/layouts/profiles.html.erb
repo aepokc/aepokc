@@ -50,10 +50,12 @@
 								<% if controller_name == 'profiles' && action_name == 'edit' || action_name == 'new' || action_name == 'show' %>
 									My Profile
 								<% else %>
-									<% if current_member.profile.nil? %>
-										<%= link_to 'My Profile', '/members/profiles/new' %>
-									<% else %>
-										<%= link_to 'My Profile', '/members/profiles/' + current_member.profile.id.to_s %>
+									<% unless current_member.nil? %>
+										<% if current_member.profile.nil? %>
+											<%= link_to 'My Profile', '/members/profiles/new' %>
+										<% else %>
+											<%= link_to 'My Profile', '/members/profiles/' + current_member.profile.id.to_s %>
+										<% end %>
 									<% end %>
 								<% end %>
 							<% end %>
