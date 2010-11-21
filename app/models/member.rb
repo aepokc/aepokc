@@ -3,6 +3,7 @@ class Member < ActiveRecord::Base
 	has_one :profile
 	has_many :events
 	has_many :jobs
+	belongs_to :committee
 
   devise :confirmable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
