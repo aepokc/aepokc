@@ -14,13 +14,7 @@
   <tr>
   	<td><%= member.confirmed? ? image_tag('/images/check.gif') : '' %></td>
    	<td><%= member.leader? ? image_tag('/images/check.gif') : '' %></td>
-    <td>
-    	<% if member.profile.nil? %>
-    		<%= member.lastname + ', ' + member.firstname %>
-    	<% else %>
-    		<%= link_to member.lastname + ', ' + member.firstname, '/members/profiles/' + member.profile.id.to_s %>
-    	<% end %>
-    </td>
+    <td><%= link_to member.lastname + ', ' + member.firstname, '/members/' + member.id.to_s %></td>
     <td><%= link_to member.email, 'mailto:' + member.email %></td>
   </tr>
 <% end %>

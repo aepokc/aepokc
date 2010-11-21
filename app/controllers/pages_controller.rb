@@ -7,6 +7,10 @@ class PagesController < ApplicationController
 		@members = Member.order("lastname")
   end
   
+	def member
+		@member = Member.find(params[:id])
+  end
+  
 	def show
 		if params[:link]
 		  @page = Page.find_by_link(params[:link])

@@ -5,10 +5,6 @@ class Members::RegistrationsController < Devise::RegistrationsController
 	before_filter :authenticate_admin!, :only => [:show, :new, :create, :cancel]
 	layout 'admin'
  
-	def show
-		@member = Member.find(params[:id])
-  end
-	
   def edit
     render :layout => 'profiles', :scope => 'edit'
   end
