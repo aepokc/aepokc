@@ -63,6 +63,10 @@
     <%= f.label 'Committee Preference' %><br />
     <%= f.collection_select :committee_name, Committee.all, :name, :name, :include_blank => true %>
   </div>
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_select :birthday, :include_blank => true, :start_year => Time.now.year-39, :end_year => Time.now.year-20 %>
+  </div>
   <br />
   <div class="toc">
     <b><u>Terms & Conditions:</b></u><br />

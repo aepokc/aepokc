@@ -11,6 +11,6 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   		 # :token_authenticatable, :lockable and :timeoutable
 
-  attr_accessible :leader, :firstname, :lastname, :email, :password, :password_confirmation, :random_password, :committee_name
+  attr_accessible :leader, :firstname, :lastname, :email, :password, :password_confirmation, :random_password, :committee_name, :birthday
   
 end

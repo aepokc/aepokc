@@ -15,6 +15,8 @@
   <%= f.text_field :email %></p>
   <p><%= f.label :committee %><br />
   <%= f.collection_select :committee_name, Committee.all, :name, :name, :include_blank => true %></p>
+  <p><%= f.label :birthday %><br />
+  <%= f.date_select :birthday, :include_blank => true, :start_year => Time.now.year-39, :end_year => Time.now.year-20 %></p>
   <% rp = ActiveSupport::SecureRandom.hex(5) %>
   <p><%= f.hidden_field :random_password, :value => rp %></p>
   <p><%= f.hidden_field :password, :value => rp %></p>
