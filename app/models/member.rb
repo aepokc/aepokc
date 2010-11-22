@@ -5,7 +5,7 @@ class Member < ActiveRecord::Base
 	has_many :jobs
 	belongs_to :committee
 	
-	validates_presence_of :firstname, :lastname, :committee_name
+	validates_presence_of :firstname, :lastname
 
   devise :confirmable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
