@@ -16,7 +16,7 @@ class Resources::JobsController < ApplicationController
 	layout 'resources'
 	
   def index
-    @jobs = Job.all
+    @jobs = Job.find_fresh
 
     respond_to do |format|
       format.html
@@ -60,10 +60,12 @@ class Resources::JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
+      	@job.expiration = @job.updated_at+14.days
+      	@job.save
         format.html { redirect_to([:resources, @job], :notice => 'Job was successfully created.') }
         format.xml  { render :xml => [:resources, @job], :status => :created, :location => [:resources, @job] }
       else
-        format.html { redirect_to(new_resources_job_path) }
+        format.html { redirect_to(new_resources_job_path, :notice => @job.errors) }
         format.xml  { render :xml => @job.errors, :status => :unprocessable_entity }
       end
     end
@@ -74,10 +76,12 @@ class Resources::JobsController < ApplicationController
 
     respond_to do |format|
       if @job.update_attributes(params[:job])
+      	@job.expiration = @job.updated_at+14.days
+      	@job.save
         format.html { redirect_to([:resources, @job], :notice => 'Job was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => "edit", :notice => @job.errors }
         format.xml  { render :xml => @job.errors, :status => :unprocessable_entity }
       end
     end
