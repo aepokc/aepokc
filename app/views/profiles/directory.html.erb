@@ -28,7 +28,7 @@
 				</td>
 				<td>
 					<% unless m.profile.occupation.blank? %>
-						| <%= m.profile.occupation %>
+						| <%= m.profile.occupation.truncate(40) %>
 					<% end %>
 				</td>
 				<td>
