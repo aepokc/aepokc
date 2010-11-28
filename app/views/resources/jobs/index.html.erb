@@ -14,7 +14,7 @@
   </tr>
 <% @jobs.each do |job| %>
   <tr>
-    <td><%= link_to job.title, '/resources/jobs/' + job.id.to_s %></td>
+    <td><%= link_to job.title.truncate(40), '/resources/jobs/' + job.id.to_s %></td>
     <td>
     	<% if job.link.empty? %>
     		<%= job.employer %>

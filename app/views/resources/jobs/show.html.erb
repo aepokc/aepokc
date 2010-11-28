@@ -4,6 +4,11 @@
 <div class="hr">
 </div>
 <p>
+	<span class="example">
+		Last updated on <%= @job.updated_at.to_date.to_s(:formatted_date) %>
+	</span>
+</p>
+<p>
   <b>Employer:</b>
   <% if @job.link.empty? %>
   	<%= @job.employer %>
@@ -33,10 +38,9 @@
 </p>
 <p>
   <b>Salary:</b>
-  <%= number_to_currency(@job.salary, :precision => 0) %>
+  <%= number_to_currency(@job.salary, :precision => 0) || 'Undetermined' %>
 </p>
 <p>
-	<b>Description:</b>
   <%= auto_link(simple_format(@job.description)) %>
 </p>
 <p>
