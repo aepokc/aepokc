@@ -33,15 +33,9 @@
 					</div>
 					<div class="ltnav font11">
 						<% @page.subpages.sort_by{|sp| sp.position}.each do |sp| %>
-							<% if sp.title == "Application" %>
-								<div class="ltnavitem">
-									Application
-								</div>			
-							<% else %>				
-								<div class="ltnavitem">
-									<%= link_to sp.title, "/" + sp.parent.link + "/" + sp.link %>
-								</div>
-							<% end %>
+							<div class="ltnavitem">
+								<%= link_to_unless(sp.title == "Application", sp.title, "/" + sp.parent.link + "/" + sp.link) %>
+							</div>
 						<% end %>
 					</div>
 					<div class="clear">

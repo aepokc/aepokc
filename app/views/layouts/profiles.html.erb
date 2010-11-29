@@ -40,19 +40,19 @@
 							<% if action_name == 'directory' %>
 								Directory
 							<% else %>
-								<%= link_to 'Directory', '/members/profiles/directory' %>
+								<%= link_to 'Directory', members_profiles_directory_path %>
 							<% end %>
 						</div>
 						<div class="ltnavitem">
 							<% if controller_name == 'sessions' || controller_name == 'passwords' %>
-								<%= link_to 'My Profile', '/members/profiles/new' %>	
+								<%= link_to 'My Profile', new_members_profile_path %>	
 							<% else %>					
 								<% if controller_name == 'profiles' && action_name == 'edit' || action_name == 'new' || action_name == 'show' %>
 									My Profile
 								<% else %>
 									<% unless current_member.nil? %>
 										<% if current_member.profile.nil? %>
-											<%= link_to 'My Profile', '/members/profiles/new' %>
+											<%= link_to 'My Profile', new_members_profile_path %>
 										<% else %>
 											<%= link_to 'My Profile', '/members/profiles/' + current_member.profile.id.to_s %>
 										<% end %>

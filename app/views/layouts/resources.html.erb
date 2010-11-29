@@ -34,25 +34,13 @@
 					</div>
 					<div class="ltnav font11">
 						<div class="ltnavitem">
-							<% if controller_name == 'calendar' %>
-								Calendar
-							<% else %>
-								<%= link_to "Calendar", "/resources/calendar" %>
-							<% end %>
+							<%= link_to_unless(controller_name == 'calendar', "Calendar", resources_calendar_path) %>
 						</div>
 						<div class="ltnavitem">
-							<% if controller_name == 'events' %>
-								Events
-							<% else %>
-								<%= link_to 'Events', "/resources/events" %>
-							<% end %>
+							<%= link_to_unless(controller_name == 'events', "Events", resources_events_path) %>
 						</div>
 						<div class="ltnavitem">
-							<% if controller_name == 'jobs' %>
-								Jobs
-							<% else %>
-								<%= link_to 'Jobs', "/resources/jobs" %>
-							<% end %>
+							<%= link_to_unless(controller_name == 'jobs', "Jobs", resources_jobs_path) %>
 						</div>
 					</div>
 					<div class="clear">

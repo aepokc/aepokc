@@ -24,11 +24,7 @@
 		<% else %>
 				<% @page.parent.subpages.sort_by{|sp| sp.position}.each do |sp| %>
 					<div class="ltnavitem" <%= "id = 'current'" if @page && @page == sp %>>
-						<% if @page && @page == sp %>
-							<%= sp.title %>
-						<% else %>
-							<%= link_to sp.title, "/" + sp.parent.link + "/" + sp.link %>
-						<% end %>
+						<%= link_to_unless(@page && @page == sp, sp.title, "/" + sp.parent.link + "/" + sp.link) %>
 					</div>
 				<% end %>
 		<% end %>

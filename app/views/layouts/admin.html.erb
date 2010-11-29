@@ -34,28 +34,20 @@
 					<div class="ltnav font11">
 						<div class="ltnavitem">
 							<% if controller_name == "pages" %>
-								<% if action_name == "admin" %>
-									<%= link_to "Pages", "/pages" %>
-								<% else %>
-									Pages
-								<% end %>
+								<%= link_to_if(action_name == "admin" || action_name == "members", "Pages", pages_path) %>
 							<% else %>
-								<%= link_to "Pages", "/pages" %>
+								<%= link_to "Pages", pages_path %>
 							<% end %>
 						</div>
 						<div class="ltnavitem">
 							<% if controller_name == "registrations" %>
 								Members
 							<% else %>
-								<%= link_to "Members", "/members" %>
+								<%= link_to_unless(action_name == "members", "Members", members_path) %>
 							<% end %>
 						</div>
 						<div class="ltnavitem">
-							<% if controller_name == "membership_applications" %>
-								Applicants
-							<% else %>
-								<%= link_to "Applicants", "/membership/applications" %>
-							<% end %>
+							<%= link_to_unless(controller_name == "membership_applications", "Applicants", membership_applications_path) %>
 						</div>
 					</div>
 					<div class="clear">
