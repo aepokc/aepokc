@@ -53,5 +53,9 @@
 </p>
 <p>
   <b>Committee:</b>
-  <%= @membership_application.committee %>
+  <%= @membership_application.committee_name %>
+</p>
+<p>
+  <b>Birthday:</b>
+  <%= @membership_application.birthday.to_s(:formatted_date) %>
 </p>
