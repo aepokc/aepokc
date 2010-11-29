@@ -59,18 +59,13 @@
 </p>
 
 <p>
-  <b>First:</b>
-  <%= @membership_application.first %>
+  <b>Committee:</b>
+  <%= @membership_application.committee %>
 </p>
 
 <p>
-  <b>Second:</b>
-  <%= @membership_application.second %>
-</p>
-
-<p>
-  <b>Third:</b>
-  <%= @membership_application.third %>
+  <b>Birthday:</b>
+  <%= @membership_application.birthday %>
 </p>
 
 <%= link_to 'Add this member to aepokc.com', "http://aepokc.com" + new_member_registration_path %>

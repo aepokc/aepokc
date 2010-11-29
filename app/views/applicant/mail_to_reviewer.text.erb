@@ -24,12 +24,8 @@ Associations: <%= @membership_application.associations %>
 
 Interests: <%= @membership_application.interests %>
 
-*COMMITTEE PREFERENCES*
+Committee: <%= @membership_application.committee %>
 
-First: <%= @membership_application.first %>
-
-Second: <%= @membership_application.second %>
-
-Third: <%= @membership_application.third %>
+Birthday: <%= @membership_application.birthday %>
 
 <%= link_to 'Add this member to aepokc.com', "http://aepokc.com" + new_member_registration_path %>
