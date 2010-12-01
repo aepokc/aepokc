@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def self.find_current
-		Event.find :all, :conditions => ['(date = current_date)'], :order => 'date'
+		Event.where(:date => Date.today)
 	end
 	
 	def self.find_past
