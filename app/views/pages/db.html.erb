@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>aep | the Alliance of Emerging Professionals</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-language" content="en-us" />
+		<meta name="copyright" content="Alliance of Emerging Professionals, Inc" />
+		<meta name="author" content="Run by sailoR" />
+		<meta name="description" content="aep is a group of Oklahoma City young professionals dedicated to volunteer activities and community building. Partnered with the OKC Chamber, AEP facilitates networking events to enhance its members' careers and success in business." />
+		<meta name="keywords" content="aepokc,aep Oklahoma City,young professionals organization,yp organization,alliance of emerging professionals,Oklahoma City yp,Oklahoma City young professionals,Oklahoma yp,Oklahoma young professionals,young professionals networking,Oklahoma City jobs,Oklahoma jobs,Oklahoma City professional networking,Oklahoma City job fair,Oklahoma job fair,Oklahoma City career fair,Oklahoma job fair,Oklahoma City volunteer,Oklahoma City leadership,Oklahoma City adult sports" />
+		<%= stylesheet_link_tag 'db' %>
+		<%= javascript_include_tag :defaults %>
+		<%= javascript_include_tag 'crossfade.js' %>
+		<%= javascript_include_tag "analytics.js" %>
+		<%= csrf_meta_tag %>
+		<link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<br />
+		<div class="wrapper">
+				<%= image_tag('logo.jpg') %>
+			<div class="count">
+				Member Accounts<br /><br />
+				<span class="number"><%= @member_count %></span>
+			</div>
+			<div class="count">
+				Accounts Confirmed<br /><br />
+				<span class="number"><%= @confirmed_count %></span>
+			</div>
+			<div class="count">
+				Profiles Created<br /><br />
+				<span class="number"><%= @profile_count %></span>
+			</div>
+			<div class="hr">
+			</div>
+			<table>
+				<tr>
+					<th>Confirmed?&nbsp;&nbsp;</th>
+					<th>Leader?&nbsp;&nbsp;</th>
+					<th>Name&nbsp;&nbsp;</th>
+					<th>Committee&nbsp;&nbsp;</th>
+					<th>Email</th>
+				</tr>
+				<% @members.each do |m| %>
+					<tr>
+						<td><%= m.confirmed? ? image_tag('check.gif') : '' %>&nbsp;&nbsp;</td>
+					 	<td><%= m.leader? ? image_tag('check.gif') : '' %>&nbsp;&nbsp;</td>
+						<td>
+							<% if m.profile.blank? %>
+								<%= m.lastname + ', ' + m.firstname %>
+							<% else %>
+								<%= link_to m.lastname + ', ' + m.firstname, '/members/profiles/' + m.profile.id.to_s %>
+							<% end %>&nbsp;&nbsp;
+						</td>
+						<td><%= m.committee_name %>&nbsp;&nbsp;</td>
+						<td><%= m.email %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+		<br />
+	</body>
+</html>

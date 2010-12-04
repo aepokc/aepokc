@@ -1,0 +1,89 @@
+body { background-color: #362f2d; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #157f1f; }
+a:visited { color: #157f1f; }
+a:hover { color: #ccc; }
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.wrapper	{
+	position: relative;
+	border: 5px solid #fff;
+	width: 850px;
+	\width: 860px;
+	w\idth: 850px;
+	height: auto !important;
+	margin: auto;
+	text-align: left;
+	background: #fff;
+}
+
+.count	{
+	float: right;
+	font-size: 16px;
+	margin: auto;
+	border: 0px;
+	width: 160px;
+	height: 100px;
+	padding: 5px;
+}
+
+.number	{
+	color: #ccc;
+	font-size: 60px;
+	font-weight: bold;
+}
+
+.hr	{
+	border-top: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}

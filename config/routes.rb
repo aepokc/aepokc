@@ -5,6 +5,7 @@ Aepokc::Application.routes.draw do |map|
   	resources :profiles
   end
   
+  match 'db' => 'pages#db'
   match 'mail' => 'pages#mail'
 	match 'admin' => 'pages#admin'
   devise_for :admin, :controllers => { :sessions => "admin/sessions" }

@@ -1,7 +1,21 @@
 class PagesController < ApplicationController
 
 	before_filter :authenticate_admin!, :except => [:mail, :show, :home, :application]
+	before_filter :authenticate_member!, :only => [:db]
 	layout 'admin'
+	
+	def db
+		if current_member.leader == false
+			redirect_to members_profiles_directory_path
+		else
+			@members = Member.order("lastname")
+			@member_count = Member.count
+			@profile_count = Profile.count
+			@confirmed_count = Member.where(:confirmation_token => nil).count
+			
+			render :layout => false
+		end
+	end
 
 	def members
 		@members = Member.order("lastname")
