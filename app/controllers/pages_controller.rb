@@ -10,8 +10,8 @@ class PagesController < ApplicationController
 		else
 			@members = Member.order("lastname")
 			@member_count = Member.count
-			@profile_count = Profile.count
 			@confirmed_count = Member.where(:confirmation_token => nil).count
+			@profile_count = Profile.count
 			
 			render :layout => false
 		end
