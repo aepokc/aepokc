@@ -37,18 +37,17 @@ div.field, div.actions {
 }
 
 .count	{
+	margin: 5px 0 0 0;
 	float: right;
 	font-weight: bold;
-	margin: auto;
-	border: 0px;
-	width: 160px;
+	width: 170px;
 	height: 100px;
 }
 
 .number	{
+	margin: 10px 0 0 0;
 	color: #ccc;
 	font-size: 80px;
-	font-weight: bold;
 }
 
 .hr	{
