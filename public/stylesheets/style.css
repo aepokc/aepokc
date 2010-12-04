@@ -59,12 +59,12 @@
 
 .flash	{
 	float: right;
-	color: #157f1f;
+	color: #387d50;
 }
 
 .today	{
 	font-weight: bold;
-	border: 10px solid #168050;
+	border: 10px solid #387d50;
 	margin: auto;
 }
 
