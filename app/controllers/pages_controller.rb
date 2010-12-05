@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-	before_filter :authenticate_admin!, :except => [:mail, :show, :home, :application]
+	before_filter :authenticate_admin!, :except => [:db, :mail, :show, :home, :application]
 	before_filter :authenticate_member!, :only => [:db]
 	layout 'admin'
 	
