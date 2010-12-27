@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
 	
 	belongs_to :member
+	
+	validates_presence_of :title, :date, :time, :location, :details
 
 	def self.find_current
 		Event.where(:date => Date.today)
