@@ -195,24 +195,23 @@
 	border-top: 0;
 }
 
-.square a {
+/* Dues */
+
+#paypal {
 	float: left;
-	background: url(/images/square.png) no-repeat;
-	width: 148px;
-	height: 50px;
+	width: 180px;
+	text-align: center;
 }
 
-.square a:hover {
-	background-position: 0 -50px;
-}
-
-.usps a {
+#square {
 	float: left;
-	background: url(/images/square.png) no-repeat;
-	width: 63px;
-	height: 50px;
+	width: 180px;
+	text-align: center;
+	padding: 0 0 0 20px;
 }
 
-.usps a:hover {
-	background-position: 0 -50px;
+#usps {
+	float: right;
+	width: 180px;
+	text-align: center;
 }
