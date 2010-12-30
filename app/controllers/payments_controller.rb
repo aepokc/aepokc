@@ -1,10 +1,18 @@
 class PaymentsController < ApplicationController
 
-	before_filter :authenticate_admin!, :except => [:dues]
+	before_filter :authenticate_admin!, :except => [:dues, :cancelled, :processed]
 	before_filter :authenticate_member!, :only => [:dues]
 	layout 'admin'
 	
 	def dues
+		render :layout => 'profiles'
+	end
+	
+	def cancelled
+		render :layout => 'profiles'
+	end
+	
+	def processed
 		render :layout => 'profiles'
 	end
 	

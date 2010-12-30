@@ -1,13 +1,13 @@
 Aepokc::Application.routes.draw do |map|
 
-  resources :payments
-
   namespace "members" do
   	match 'profiles/directory' => 'profiles#directory'
   	resources :profiles
   end
   
   match 'dues' => 'payments#dues'
+  match 'dues/cancelled' => 'payments#cancelled'
+  match 'dues/processed' => 'payments#processed'
   match 'db' => 'pages#db'
   match 'mail' => 'pages#mail'
 	match 'admin' => 'pages#admin'
@@ -33,6 +33,7 @@ Aepokc::Application.routes.draw do |map|
 		resources :jobs
 	end
 
+  resources :payments
 	resources :pages
   
   match ':parent/:link' => 'pages#show'
