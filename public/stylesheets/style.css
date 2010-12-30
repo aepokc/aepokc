@@ -194,3 +194,23 @@
 	color: #fff;
 	border-top: 0;
 }
+
+.square a {
+	float: left;
+	background: url(/images/square.png) no-repeat;
+	height: 50px;
+}
+
+.square a:hover {
+	background-position: 0 -50px;
+}
+
+.usps a {
+	float: left;
+	background: url(/images/square.png) no-repeat;
+	height: 50px;
+}
+
+.usps a:hover {
+	background-position: 0 -50px;
+}
