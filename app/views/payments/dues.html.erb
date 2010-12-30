@@ -1,0 +1,22 @@
+aep offers three convenient ways to pay membership dues.
+
+- online with
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="hidden" name="hosted_button_id" value="ZL5FLGZ63ULJL">
+	<input type="hidden" name="first_name" value="<%= current_member.firstname %>">
+	<input type="hidden" name="last_name" value="<%= current_member.lastname %>">
+	<input type="hidden" name="email" value="<%= current_member.email %>">
+	<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+	<img alt="" border="0" src="/images/paypal.png" width="1" height="1">
+</form>
+<br />
+<br />
+- in person with 
+<%= link_to image_tag('square.png'), 'http://squareup.com' %>
+<br />
+<br />
+- by mail <%= link_to image_tag('usps.png'), contact_path %>
+<br />
+<br />
+Thanks!

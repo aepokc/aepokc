@@ -1,0 +1,34 @@
+<%= form_for(@payment) do |f| %>
+  <% if @payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+      <ul>
+      <% @payment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="field">
+		<%= f.label :date %><br />
+		<%= f.date_select :date, :default => Time.now %>
+	</div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.select(:amount, '<option value="20">$20.00</option>') %>
+  </div>
+  <div class="field">
+    <%= f.label :member_name %><br />
+    <%= f.collection_select :member_id, Member.all(:order => :lastname), :id, :last_name_first %>
+  </div>
+  <div class="field">
+  	<%= f.label :source %><br />
+  	<%= f.select(:source, '<option value="Square">Square</option><option value="WePay">WePay</option><option value="Check">Check</option>') %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit :value => "Record Payment" %>
+  </div>
+  <br />
+<% end %>

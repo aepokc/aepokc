@@ -13,4 +13,7 @@ class Member < ActiveRecord::Base
 
   attr_accessible :leader, :firstname, :lastname, :email, :password, :password_confirmation, :random_password, :committee_name, :birthday
   
+  def last_name_first
+  	"#{lastname}, #{firstname}"
+  end
 end

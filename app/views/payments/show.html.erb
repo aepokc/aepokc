@@ -1,0 +1,14 @@
+<p>
+  <b>Member:</b>
+  <%= @payment.member_last_name_first %>
+</p>
+<p>
+  <b>Date:</b>
+  <%= @payment.date %>
+</p>
+<p>
+	<b>Amount:</b>
+	<%= @payment.amount %>
+</p>
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

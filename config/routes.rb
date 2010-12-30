@@ -1,10 +1,13 @@
 Aepokc::Application.routes.draw do |map|
 
+  resources :payments
+
   namespace "members" do
   	match 'profiles/directory' => 'profiles#directory'
   	resources :profiles
   end
   
+  match 'dues' => 'payments#dues'
   match 'db' => 'pages#db'
   match 'mail' => 'pages#mail'
 	match 'admin' => 'pages#admin'
