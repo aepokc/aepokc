@@ -1,23 +1,33 @@
-aep offers three convenient ways to pay membership dues.<br />
-<br />
-- online with<br />
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-	<input type="hidden" name="cmd" value="_s-xclick">
-	<input type="hidden" name="hosted_button_id" value="ZL5FLGZ63ULJL">
-	<input type="hidden" name="first_name" value="<%= current_member.firstname %>">
-	<input type="hidden" name="last_name" value="<%= current_member.lastname %>">
-	<input type="hidden" name="email" value="<%= current_member.email %>">
-	<input type="image" src="/images/paypal.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
-	<img alt="" border="0" src="/images/paypal.png" width="1" height="1">
-</form>
+We offer three convenient ways to pay membership dues:<br />
 <br />
 <br />
-- in person with<br />
-<span class="square"><%= link_to "", 'http://squareup.com' %></span>
+<div id="paypal">
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		<input type="hidden" name="cmd" value="_s-xclick">
+		<input type="hidden" name="hosted_button_id" value="ZL5FLGZ63ULJL">
+		<input type="hidden" name="first_name" value="<%= current_member.firstname %>">
+		<input type="hidden" name="last_name" value="<%= current_member.lastname %>">
+		<input type="hidden" name="email" value="<%= current_member.email %>">
+		<input type="image" src="/images/paypal.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+		<img alt="" border="0" src="/images/paypal.jpg" width="1" height="1">
+	</form>
+	<br />
+	<div class="label">online</div>
+</div>
+<div id="square">
+	<%= link_to image_tag('square.jpg'), 'http://squareup.com' %>
+	<br />
+	in person
+</div>
+<div id="usps">
+	<%= link_to image_tag('usps.jpg'), '/contact' %>
+	<br />
+	by mail
+</div>
 <br />
 <br />
-- by mail<br />
-<span class="usps"><%= link_to "", '/contact' %></span>
 <br />
 <br />
-Thanks!
+<br />
+<br />
+If you have any questions or concerns, please feel free to <%= link_to 'contact', '/contact' %> us anytime.

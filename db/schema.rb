@@ -1,15 +1,16 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
-# then regenerate this schema definition.
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your database schema. If you need
-# to create the application database on another system, you should be using db:schema:load, not running
-# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 8) do
+ActiveRecord::Schema.define(:version => 15) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -29,6 +30,12 @@ ActiveRecord::Schema.define(:version => 8) do
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+
+  create_table "committees", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", :force => true do |t|
     t.integer  "member_id"
@@ -59,6 +66,7 @@ ActiveRecord::Schema.define(:version => 8) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "expiration"
   end
 
   create_table "members", :force => true do |t|
@@ -82,6 +90,8 @@ ActiveRecord::Schema.define(:version => 8) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "random_password"
+    t.string   "committee_name"
+    t.date     "birthday"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
@@ -100,12 +110,11 @@ ActiveRecord::Schema.define(:version => 8) do
     t.string   "title"
     t.text     "associations"
     t.text     "interests"
-    t.string   "first"
-    t.string   "second"
-    t.string   "third"
     t.boolean  "agreement"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "committee_name"
+    t.date     "birthday"
   end
 
   create_table "pages", :force => true do |t|
@@ -114,6 +123,15 @@ ActiveRecord::Schema.define(:version => 8) do
     t.text     "content"
     t.integer  "position"
     t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer  "amount"
+    t.integer  "member_id"
+    t.string   "source"
+    t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
