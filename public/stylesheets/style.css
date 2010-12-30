@@ -198,6 +198,7 @@
 .square a {
 	float: left;
 	background: url(/images/square.png) no-repeat;
+	width: 148px;
 	height: 50px;
 }
 
@@ -208,6 +209,7 @@
 .usps a {
 	float: left;
 	background: url(/images/square.png) no-repeat;
+	width: 63px;
 	height: 50px;
 }
 
