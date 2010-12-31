@@ -9,7 +9,7 @@ class Members::SessionsController < Devise::SessionsController
     resource = warden.authenticate!(:scope => resource_name, :recall => "new")
     set_flash_message :notice, :signed_in
     sign_in(resource_name, resource) #change redirect from edit to profiles index
-    redirect_to members_profiles_path
+    redirect_to stored_location_for(:member) || members_profiles_path
   end
 
   def destroy
