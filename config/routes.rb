@@ -14,8 +14,8 @@ Aepokc::Application.routes.draw do |map|
   devise_for :admin, :controllers => { :sessions => "admin/sessions" }
   devise_for :members, :controllers => { :registrations => "members/registrations", :sessions => "members/sessions" }
   
-  match 'members/:id' => 'members/pages#member', :as => 'member'
-  match 'members' => 'pages#members'
+  match 'members/:id' => 'users#show', :as => 'member'
+  match 'members' => 'users#index'
   
   match 'membership/applications' => 'membership_applications#index'
   match 'membership/application' => 'membership_applications#new'

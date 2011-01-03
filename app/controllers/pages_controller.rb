@@ -16,14 +16,6 @@ class PagesController < ApplicationController
 			render :layout => false
 		end
 	end
-
-	def members
-		@members = Member.order("lastname")
-  end
-  
-	def member
-		@member = Member.find(params[:id])
-  end
   
 	def show
 		if params[:link]

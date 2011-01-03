@@ -7,9 +7,8 @@ class Member < ActiveRecord::Base
 	
 	validates_presence_of :firstname, :lastname
 
-  devise :confirmable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  		 # :token_authenticatable, :lockable and :timeoutable
+  devise :confirmable, :database_authenticatable, :recoverable, :registerable, :rememberable, :trackable, :validatable
+  		 # :registerable, :token_authenticatable, :lockable and :timeoutable
 
   attr_accessible :leader, :firstname, :lastname, :email, :password, :password_confirmation, :random_password, :committee_name, :birthday
   

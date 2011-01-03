@@ -1,0 +1,29 @@
+<b>
+	Member Record
+</b>
+<div class="hr">
+</div>
+<% if @member.leader? %>
+	<p>
+		***LEADER***
+	</p>
+<% end %>
+<% unless @member.profile.blank? %>
+	<p>
+		<%= link_to image_tag(@member.profile.avatar.url(:display)), members_profile_path(@member) %>
+	</p>
+<% end %>
+<p>
+  <b>Name:</b>
+  <%= @member.firstname %>
+  <%= @member.lastname %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @member.email %>
+</p>
+<p>
+	<b>Committee:</b>
+	<%= @member.committee_name %>
+</p>
+<%= link_to 'View All Members', members_path %>

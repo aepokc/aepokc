@@ -43,7 +43,7 @@
 							<% if controller_name == "registrations" %>
 								Members
 							<% else %>
-								<%= link_to_unless(action_name == "members", "Members", members_path) %>
+								<%= link_to_unless(controller_name == "users", "Members", members_path) %>
 							<% end %>
 						</div>
 						<div class="ltnavitem">
