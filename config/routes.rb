@@ -16,6 +16,7 @@ Aepokc::Application.routes.draw do |map|
   
   match 'members/:id' => 'users#show', :as => 'member'
   match 'members' => 'users#index'
+  resources :users, :as => 'members', :only => [:destroy]
   
   match 'membership/applications' => 'membership_applications#index'
   match 'membership/application' => 'membership_applications#new'

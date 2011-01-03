@@ -9,6 +9,7 @@
   	<th>Leader? |</th>
     <th>Name</th>
     <th>Email</th>
+		<th></th>
   </tr>
 <% @members.each do |member| %>
   <tr>
@@ -16,6 +17,7 @@
    	<td><%= member.leader? ? image_tag('/images/check.gif') : '' %></td>
     <td><%= link_to member.lastname + ', ' + member.firstname, '/members/' + member.id.to_s %></td>
     <td><%= link_to member.email, 'mailto:' + member.email %></td>
+    <td><%= link_to 'Delete', member, :confirm => 'This will PERMANENTLY DESTROY this member record along with all of his or her profile data. Are you ABSOLUTELY CERTAIN that this is what you want to do?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
