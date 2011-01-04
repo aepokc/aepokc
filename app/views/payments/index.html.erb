@@ -9,7 +9,7 @@
   </tr>
 <% @payments.each do |payment| %>
   <tr>
-    <td><%= payment.member_last_name_first %></td>
+    <td><%= payment.member.last_name_first %></td>
     <td><%= payment.date %></td>
     <td><%= link_to 'Show', payment %></td>
     <td><%= link_to 'Edit', edit_payment_path(payment) %></td>

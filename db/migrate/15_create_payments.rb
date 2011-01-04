@@ -1,8 +1,8 @@
 class CreatePayments < ActiveRecord::Migration
   def self.up
     create_table :payments do |t|
-      t.integer :amount
       t.integer :member_id
+      t.integer :amount
       t.string	:source
       t.date		:date
 

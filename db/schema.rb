@@ -128,8 +128,8 @@ ActiveRecord::Schema.define(:version => 15) do
   end
 
   create_table "payments", :force => true do |t|
-    t.integer  "amount"
     t.integer  "member_id"
+    t.integer  "amount"
     t.string   "source"
     t.date     "date"
     t.datetime "created_at"
