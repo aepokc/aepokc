@@ -52,6 +52,7 @@
 					<th>Name&nbsp;&nbsp;</th>
 					<th>Committee&nbsp;&nbsp;</th>
 					<th>Email</th>
+					<th>Paid?</th>
 				</tr>
 				<% @members.each do |m| %>
 					<tr>
@@ -66,6 +67,13 @@
 						</td>
 						<td><%= m.committee_name %>&nbsp;&nbsp;</td>
 						<td><%= m.email %></td>
+						<td>
+							<% if m.payments.blank? %>
+							 PAST DUE
+							<% else %>
+								<%= m.payments.last.date %> (<%= m.payments.last.source %>)
+							<% end %>
+						</td>
 					</tr>
 				<% end %>
 			</table>
