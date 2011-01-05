@@ -6,6 +6,7 @@ Aepokc::Application.routes.draw do |map|
   end
   
   match 'dues' => 'payments#dues'
+  match 'dues/mail' => 'payments#mail'
   match 'dues/cancelled' => 'payments#cancelled'
   match 'dues/processed' => 'payments#processed'
   match 'db' => 'pages#db'

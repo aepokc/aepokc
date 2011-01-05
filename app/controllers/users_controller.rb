@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_admin!
+  layout 'admin'
   
   def index
     @members = Member.order("lastname")

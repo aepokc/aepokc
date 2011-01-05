@@ -47,6 +47,9 @@
 							<% end %>
 						</div>
 						<div class="ltnavitem">
+							<%= link_to_unless(controller_name == "payments", "Payments", '/payments') %>
+						</div>
+						<div class="ltnavitem">
 							<%= link_to_unless(controller_name == "membership_applications", "Applicants", '/membership/applications') %>
 						</div>
 					</div>

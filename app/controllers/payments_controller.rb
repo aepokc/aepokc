@@ -8,6 +8,10 @@ class PaymentsController < ApplicationController
 		render :layout => 'profiles'
 	end
 	
+	def mail
+	  render :layout => 'profiles'
+	end
+	
 	def cancelled
 		render :layout => 'profiles'
 	end
