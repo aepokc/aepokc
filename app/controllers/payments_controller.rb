@@ -17,7 +17,7 @@ class PaymentsController < ApplicationController
 	end
 	
   def index
-    @payments = Payment.all
+    @payments = Payment.find :all, :order => 'date desc'
 
     respond_to do |format|
       format.html
