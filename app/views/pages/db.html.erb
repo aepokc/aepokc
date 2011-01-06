@@ -49,7 +49,8 @@
 				<tr>
 					<th>Confirmed?&nbsp;&nbsp;</th>
 					<th>Leader?&nbsp;&nbsp;</th>
-					<th>Name&nbsp;&nbsp;</th>
+					<th>Lastname, </th>
+          <th>Firstname&nbsp;&nbsp;</th>
 					<th>Committee&nbsp;&nbsp;</th>
 					<th>Email</th>
 					<th>Paid?</th>
@@ -57,14 +58,22 @@
 				<% @members.each do |m| %>
 					<tr>
 						<td><%= m.confirmed? ? image_tag('check.gif') : '' %>&nbsp;&nbsp;</td>
-					 	<td><%= m.leader? ? image_tag('check.gif') : '' %>&nbsp;&nbsp;</td>
-						<td>
+					 	<td><%= m.leader? ? image_tag('check.gif') : '' %>&nbsp;&nbsp;</td>            
 							<% if m.profile.blank? %>
-								<%= m.lastname + ', ' + m.firstname %>
+								<td>
+                  <%= m.lastname %>
+                </td>
+                <td>
+                  <%= m.firstname %>
+                </td>&nbsp;&nbsp;
 							<% else %>
-								<%= link_to m.lastname + ', ' + m.firstname, '/members/profiles/' + m.profile.id.to_s %>
-							<% end %>&nbsp;&nbsp;
-						</td>
+                <td>
+                  <%= link_to m.lastname, '/members/profiles/' + m.profile.id.to_s %>
+                </td>
+                <td>
+                  <%= link_to m.firstname, '/members/profiles/' + m.profile.id.to_s %>
+                </td>&nbsp;&nbsp;
+							<% end %>          
 						<td><%= m.committee_name %>&nbsp;&nbsp;</td>
 						<td><%= m.email %></td>
 						<td>
