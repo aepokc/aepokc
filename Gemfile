@@ -1,9 +1,14 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
+# user authentication
 gem 'devise', '1.1.2'
+# file attachment
 gem 'paperclip', '2.3.4'
+# list formatting
 gem 'will_paginate', '3.0.pre'
+# mailchimp integration
+gem 'hominid', '3.0.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

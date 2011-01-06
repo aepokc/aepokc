@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   protect_from_forgery
 	layout :by_controller
   
@@ -20,5 +19,4 @@ class ApplicationController < ActionController::Base
 	   	"application"
     end
   end
-  
 end
