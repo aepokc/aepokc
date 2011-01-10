@@ -14,16 +14,16 @@
   </tr>
 <% @jobs.each do |job| %>
   <tr>
-    <td><%= link_to job.title.truncate(40), '/resources/jobs/' + job.id.to_s %></td>
+    <td><%= link_to job.title.truncate(30), '/resources/jobs/' + job.id.to_s %></td>
     <td>
     	<% if job.link.empty? %>
-    		<%= job.employer %>
+    		<%= job.employer.truncate(30) %>
     	<% else %>
-    		<%= link_to job.employer, job.link %>
+    		<%= link_to job.employer.truncate(30), job.link %>
     	<% end %>
     	</td>
     <td><%= job.time %></td>
-    <td><%= job.location %></td>
+    <td><%= job.location.truncate(30) %></td>
     <% if member_signed_in? %>
 		  <% if job.member_id == current_member.id %>
 				<td><%= link_to 'Edit', edit_resources_job_path(job) %></td>
