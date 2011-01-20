@@ -1,5 +1,5 @@
 <b>
-	Welcome <%= current_member.firstname + " " + current_member.lastname %>!
+	Welcome <%= current_member.firstname %>!
 </b>
 <br />
 <br />
@@ -9,6 +9,6 @@ Please choose from the navigation options to your left, and feel free to <%= lin
 <br />
 <% @profiles.each do |p| %>
   <span class="thumb">
-    <%= link_to image_tag(p.avatar.url(:thumb)), p.id.to_s %>
+    <%= link_to image_tag(p.avatar.url(:thumb)), '/members/profiles/' + p.id.to_s %>
   </span>
 <% end %>
