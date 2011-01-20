@@ -196,12 +196,9 @@
 .nav	{
 	position: absolute;
 	top: 125px;
-	left: 0;
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
+  left: 0;  
 	width: 850px;
-	z-index: 20;
-	background: #000;
+  z-index: 20;  
 }
 
 .footer	{

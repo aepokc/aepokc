@@ -85,7 +85,6 @@ input, textarea, select	{
 	color: #060;
 }
 
-
 .ghost {
 	color: #909090;
 }
@@ -99,7 +98,7 @@ input, textarea, select	{
 .tab a	{
 	float: left;
 	padding-top: 5px;
-	margin-left: 1px;
+	margin-left: 0px;
 	width: 114px;
 	height: 25px;
 	text-align: center;
@@ -115,9 +114,7 @@ input, textarea, select	{
 .login a	{
 	float: left;
 	padding: 5px 0 0 10px;
-	width: 150px;
-	\width: 160px;
-	w\idth: 150px;
+  width: 156px;  
 	height: 25px;
 	color: #fff;
 	text-decoration: none;
