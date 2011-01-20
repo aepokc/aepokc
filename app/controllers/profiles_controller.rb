@@ -24,6 +24,7 @@ class ProfilesController < ApplicationController
   end	
 	
   def index
+    @profiles = Profile.get_profile_avatars
   end
 
   def show

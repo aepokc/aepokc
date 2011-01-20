@@ -5,3 +5,10 @@
 <br />
 We are excited to have you as a valued member of aep, and look forward to your involvement in our online community.
 Please choose from the navigation options to your left, and feel free to <%= link_to 'contact us', 'mailto:admin@aepokc.com' %> with any feature requests or questions about using this site.
+<br />
+<br />
+<% @profiles.each do |p| %>
+  <span class="thumb">
+    <%= link_to image_tag(p.avatar.url(:thumb)), p.id.to_s %>
+  </span>
+<% end %>

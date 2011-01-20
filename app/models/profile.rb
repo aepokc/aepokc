@@ -1,5 +1,4 @@
 class Profile < ActiveRecord::Base
-
 	belongs_to :member	
 	
 	validates_format_of :phone, :with => /[1-9][0-9]{9}/, 
@@ -10,4 +9,7 @@ class Profile < ActiveRecord::Base
 	                  :url  => "/assets/avatars/:id/:style/:basename.:extension",
 	                  :path => ":rails_root/public/assets/avatars/:id/:style/:basename.:extension"
 	
+  def self.get_profile_avatars
+    Profile.find :all, :conditions => ('avatar_file_size > 10'), :order => "RAND()"
+  end
 end
