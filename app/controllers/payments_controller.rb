@@ -56,6 +56,7 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
+        Receipt.mail_to_payer(@payment).deliver
         format.html { redirect_to(@payment, :notice => 'Payment was successfully recorded.') }
         format.xml  { render :xml => @payment, :status => :created, :location => @payment }
       else

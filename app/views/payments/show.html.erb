@@ -9,11 +9,15 @@
 </p>
 <p>
   <b>Date:</b>
-  <%= @payment.date %>
+  <%= @payment.date.to_s(:formatted_date) %>
 </p>
 <p>
 	<b>Amount:</b>
-	<%= @payment.amount %>
+	<%= number_to_currency(@payment.amount) %>
+</p>
+<p>
+  <b>Method:</b>
+  <%= @payment.source %>
 </p>
 <%= link_to 'Edit', edit_payment_path(@payment) %> |
 <%= link_to 'Back', payments_path %>
