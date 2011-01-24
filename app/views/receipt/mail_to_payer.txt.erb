@@ -1,0 +1,10 @@
+Thank you for paying your annual membership dues!
+
+Please keep this receipt as your record of the following payment:
+
+Date: <%= @payment.date.to_s(:formatted_date) %>
+Member: <%= @payment.member.firstname + " " + @payment.member.lastname %>
+Amount: <%= number_to_currency(@payment.amount) %>
+Method: <%= @payment.source %>
+
+If you have any questions or concerns, please feel free to reply to this email.
