@@ -229,3 +229,25 @@
 	width: 180px;
 	text-align: center;
 }
+
+#progress-bar {
+  float: left;
+  width: 50%;
+  height: 32px;
+  background-color: #C0C0C0;
+  line-height: 2em;
+}
+
+.progress-fill {
+  background-color: #387D50;
+  height: 32px;
+}
+
+#progress-statement {
+  line-height: 2em;
+  font-size: 1.5em;
+  float: right;
+  width: 45%;
+  text-align: left;
+  vertical-align: center;
+}

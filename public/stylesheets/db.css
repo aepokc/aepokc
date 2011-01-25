@@ -85,3 +85,38 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+#progress-bar {
+  margin: auto;
+  width: 50%;
+  height: 32px;
+  background-color: #C0C0C0;
+  line-height: 2em;
+}
+
+.progress-fill {  
+  background-color: #387D50;
+  height: 32px;
+}
+
+.progress-count {
+  width: 100%;
+  color: white;
+  vertical-align: center;
+  text-align: center;
+  font-weight: bold;
+}
+
+.clear	{
+	clear: both;
+	margin: 0;
+	padding: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}

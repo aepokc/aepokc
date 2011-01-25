@@ -4,10 +4,11 @@ class PagesController < ApplicationController
 	before_filter :authenticate_member!, :only => [:db]
 	layout 'admin'
 	
-	def db
+  def db
 		if current_member.leader == false
 			redirect_to members_profiles_directory_path
 		else
+      @progress = Payment.count/Member.count.to_f*100
 			@members = Member.order("lastname")
 			@member_count = Member.count
 			@confirmed_count = Member.where(:confirmation_token => nil).count

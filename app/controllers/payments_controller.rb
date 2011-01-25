@@ -21,6 +21,7 @@ class PaymentsController < ApplicationController
 	end
 	
   def index
+    @progress = Payment.count/Member.count.to_f*100
     @payments = Payment.find :all, :order => 'date desc'
 
     respond_to do |format|

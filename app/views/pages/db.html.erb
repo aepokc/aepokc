@@ -10,7 +10,6 @@
 		<meta name="keywords" content="aepokc,aep Oklahoma City,young professionals organization,yp organization,alliance of emerging professionals,Oklahoma City yp,Oklahoma City young professionals,Oklahoma yp,Oklahoma young professionals,young professionals networking,Oklahoma City jobs,Oklahoma jobs,Oklahoma City professional networking,Oklahoma City job fair,Oklahoma job fair,Oklahoma City career fair,Oklahoma job fair,Oklahoma City volunteer,Oklahoma City leadership,Oklahoma City adult sports" />
 		<%= stylesheet_link_tag 'db' %>
 		<%= javascript_include_tag :defaults %>
-		<%= javascript_include_tag 'crossfade.js' %>
 		<%= javascript_include_tag "analytics.js" %>
 		<%= csrf_meta_tag %>
 		<link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
@@ -44,11 +43,23 @@
 				</div>
 			</div>
 			<div class="hr">
-			</div>
+      </div>
+      <div class="center">
+        MEMBERS PAID
+      </div>
+      <div id="progress-bar">
+        <div class="progress-fill" style="width: <%= number_to_percentage(@progress, :precision => 2) %>;">
+          <div class="progress-count">
+            <%= number_to_percentage(@progress, :precision => 2) %>
+          </div>
+        </div>
+      </div>
+      <div class="clear">
+      </div>
 			<table>
 				<tr>
-					<th>Confirmed?&nbsp;&nbsp;</th>
-					<th>Leader?&nbsp;&nbsp;</th>
+					<th>C?&nbsp;&nbsp;</th>
+					<th>L?&nbsp;&nbsp;</th>
 					<th>Lastname, </th>
           <th>Firstname&nbsp;&nbsp;</th>
 					<th>Committee&nbsp;&nbsp;</th>

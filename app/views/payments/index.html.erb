@@ -3,6 +3,17 @@
 </b>
 <div class="hr">
 </div>
+<br />
+<div id="progress-bar">
+  <div class="progress-fill" style="width: <%= number_to_percentage(@progress, :precision => 2) %>;">
+  </div>
+</div>
+<div id="progress-statement">
+  <%= number_to_percentage(@progress, :precision => 2) %> of members have paid.
+</div>
+<div class="clear">
+</div>
+<br />
 <table>
   <tr>
     <th>Member</th>
