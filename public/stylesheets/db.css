@@ -1,9 +1,23 @@
 body { background-color: #362f2d; color: #333; }
 
-body, p, ol, ul, td {
+body, p, ol, ul {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
-  line-height: 18px;
+  font-size: 0.8em;  
+  line-height: 1.6em;
+}
+
+table {
+  text-align: left;
+  margin: auto;
+  padding: 20px 0 0 0;
+}
+
+th {
+  padding: 0 5px 5px 0;
+}
+
+td {  
+  padding: 0 5px 0 0;
 }
 
 pre {
@@ -24,15 +38,10 @@ div.field, div.actions {
   color: green;
 }
 
-.wrapper	{
-	position: relative;
-	border: 10px solid #fff;
-	width: 850px;
-	\width: 860px;
-	w\idth: 850px;
-	height: auto !important;
-	margin: auto;
-	text-align: left;
+.wrapper	{  
+  border: 10px solid #fff;  
+  width: 850px;  
+  margin: auto;  
 	background: #fff;
 }
 
@@ -55,42 +64,11 @@ div.field, div.actions {
 	margin-bottom: 10px;
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  margin-bottom: 0px;
-  background-color: #c00;
-  color: #fff;
-}
-
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
-
 #progress-bar {
   margin: auto;
   width: 50%;
   height: 32px;
-  background-color: #C0C0C0;
+  background-color: #e0e0e0;
   line-height: 2em;
 }
 

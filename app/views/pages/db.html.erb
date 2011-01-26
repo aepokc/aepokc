@@ -17,7 +17,7 @@
 	<body>
 		<br />
 		<div class="wrapper">
-				<%= image_tag('logo.jpg') %>
+			<%= image_tag('logo.jpg') %>
 			<div class="count">
 				profiles created
 				<br />
@@ -53,50 +53,48 @@
             <%= number_to_percentage(@progress, :precision => 2) %>
           </div>
         </div>
-      </div>
-      <div class="clear">
-      </div>
-			<table>
-				<tr>
-					<th>C?&nbsp;&nbsp;</th>
-					<th>L?&nbsp;&nbsp;</th>
-					<th>Lastname, </th>
-          <th>Firstname&nbsp;&nbsp;</th>
-					<th>Committee&nbsp;&nbsp;</th>
-					<th>Email</th>
-					<th>Paid?</th>
-				</tr>
-				<% @members.each do |m| %>
-					<tr>
-						<td><%= m.confirmed? ? image_tag('check.gif') : '' %>&nbsp;&nbsp;</td>
-					 	<td><%= m.leader? ? image_tag('check.gif') : '' %>&nbsp;&nbsp;</td>            
-							<% if m.profile.blank? %>
-								<td>
-                  <%= m.lastname %>
-                </td>
-                <td>
-                  <%= m.firstname %>
-                </td>&nbsp;&nbsp;
-							<% else %>
-                <td>
-                  <%= link_to m.lastname, '/members/profiles/' + m.profile.id.to_s %>
-                </td>
-                <td>
-                  <%= link_to m.firstname, '/members/profiles/' + m.profile.id.to_s %>
-                </td>&nbsp;&nbsp;
-							<% end %>          
-						<td><%= m.committee_name %>&nbsp;&nbsp;</td>
-						<td><%= m.email %></td>
-						<td>
-							<% if m.payments.blank? %>
-							 PAST DUE
-							<% else %>
-								<%= m.payments.last.date %> (<%= m.payments.last.source %>)
-							<% end %>
-						</td>
-					</tr>
-				<% end %>
-			</table>
+      </div>      
+        <table>
+  				<tr>
+            <th>C?</th>
+            <th>L?</th>
+            <th>Lastname, </th>
+            <th>Firstname</th>
+            <th>Committee</th>
+            <th>Email</th>
+            <th>Paid?</th>
+          </tr>
+          <% @members.each do |m| %>
+  					<tr>
+              <td><%= m.confirmed? ? image_tag('check.gif') : '' %></td>
+              <td><%= m.leader? ? image_tag('check.gif') : '' %></td>            
+              <% if m.profile.blank? %>
+  								<td>
+                    <%= m.lastname %>
+                  </td>
+                  <td>
+                    <%= m.firstname %>
+                  </td>
+                  <% else %>
+                  <td>
+                    <%= link_to m.lastname, '/members/profiles/' + m.profile.id.to_s %>
+                  </td>
+                  <td>
+                    <%= link_to m.firstname, '/members/profiles/' + m.profile.id.to_s %>
+                  </td>
+                  <% end %>          
+                  <td><%= m.committee_name %></td>
+                  <td><%= m.email %></td>
+  						<td>
+                <% if m.payments.blank? %>
+                PAST DUE
+                <% else %>
+                <%= m.payments.last.date %> (<%= m.payments.last.source %>)
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>        
 		</div>
 		<br />
 	</body>
