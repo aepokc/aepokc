@@ -83,6 +83,7 @@ div.field, div.actions {
   vertical-align: center;
   text-align: center;
   font-weight: bold;
+  line-height: 32px;
 }
 
 .clear	{
