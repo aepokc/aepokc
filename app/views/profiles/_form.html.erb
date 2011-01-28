@@ -15,7 +15,7 @@
     <%= f.file_field :avatar %>
 	</div>
   <div class="field">
-    <%= f.hidden_field :member_id, :value => current_member.id %>
+    <%= f.hidden_field :member_id, :value => @profile.id %>
   </div>    
   <div class="field">
     <%= f.label :email %>

@@ -1,5 +1,9 @@
 <b>
-	Welcome <%= current_member.firstname %>!
+  <% if current_member.nil? %>
+    Welcome admin!
+  <% else %>
+	  Welcome <%= current_member.firstname %>!
+  <% end %>
 </b>
 <br />
 <br />

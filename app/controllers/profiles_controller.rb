@@ -1,7 +1,15 @@
 class ProfilesController < ApplicationController
-	
-	before_filter :authenticate_member!
-  before_filter :verify_changed_password  
+  
+  before_filter :check_for_user  
+  
+  def check_for_user
+    if admin_signed_in?
+      :authenticate_admin!
+    else
+      :authenticate_member!
+      :verify_changed_password
+    end
+  end
   
 	def verify_changed_password
 		if member_signed_in?
@@ -58,22 +66,26 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-  	if current_member.profile.nil?
-  		respond_to do |format|
-  			format.html { redirect_to(new_members_profile_path, :notice => 'Here you can create your member profile.') }
-			end
-  	else
-		  @profile = Profile.find(params[:id])
-			if @profile.member.nil?
-		  	redirect_to "/members/profiles/directory", :notice => 'Members can only edit their own profile.'
-		  else
-				if @profile.member.id == current_member.id
-					render :view => "edit"
-				else
-					redirect_to "/members/profiles/directory", :notice => 'Members can only edit their own profile.'
-				end
-			end
-		end
+    if admin_signed_in?
+      @profile = Profile.find(params[:id])
+    else
+      if current_member.profile.nil?
+    		respond_to do |format|
+          format.html { redirect_to(new_members_profile_path, :notice => 'Here you can create your member profile.') }
+        end
+      else
+        @profile = Profile.find(params[:id])
+  			if @profile.member.nil?
+          redirect_to "/members/profiles/directory", :notice => 'Members can only edit their own profile.'
+        else
+  				if @profile.member.id == current_member.id
+            render :view => "edit"
+          else
+            redirect_to "/members/profiles/directory", :notice => 'Members can only edit their own profile.'
+          end
+        end
+      end
+    end
   end
 
   def create
