@@ -107,16 +107,21 @@
 	vertical-align: middle;
 }
 
+.spacer {
+    float: left;
+    width:280px;
+    height: 50px;
+}
+
 .gallery {
-  float: right;
-  width: 500px;  
+    position: relative;
 }
 
 .thumb a {
-  float: right;  
+  float: left;
   width: 50px;
   height: 50px;
-  padding: 5px;
+  padding: 3px;
 }
 
 .thumb a:hover {  
