@@ -1,4 +1,6 @@
 Aepokc::Application.routes.draw do |map|
+  
+  match 'membership/profiles/directory' => 'profiles#directory'
 
   namespace "members" do
   	match 'profiles/directory' => 'profiles#directory'
