@@ -1,15 +1,7 @@
 class ProfilesController < ApplicationController
   
-  before_filter :check_for_user  
-  
-  def check_for_user
-    if admin_signed_in?
-      :authenticate_admin!
-    else
-      :authenticate_member!
-      :verify_changed_password
-    end
-  end
+  before_filter :authenticate_member! || :authenticate_admin!
+  before_filter :verify_changed_password
   
 	def verify_changed_password
 		if member_signed_in?
