@@ -54,7 +54,7 @@
 	width: 560px;
 	\width: 600px;
 	w\idth: 560px;
-	min-height: 427px;
+	min-height: 270px;
 }
 
 .flash	{
@@ -114,14 +114,11 @@
 }
 
 .gallery {
-    position: absolute;
-    bottom: 0;
-    padding: 0 18px 18px 0;
-    width: 560px;
+    position: relative;
 }
 
 .thumb a {
-  float: right;
+  float: left;
   width: 50px;
   height: 50px;
   padding: 3px;
