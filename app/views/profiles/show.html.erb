@@ -77,7 +77,7 @@
 </p>
 <br />
 <br />
-<% if @profile.member_id == current_member.id %>
+<% if admin_signed_in? || @profile.member_id == current_member.id %>
 	<%= link_to 'Edit Profile', edit_members_profile_path(@profile) %>
 <% else %>
 <% end %>

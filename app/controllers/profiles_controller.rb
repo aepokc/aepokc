@@ -1,7 +1,15 @@
 class ProfilesController < ApplicationController
   
-  before_filter :authenticate_member! || :authenticate_admin!
-  before_filter :verify_changed_password
+  before_filter :authenticate_someone
+  
+  def authenticate_someone
+    if admin_signed_in?
+      warden.authenticate!(:scope => :admin)
+    else
+      warden.authenticate!(:scope => :member)
+      :verify_changed_password 
+    end
+  end
   
 	def verify_changed_password
 		if member_signed_in?
@@ -28,24 +36,28 @@ class ProfilesController < ApplicationController
   end
 
   def show
-  	if current_member.profile.blank?
-  		respond_to do |format|
-  			format.html { redirect_to(new_members_profile_path, :notice => 'You still need to tell us about yourself.') }
-			end
-  	else
-		  @profile = Profile.find(params[:id])
-
-		  respond_to do |format|
-		    format.html
-		    format.xml  { render :xml => @profile }
-		  end
-		end
+    if admin_signed_in?
+      @profile = Profile.find(params[:id])
+    else
+    	if current_member.profile.blank?
+        respond_to do |format|
+          format.html { redirect_to(new_members_profile_path, :notice => 'You still need to tell us about yourself.') }
+        end
+      else
+        @profile = Profile.find(params[:id])
+        
+  		  respond_to do |format|
+          format.html
+          format.xml  { render :xml => @profile }
+        end
+      end
+    end
   end
 
   def new
   	if current_member.profile.blank?
-		  @profile = Profile.new
-
+      @profile = Profile.new
+      
 		  respond_to do |format|
 		    format.html
 		    format.xml  { render :xml => @profile }
