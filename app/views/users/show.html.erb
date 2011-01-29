@@ -10,7 +10,7 @@
 <% end %>
 <% unless @member.profile.blank? %>
 	<p>
-		<%= link_to image_tag(@member.profile.avatar.url(:display)), members_profile_path(@member) %>
+		<%= link_to image_tag(@member.profile.avatar.url(:display)), members_profile_path(@member.profile.id) %>
 	</p>
 <% end %>
 <p>
