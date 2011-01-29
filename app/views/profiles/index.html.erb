@@ -15,8 +15,16 @@ Please choose from the navigation options to your left, and feel free to <%= lin
 </div>
 <div class="gallery">
   <% @profiles.each do |p| %>
-    <span class="thumb">
-      <%= link_to image_tag(p.avatar.url(:thumb)), '/members/profiles/' + p.id.to_s %>
-    </span>
+    <% if p.avatar_file_name.blank? %>
+      <% unless p.tname.blank? %>
+        <span class="thumb">
+          <%= link_to image_tag('http://img.tweetimag.es/i/' + p.tname + '_n'), '/members/profiles/' + p.id.to_s %>
+        </span>
+      <% end %>
+    <% else %>
+      <span class="thumb">
+        <%= link_to image_tag(p.avatar.url(:thumb)), '/members/profiles/' + p.id.to_s %>
+      </span>
+    <% end %>      
   <% end %>
 </div>

@@ -32,7 +32,7 @@ class ProfilesController < ApplicationController
   end	
 	
   def index
-    @profiles = Profile.get_profile_avatars
+    @profiles = Profile.all
   end
 
   def show
