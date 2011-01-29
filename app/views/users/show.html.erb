@@ -9,9 +9,17 @@
 	</p>
 <% end %>
 <% unless @member.profile.blank? %>
-	<p>
-		<%= link_to image_tag(@member.profile.avatar.url(:display)), members_profile_path(@member.profile.id) %>
-	</p>
+  <div class="profile-picture">
+    <% if @member.profile.avatar_file_name.nil? %>
+      <% if @member.profile.tname.nil? %>
+        <%= image_tag('/images/noavatar.gif') %>
+      <% else %>
+        <%= link_to image_tag('http://img.tweetimag.es/i/' + @member.profile.tname + '_o'), members_profile_path(@member.profile.id) %>
+      <% end %>
+    <% else %>
+      <%= link_to image_tag(@member.profile.avatar.url(:display)), members_profile_path(@member.profile.id) %>
+    <% end %>
+  </div>
 <% end %>
 <p>
   <b>Name:</b>

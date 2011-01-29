@@ -3,13 +3,17 @@
 </b>
 <div class="hr">
 </div>
-<p>
+<div class="profile-picture">
 	<% if @profile.avatar_file_name.nil? %>
-		<%= image_tag('/images/noavatar.gif') %>
+    <% if @profile.tname.nil? %>
+      <%= image_tag('/images/noavatar.gif') %>
+    <% else %>
+      <%= link_to image_tag('http://img.tweetimag.es/i/' + @profile.tname + '_o'), 'http://twitter.com/' + @profile.tname %>
+    <% end %>
 	<% else %>
 		<%= link_to image_tag(@profile.avatar.url(:display)), @profile.avatar.url %>
 	<% end %>
-</p>
+</div>
 <% unless @profile.email.blank? %>
 	<p>
 		<b>Email:</b>
