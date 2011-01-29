@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 	
 	layout 'profiles'
 	
-  def directory    
+  def directory
     @members = Member.paginate :page=>params[:page], :order=>'lastname', :per_page => 10    
   end	
 	
