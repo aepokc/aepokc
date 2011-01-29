@@ -11,7 +11,7 @@
 <% unless @member.profile.blank? %>
   <div class="profile-picture">
     <% if @member.profile.avatar_file_name.nil? %>
-      <% if @member.profile.tname.nil? %>
+      <% if @member.profile.tname.blank? %>
         <%= image_tag('/images/noavatar.gif') %>
       <% else %>
         <%= link_to image_tag('http://img.tweetimag.es/i/' + @member.profile.tname + '_o'), members_profile_path(@member.profile.id) %>
