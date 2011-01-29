@@ -22,13 +22,8 @@ class ProfilesController < ApplicationController
 	
 	layout 'profiles'
 	
-	def directory
-    @members = Member.paginate :page=>params[:page], :order=>'lastname', :per_page => 10
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @profiles }
-    end
+  def directory    
+    @members = Member.paginate :page=>params[:page], :order=>'lastname', :per_page => 10    
   end	
 	
   def index
@@ -39,17 +34,10 @@ class ProfilesController < ApplicationController
     if admin_signed_in?
       @profile = Profile.find(params[:id])
     else
-    	if current_member.profile.blank?
-        respond_to do |format|
-          format.html { redirect_to(new_members_profile_path, :notice => 'You still need to tell us about yourself.') }
-        end
+      if current_member.profile.blank?
+        redirect_to(new_members_profile_path, :notice => 'You still need to tell us about yourself.')       
       else
         @profile = Profile.find(params[:id])
-        
-  		  respond_to do |format|
-          format.html
-          format.xml  { render :xml => @profile }
-        end
       end
     end
   end
@@ -57,15 +45,8 @@ class ProfilesController < ApplicationController
   def new
   	if current_member.profile.blank?
       @profile = Profile.new
-      
-		  respond_to do |format|
-		    format.html
-		    format.xml  { render :xml => @profile }
-		  end
-		else
-			respond_to do |format|
-				format.html { redirect_to(members_profiles_path, :notice => 'You have already created a profile.') }
-			end
+    else      
+      redirect_to(members_profiles_path, :notice => 'You have already created a profile.')      
 		end
   end
 
@@ -73,10 +54,8 @@ class ProfilesController < ApplicationController
     if admin_signed_in?
       @profile = Profile.find(params[:id])
     else
-      if current_member.profile.nil?
-    		respond_to do |format|
-          format.html { redirect_to(new_members_profile_path, :notice => 'Here you can create your member profile.') }
-        end
+      if current_member.profile.nil?        
+        redirect_to(new_members_profile_path, :notice => 'Here you can create your member profile.')         
       else
         @profile = Profile.find(params[:id])
   			if @profile.member.nil?
@@ -95,44 +74,28 @@ class ProfilesController < ApplicationController
   def create
   	if current_member.profile.nil?
 		  @profile = Profile.new(params[:profile])
-
-		  respond_to do |format|
-		    if @profile.save
-		      format.html { redirect_to([:members, @profile], :notice => 'Profile was successfully created.') }
-		      format.xml  { render :xml => @profile, :status => :created, :location => @profile }
-		    else
-		      format.html { render :action => "new" }
-		      format.xml  { render :xml => @profile.errors, :status => :unprocessable_entity }
-		    end
+      if @profile.save
+		    redirect_to([:members, @profile], :notice => 'Profile was successfully created.')
+      else
+        render :action => "new"        
 		  end
 		else
-			respond_to do |format|
-				format.html { redirect_to('/members/profiles/' + current_member.profile.id.to_s, :notice => 'You have already created a profile.') }
-			end
+      redirect_to('/members/profiles/' + current_member.profile.id.to_s, :notice => 'You have already created a profile.')      
 		end
   end
 
   def update
     @profile = Profile.find(params[:id])
-
-    respond_to do |format|
-      if @profile.update_attributes(params[:profile])
-        format.html { redirect_to([:members, @profile], :notice => 'Profile was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @profile.errors, :status => :unprocessable_entity }
-      end
+    if @profile.update_attributes(params[:profile])
+      redirect_to([:members, @profile], :notice => 'Profile was successfully updated.')      
+    else
+      render :action => "edit"      
     end
   end
 
   def destroy
     @profile = Profile.find(params[:id])
     @profile.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(members_profiles_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(members_profiles_url)
   end
 end

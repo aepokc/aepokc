@@ -3,6 +3,7 @@
 	margin: auto;
 	text-align: center;
 	background: #362f2d;
+  overflow-y: scroll;
 }
 
 a	{

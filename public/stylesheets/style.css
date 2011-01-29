@@ -138,6 +138,10 @@
   height: 50px;
 }
 
+#directory {
+  display: none;
+}
+
 .frsvp a {
 	float: left;
 	background: url(/images/rsvp.png) no-repeat;
