@@ -43,11 +43,15 @@ class ProfilesController < ApplicationController
   end
 
   def new
-  	if current_member.profile.blank?
-      @profile = Profile.new
-    else      
-      redirect_to(members_profiles_path, :notice => 'You have already created a profile.')      
-		end
+    if admin_signed_in?
+      redirect_to(members_profiles_path, :notice => 'As an admin, you can only edit profiles. Members must create their own.')
+    else
+  	  if current_member.profile.blank?
+        @profile = Profile.new
+      else      
+        redirect_to(members_profiles_path, :notice => 'You have already created a profile.')      
+		  end
+    end
   end
 
   def edit
