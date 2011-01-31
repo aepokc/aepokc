@@ -27,7 +27,7 @@ class ProfilesController < ApplicationController
   end	
 	
   def index
-    @profiles = Profile.all
+    @profiles = Profile.find :all, :order => "RAND()"
   end
 
   def show
