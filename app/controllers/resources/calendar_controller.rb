@@ -1,6 +1,6 @@
 class Resources::CalendarController < ApplicationController
-
-	before_filter :verify_changed_password  
+	before_filter :verify_changed_password
+	layout 'resources'
   
 	def verify_changed_password
 		if member_signed_in?
@@ -9,13 +9,10 @@ class Resources::CalendarController < ApplicationController
 			end
 		else
 		end
-	end
-	
-	layout 'resources'
+  end  
 	
 	def show
     @events = Event.all
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
-  end
-    
+  end 
 end

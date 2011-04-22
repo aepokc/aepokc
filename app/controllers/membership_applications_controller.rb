@@ -1,5 +1,4 @@
 class MembershipApplicationsController < ApplicationController
-
 	layout 'applicants'
 	before_filter :authenticate_admin!, :only => [:index, :show]
 
@@ -12,21 +11,11 @@ class MembershipApplicationsController < ApplicationController
   def show
     @membership_application = MembershipApplication.find(params[:id])
     @page = Page.find_by_link("membership")
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @membership_application }
-    end
   end
 
   def new
     @membership_application = MembershipApplication.new
     @page = Page.find_by_link("membership")
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @membership_application }
-    end
   end
 
   def create
@@ -47,9 +36,6 @@ class MembershipApplicationsController < ApplicationController
     @membership_application.destroy
     @page = Page.find_by_link("membership")
     
-    respond_to do |format|
-      format.html { redirect_to(membership_applications_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(membership_applications_url)
   end
 end

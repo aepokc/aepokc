@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-  
   before_filter :authenticate_someone
   
   def authenticate_someone

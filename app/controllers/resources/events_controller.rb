@@ -1,5 +1,4 @@
 class Resources::EventsController < ApplicationController
-
 	before_filter :verify_changed_password  
   
 	def verify_changed_password
@@ -44,29 +43,21 @@ class Resources::EventsController < ApplicationController
 
   def create
     @event = Event.new(params[:event])
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to([:resources, @event], :notice => 'Event was successfully created.') }
-        format.xml  { render :xml => [:resources, @event], :status => :created, :location => [:resources, @event] }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
-      end
+    
+    if @event.save
+      redirect_to([:resources, @event], :notice => 'Event was successfully created.')
+    else
+      render :action => "new"
     end
   end
 
   def update
     @event = Event.find(params[:id])
 
-    respond_to do |format|
-      if @event.update_attributes(params[:event])
-        format.html { redirect_to([:resources, @event], :notice => 'Event was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
-      end
+    if @event.update_attributes(params[:event])
+      redirect_to([:resources, @event], :notice => 'Event was successfully updated.')      
+    else
+      render :action => "edit"
     end
   end
 
@@ -74,9 +65,6 @@ class Resources::EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(resources_events_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(resources_events_url)
   end
 end

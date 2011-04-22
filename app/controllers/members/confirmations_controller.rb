@@ -1,5 +1,4 @@
 class Members::ConfirmationsController < Devise::ConfirmationsController
-
   def show
     self.resource = resource_class.confirm_by_token(params[:confirmation_token])
 
@@ -10,5 +9,4 @@ class Members::ConfirmationsController < Devise::ConfirmationsController
       render_with_scope :new
     end
   end
-  
 end

@@ -1,5 +1,4 @@
 class PaymentsController < ApplicationController
-
 	before_filter :authenticate_admin!, :except => [:dues, :mail, :cancelled, :processed]
 	before_filter :authenticate_member!, :only => [:dues]
 	layout 'admin'
@@ -23,29 +22,14 @@ class PaymentsController < ApplicationController
   def index
     @progress = Payment.count/Member.count.to_f*100
     @payments = Payment.find :all, :order => 'date desc'
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @payments }
-    end
   end
 
   def show
     @payment = Payment.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @payment }
-    end
   end
 
   def new
     @payment = Payment.new
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @payment }
-    end
   end
 
   def edit
@@ -54,30 +38,22 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = Payment.new(params[:payment])
-
-    respond_to do |format|
-      if @payment.save
-        Receipt.mail_to_payer(@payment).deliver
-        format.html { redirect_to(@payment, :notice => 'Payment was successfully recorded.') }
-        format.xml  { render :xml => @payment, :status => :created, :location => @payment }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @payment.errors, :status => :unprocessable_entity }
-      end
+    
+    if @payment.save
+      Receipt.mail_to_payer(@payment).deliver
+      redirect_to(@payment, :notice => 'Payment was successfully recorded.')
+    else
+      render :action => "new"
     end
   end
 
   def update
     @payment = Payment.find(params[:id])
 
-    respond_to do |format|
-      if @payment.update_attributes(params[:payment])
-        format.html { redirect_to(@payment, :notice => 'Payment was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @payment.errors, :status => :unprocessable_entity }
-      end
+    if @payment.update_attributes(params[:payment])
+      redirect_to(@payment, :notice => 'Payment was successfully updated.')
+    else
+      render :action => "edit"
     end
   end
 
@@ -85,9 +61,6 @@ class PaymentsController < ApplicationController
     @payment = Payment.find(params[:id])
     @payment.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(payments_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(payments_url)
   end
 end

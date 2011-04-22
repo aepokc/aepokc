@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
 	before_filter :authenticate_admin!, :except => [:db, :mail, :show, :home, :application]
 	before_filter :authenticate_member!, :only => [:db]
 	layout 'admin'
@@ -45,21 +44,11 @@ class PagesController < ApplicationController
   
   def index
     @pages = Page.find_parents
-    @subpages = Page.find_subpages
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @pages }
-    end
+    @subpages = Page.find_subpages    
   end
 
   def new
     @page = Page.new
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @page }
-    end
   end
 
   def edit
@@ -68,29 +57,21 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(params[:page])
-
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to([@page], :notice => 'Page was successfully created.') }
-        format.xml  { render :xml => [@page], :status => :created, :location => [@page] }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @page.errors, :status => :unprocessable_entity }
-      end
+    
+    if @page.save
+      redirect_to([@page], :notice => 'Page was successfully created.')
+    else
+      render :action => "new"
     end
   end
 
   def update
     @page = Page.find(params[:id])
 
-    respond_to do |format|
-      if @page.update_attributes(params[:page])
-        format.html { redirect_to([@page], :notice => 'Page was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @page.errors, :status => :unprocessable_entity }
-      end
+    if @page.update_attributes(params[:page])
+      redirect_to([@page], :notice => 'Page was successfully updated.')
+    else
+      render :action => "edit"
     end
   end
 
@@ -98,9 +79,6 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     @page.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(pages_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(pages_url)
   end
 end

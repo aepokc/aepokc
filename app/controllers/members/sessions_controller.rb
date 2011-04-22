@@ -1,5 +1,4 @@
 class Members::SessionsController < Devise::SessionsController
-
   def new
     clean_up_passwords(build_resource)
     render_with_scope :new
@@ -17,5 +16,4 @@ class Members::SessionsController < Devise::SessionsController
     sign_out(resource_name) #change redirect from edit to sign_in
     redirect_to new_member_session_path
   end
-
 end
