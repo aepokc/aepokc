@@ -1,7 +1,7 @@
 class MembershipApplicationsController < ApplicationController
 
 	layout 'applicants'
-	before_filter :authenticate_admin!, :only => [:index]
+	before_filter :authenticate_admin!, :only => [:index, :show]
 
   def index
     @membership_applications = MembershipApplication.all(:order => 'id DESC')
@@ -32,17 +32,14 @@ class MembershipApplicationsController < ApplicationController
   def create
     @membership_application = MembershipApplication.new(params[:membership_application])
     @page = Page.find_by_link("membership")
-
-    respond_to do |format|
-      if @membership_application.save
-      	Applicant.mail_to_reviewer(@membership_application).deliver
-        format.html { redirect_to(@membership_application, :notice => 'Your application will be reviewed by our Membership Committee, and you will be contacted soon. Thank you for your interest in aep!') }
-        format.xml  { render :xml => @membership_application, :status => :created, :location => @membership_application }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @membership_application.errors, :status => :unprocessable_entity }
-      end
-    end
+    @contact = Page.find_by_link("contact")
+    
+    if @membership_application.save
+      Applicant.mail_to_reviewer(@membership_application).deliver
+      redirect_to(@contact, :notice => 'Submitted successfully. Your application will be reviewed by our Membership Committee, and you will be contacted soon. Thank you for your interest in aep!')
+    else
+      render :action => "new"
+    end      
   end
 
   def destroy
