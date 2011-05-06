@@ -4,7 +4,7 @@ gem 'rails', '3.0.0'
 # user authentication
 gem 'devise', '1.1.2'
 # file attachment
-gem 'paperclip', '2.3.4'
+gem 'paperclip', '2.3.6'
 # list formatting
 gem 'will_paginate', '3.0.pre'
 # mailchimp integration
