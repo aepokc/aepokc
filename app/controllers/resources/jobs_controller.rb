@@ -67,6 +67,6 @@ class Resources::JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.destroy
 
-    format.html { redirect_to(resources_jobs_url)
+    format.html redirect_to(resources_jobs_url)
   end
 end
