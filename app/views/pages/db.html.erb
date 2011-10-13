@@ -62,35 +62,39 @@
             <th>Firstname</th>
             <th>Committee</th>
             <th>Email</th>
-            <th>Paid?</th>
+            <th>Last Payment</th>
           </tr>
           <% @members.each do |m| %>
-  					<tr>
+          <% if m.payments.blank? || (Date.today - m.payments.last.date).to_i>365 %>
+  					<tr style="background-color:#CCC;">
+          <% else %>
+            <tr>
+          <% end %>
               <td><%= m.confirmed? ? image_tag('check.gif') : '' %></td>
               <td><%= m.leader? ? image_tag('check.gif') : '' %></td>            
-              <% if m.profile.blank? %>
-  								<td>
-                    <%= m.lastname %>
-                  </td>
-                  <td>
-                    <%= m.firstname %>
-                  </td>
-                  <% else %>
-                  <td>
-                    <%= link_to m.lastname, '/members/profiles/' + m.profile.id.to_s %>
-                  </td>
-                  <td>
-                    <%= link_to m.firstname, '/members/profiles/' + m.profile.id.to_s %>
-                  </td>
-                  <% end %>          
-                  <td><%= m.committee_name %></td>
-                  <td><%= m.email %></td>
+            <% if m.profile.blank? %>
   						<td>
-                <% if m.payments.blank? %>
-                PAST DUE
-                <% else %>
+                <%= m.lastname %>
+              </td>
+              <td>
+                <%= m.firstname %>
+              </td>
+            <% else %>
+              <td>
+                <%= link_to m.lastname, '/members/profiles/' + m.profile.id.to_s %>
+              </td>
+              <td>
+                <%= link_to m.firstname, '/members/profiles/' + m.profile.id.to_s %>
+              </td>
+            <% end %>          
+              <td><%= m.committee_name %></td>
+              <td><%= m.email %></td>
+              <td>
+              <% if m.payments.blank? %>              
+                Never
+              <% else %>              
                 <%= m.payments.last.date %> (<%= m.payments.last.source %>)
-                <% end %>
+              <% end %>
               </td>
             </tr>
           <% end %>

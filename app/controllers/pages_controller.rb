@@ -7,9 +7,10 @@ class PagesController < ApplicationController
 		if current_member.leader == false
 			redirect_to members_profiles_directory_path
 		else
-      @progress = Payment.count/Member.count.to_f*100
+      members = Member.count
+      @progress = Payment.current_count/members.to_f*100
 			@members = Member.order("lastname")
-			@member_count = Member.count
+			@member_count = members
 			@confirmed_count = Member.where(:confirmation_token => nil).count
 			@profile_count = Profile.count
 			
