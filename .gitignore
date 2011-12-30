@@ -1,4 +1,8 @@
 .bundle
+.DS_Store
+.redcar
+.redcar/*
+db/dump.sql
 db/*.sqlite3
 log/
 tmp/**/*

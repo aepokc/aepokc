@@ -91,7 +91,7 @@
               <td><%= m.email %></td>
               <td>
               <% if m.payments.blank? %>              
-                Never
+                Never or before 2010
               <% else %>              
                 <%= m.payments.last.date %> (<%= m.payments.last.source %>)
               <% end %>

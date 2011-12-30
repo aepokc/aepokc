@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
 	end
 	
   def index
-    @progress = Payment.count/Member.count.to_f*100
+    @progress = Payment.current_count/Member.count.to_f*100
     @payments = Payment.find :all, :order => 'date desc'
   end
 

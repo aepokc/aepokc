@@ -1,48 +1,47 @@
 Aepokc::Application.routes.draw do |map|
-  
-  match 'membership/profiles/directory' => 'profiles#directory'
+  get 'membership/profiles/directory' => 'profiles#directory'
 
   namespace "members" do
-  	match 'profiles/directory' => 'profiles#directory'
-  	resources :profiles
+    match 'profiles/directory' => 'profiles#directory'
+    resources :profiles
   end
   
-  match 'dues' => 'payments#dues'
-  match 'dues/mail' => 'payments#mail'
-  match 'dues/cancelled' => 'payments#cancelled'
-  match 'dues/processed' => 'payments#processed'
-  match 'db' => 'pages#db'
-  match 'mail' => 'pages#mail'
-	match 'admin' => 'pages#admin'
+  get 'dues' => 'payments#dues'
+  get 'dues/mail' => 'payments#mail'
+  get 'dues/cancelled' => 'payments#cancelled'
+  get 'dues/processed' => 'payments#processed'
+  get 'db' => 'pages#db'
+  get 'mail' => 'pages#mail'
+  get 'admin' => 'pages#admin'
   devise_for :admin, :controllers => { :sessions => "admin/sessions" }
   devise_for :members, :controllers => { :registrations => "members/registrations", :sessions => "members/sessions" }
   
-  match 'members/:id' => 'users#show', :as => 'member'
-  match 'members' => 'users#index'
-  resources :users, :as => 'members', :only => [:destroy]
+  get 'members/:id' => 'users#show', :as => 'member'
+  get 'members' => 'users#index'
+  delete 'member/:id' => 'users#destroy', :as => 'destroy_member'
   
-  match 'membership/applications' => 'membership_applications#index'
-  match 'membership/application' => 'membership_applications#new'
+  get 'membership/applications' => 'membership_applications#index'
+  get 'membership/application' => 'membership_applications#new'
+  post 'membership/applications' => 'membership_applications#create'
   
-  resources :membership_applications, :except => [:index, :new]
+  resources :membership_applications, :except => [:index, :new, :create]
   
-	#  devise_scope :member do
-	#  	resources :registrations, :module => "members", :only => [:index, :show], :as => :members
-	#  end 
+  #  devise_scope :member do
+  #   resources :registrations, :module => "members", :only => [:index, :show], :as => :members
+  #  end 
   
-  match 'resources/calendar' => 'resources/calendar#show'
+  get 'resources/calendar' => 'resources/calendar#show'
   
-	namespace "resources" do
-		resources :events
-		resources :jobs
-	end
+  namespace "resources" do
+    resources :events
+    resources :jobs
+  end
 
   resources :payments
-	resources :pages
+  resources :pages
   
-  match ':parent/:link' => 'pages#show'
-  match ':link' => 'pages#show'
-	
+  get ':parent/:link' => 'pages#show'
+  get ':link' => 'pages#show'
+  
   root :to => "pages#home"
-
 end
