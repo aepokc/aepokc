@@ -31,7 +31,6 @@ GEM
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    cocaine (0.2.1)
     devise (1.1.2)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 0.10.7)
@@ -57,11 +56,9 @@ GEM
     multi_json (1.0.4)
     multi_xml (0.4.1)
     mysql (2.8.1)
-    paperclip (2.4.5)
-      activerecord (>= 2.3.0)
-      activesupport (>= 2.3.2)
-      cocaine (>= 0.0.2)
-      mime-types
+    paperclip (2.3.6)
+      activerecord
+      activesupport
     polyglot (0.3.3)
     rack (1.2.5)
     rack-mount (0.6.14)
@@ -100,6 +97,6 @@ DEPENDENCIES
   devise (= 1.1.2)
   gibbon (= 0.3.5)
   mysql (= 2.8.1)
-  paperclip (= 2.4.5)
+  paperclip (= 2.3.6)
   rails (= 3.0.3)
   will_paginate (= 3.0.2)
