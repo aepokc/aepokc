@@ -1,13 +1,8 @@
-if RUBY_VERSION =~ /1.9/
-  Encoding.default_external = Encoding::UTF_8
-  Encoding.default_internal = Encoding::UTF_8
-end
-
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 # user authentication
-gem 'devise', '1.5.3'
+gem 'devise', '1.1.2'
 # file attachment
 gem 'paperclip', '2.4.5'
 # list formatting
