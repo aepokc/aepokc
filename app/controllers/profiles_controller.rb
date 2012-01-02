@@ -1,24 +1,5 @@
 class ProfilesController < ApplicationController
   before_filter :authenticate_someone
-  
-  def authenticate_someone
-    if admin_signed_in?
-      warden.authenticate!(:scope => :admin)
-    else
-      warden.authenticate!(:scope => :member)
-      :verify_changed_password 
-    end
-  end
-  
-	def verify_changed_password
-		if member_signed_in?
-			unless current_member.random_password == 'replaced'
-				redirect_to '/members/edit', :notice => 'You must replace your temporary password before proceeding.'
-			end
-		else
-		end
-	end
-	
 	layout 'profiles'
 	
   def directory
