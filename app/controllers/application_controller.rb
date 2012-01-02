@@ -8,15 +8,6 @@ class ApplicationController < ActionController::Base
    	@tabs = Page.find(:all, :conditions => ["parent_id IS NULL", true], :limit => 6, :order => 'position')
   end
   
-  def verify_changed_password
-    if member_signed_in?
-      unless current_member.random_password == 'replaced'
-        redirect_to '/members/edit', :notice => 'You must replace your temporary password before proceeding.'
-      end
-    else
-    end
-  end
-  
   def authenticate_someone
     if admin_signed_in?
       warden.authenticate!(:scope => :admin)
@@ -35,6 +26,15 @@ class ApplicationController < ActionController::Base
       end
     else
 	   	"application"
+    end
+  end
+  
+  def verify_changed_password
+    if member_signed_in?
+      unless current_member.random_password == 'replaced'
+        redirect_to '/members/edit', :notice => 'You must replace your temporary password before proceeding.'
+      end
+    else
     end
   end
 end
