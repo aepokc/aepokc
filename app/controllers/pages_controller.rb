@@ -1,40 +1,40 @@
 class PagesController < ApplicationController
-	before_filter :authenticate_admin!, :except => [:db, :mail, :show, :home, :application]
-	before_filter :authenticate_someone, :only => [:db]
-	layout 'admin'
-	
+  before_filter :authenticate_admin!, :except => [:db, :mail, :show, :home, :application]
+  before_filter :authenticate_someone, :only => [:db]
+  layout 'admin'
+  
   def db
-		if current_member.leader == false
-			redirect_to members_profiles_directory_path
-		else
+    if !current_admin && current_member.leader == false
+      redirect_to members_profiles_directory_path
+    else
       members = Member.count
       @progress = Payment.current_count/members.to_f*100
-			@members = Member.order("lastname")
-			@member_count = members
-			@confirmed_count = Member.where(:confirmation_token => nil).count
-			@profile_count = Profile.count
-			
-			render :layout => false
-		end
-	end
+      @members = Member.order("lastname")
+      @member_count = members
+      @confirmed_count = Member.where(:confirmation_token => nil).count
+      @profile_count = Profile.count
+      
+      render :layout => false
+    end
+  end
   
-	def show
-		if params[:link]
-		  @page = Page.find_by_link(params[:link])
-		  raise ActiveRecord::RecordNotFound, "Page not found" if @page.nil?
-		else
-		  @page = Page.find(params[:id])
-		end
-		render :layout => 'application'
+  def show
+    if params[:link]
+      @page = Page.find_by_link(params[:link])
+      raise ActiveRecord::RecordNotFound, "Page not found" if @page.nil?
+    else
+      @page = Page.find(params[:id])
+    end
+    render :layout => 'application'
   end
   
   def home
     @feed_events = Event.find_feed
-   	render :layout => false
+    render :layout => false
   end
   
   def mail
-   	render :layout => false
+    render :layout => false
   end
   
   def admin
