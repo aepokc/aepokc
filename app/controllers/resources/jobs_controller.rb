@@ -1,18 +1,14 @@
 class Resources::JobsController < ApplicationController
-  before_filter :verify_changed_password  
-  
-	def verify_changed_password
-		if member_signed_in?
-			unless current_member.random_password == 'replaced'
-				redirect_to '/members/edit', :notice => 'You must replace your temporary password before proceeding.'
-			end
-		else
-		end
-	end
-	
+  before_filter :verify_changed_password
 	before_filter :authenticate_member!
 
 	layout 'resources'
+	
+	def email
+	  @job = Job.find(params[:id])
+	  @creator = Member.find(@job.member_id)
+	  render :layout => false
+	end
 	
   def index
     @jobs = Job.find_fresh
@@ -44,6 +40,7 @@ class Resources::JobsController < ApplicationController
 
     if @job.save
       @job.expiration = @job.updated_at+14.days
+      @job.notify
       @job.save
       redirect_to([:resources, @job], :notice => 'Job was successfully created.')
     else

@@ -32,6 +32,8 @@ Aepokc::Application.routes.draw do |map|
   
   get 'resources/calendar' => 'resources/calendar#show'
   
+  get 'emails/jobs/:id' => 'resources/jobs#email', :as => 'job_email'
+  
   namespace "resources" do
     resources :events
     resources :jobs

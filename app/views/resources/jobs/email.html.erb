@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta property="og:title" content="*|MC:SUBJECT|*">
+    <title>*|MC:SUBJECT|*</title>
+  </head>
+  <body style="font-family:Helvetica;background-color:#362F2D;margin:0;top:0;left:0;color:#505050;">
+    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#362F2D;">
+      <tr>
+        <td align="center">
+          <table cellspacing="0" cellpadding="0" border="0" width="620" style="font-size:10px;">
+            <tr>
+              <td height="50">
+              </td>
+              <td height="50" style="text-align:right;">
+              	<a href="http://aepokc.com" style="color:#387D50;text-decoration:none;">aepokc.com</a> is growing!</div>
+              </td>
+              <td height="50">
+              </td>
+            </tr>
+            <tr>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+            </tr>
+            <tr>
+              <td width="10" style="background-color:#ffffff;">
+              </td>
+              <td style="background-color:#ffffff;">
+              	<img src="http://gallery.mailchimp.com/ea16da08a7d1eb53d26fffc19/images/profiles_email_header.jpg" alt="Alliance of Emerging Professionals, Inc" width="600" height="120" id="headerImage campaign-icon">
+              </td>
+              <td width="10" style="background-color:#ffffff;">
+              </td>
+            </tr>
+            <tr>
+              <td width="10" style="background-color:#fff;">
+              </td>
+              <td align="center" width="600" style="background-color:#ffffff;">
+                <p style="padding:10px 30px;font-size:18px;text-align:left;">
+                  Hey *|TITLE:FNAME|*!
+                </p>
+                <p style="padding:10px 30px;font-size:18px;text-align:left;">
+                  We just wanted to let you know that <%= @creator.firstname + ' ' + @creator.lastname %> just added a career opportunity to our <i>members only</i> job board.
+                </p>
+                <p style="padding:10px 30px;font-size:18px;text-align:left;">
+                  <a style="color:#505050;text-decoration:none;font-weight:bold;" href="<%= resources_job_url(@job) %>">Click here to learn more about the opportunity to become a <span style="color:#387D50;font-weight:bold;"><%= @job.title %></span> in <%= @job.location %></a>.
+                </p>
+                <p style="padding:10px 30px;font-size:18px;text-align:left;">
+                  <img alt="aepAdmin" src="http://gallery.mailchimp.com/ea16da08a7d1eb53d26fffc19/images/aepAdmin.jpg" style="border: medium none; font-size: 14px; font-weight: bold; height: auto; line-height: 100%; outline: medium none; text-decoration: none; text-transform: capitalize; display: inline;" border="0" height="24" width="101">
+                </p>
+              </td>
+              <td width="10" style="background-color:#ffffff;">
+              </td>
+            </tr>
+            <tr>
+              <td width="10" style="background-color:#ffffff;">
+              </td>
+              <td style="background-color:#ffffff;">
+              	<%= link_to image_tag('/images/headshot_gallery.jpg'), members_profiles_url %>
+              </td>
+              <td width="10" style="background-color:#ffffff;">
+              </td>
+            </tr>
+            <tr>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+            </tr>    
+            <tr>
+              <td height="50">
+              </td>
+              <td align="center" height="50" style="color:#505050;font-size:10px;text-align:right;">
+                &#169; 2012 Alliance of Emerging Professionals, Inc. All rights reserved.
+              </td>
+              <td height="50">
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
