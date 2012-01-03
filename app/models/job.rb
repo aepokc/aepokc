@@ -25,7 +25,9 @@ class Job < ActiveRecord::Base
         :title => 'Job Notification: '+self.title,
         :auto_tweet => true
       }),
-      :content => job_email_url(self.id)
+      :content => ({
+        :url => job_email_url(self.id)
+      )}
     })
   end
 															
