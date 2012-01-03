@@ -27,7 +27,7 @@ class Job < ActiveRecord::Base
       }),
       :content => ({
         :url => job_email_url(self.id)
-      )}
+      })
     })
   end
 															
