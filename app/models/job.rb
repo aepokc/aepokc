@@ -26,7 +26,7 @@ class Job < ActiveRecord::Base
         :auto_tweet => true
       }),
       :content => ({
-        :url => job_email_url(self.id)
+        :url => 'http://aepokc.com/emails/jobs/'+self.id
       })
     })
   end
