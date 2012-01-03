@@ -17,8 +17,8 @@ class Job < ActiveRecord::Base
     Gibbon.campaign_create({
       :type => 'regular',
       :options => ({
-        :subject => 'aep | OKC Career Opportunity',
         :list_id => '7fca37265a',
+        :subject => 'aep | OKC Career Opportunity',
         :from_email => 'admin@aepokc.com',
         :from_name => 'aep Admin',
         :to_name => '*|FNAME|* *|LNAME|*',
