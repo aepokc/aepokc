@@ -31,9 +31,8 @@ class Job < ActiveRecord::Base
       })
     })
     ActiveRecord::Base.logger.info "MailChimp campaign creation response: #{campaign}"
-    sender = Gibbon.campaign_send_test({
-      :cid => campaign,
-      :test_emails => ['mail@micahalcorn.com']
+    sender = Gibbon.campaign_send_now({
+      :cid => campaign
     })
     ActiveRecord::Base.logger.info "MailChimp campaign sending success: #{sender}"
   end
