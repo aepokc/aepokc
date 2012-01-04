@@ -1,5 +1,4 @@
 class Job < ActiveRecord::Base
-
 	belongs_to :member
 	
 	def current_date
@@ -14,7 +13,8 @@ class Job < ActiveRecord::Base
 															:allow_blank => true
   
   def notify
-    Gibbon.campaign_create({
+    url = 'http://aepokc.com/emails/jobs/'+self.id.to_s
+    campaign = Gibbon.campaign_create({
       :type => 'regular',
       :options => ({
         :list_id => '7fca37265a',
@@ -26,13 +26,19 @@ class Job < ActiveRecord::Base
         :auto_tweet => true
       }),
       :content => ({
-        :url => 'http://aepokc.com/emails/jobs/'+self.id.to_s
+        :url => url,
+        :text => 'Just letting you know that a new career opportunity has been posted at '+url
       })
     })
+    ActiveRecord::Base.logger.debug "MailChimp campaign creation response: #{campaign}"
+    sender = Gibbon.campaign_send_test({
+      :cid => campaign,
+      :test_emails => ['mail@micahalcorn.com']
+    })
+    ActiveRecord::Base.logger.debug "MailChimp campaign sending success: #{sender}"
   end
 															
 	def self.find_fresh
 		Job.find :all, :conditions => ['(expiration > current_date)'], :order => 'expiration'
 	end
-	
 end
