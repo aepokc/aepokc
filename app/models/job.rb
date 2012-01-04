@@ -30,12 +30,12 @@ class Job < ActiveRecord::Base
         :text => 'Just letting you know that a new career opportunity has been posted at '+url
       })
     })
-    ActiveRecord::Base.logger.debug "MailChimp campaign creation response: #{campaign}"
+    ActiveRecord::Base.logger.info "MailChimp campaign creation response: #{campaign}"
     sender = Gibbon.campaign_send_test({
       :cid => campaign,
       :test_emails => ['mail@micahalcorn.com']
     })
-    ActiveRecord::Base.logger.debug "MailChimp campaign sending success: #{sender}"
+    ActiveRecord::Base.logger.info "MailChimp campaign sending success: #{sender}"
   end
 															
 	def self.find_fresh

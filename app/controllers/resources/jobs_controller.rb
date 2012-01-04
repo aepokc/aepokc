@@ -40,8 +40,8 @@ class Resources::JobsController < ApplicationController
 
     if @job.save
       @job.expiration = @job.updated_at+14.days
-      @job.notify
       @job.save
+      @job.notify
       redirect_to([:resources, @job], :notice => 'Job was successfully created.')
     else
       redirect_to(new_resources_job_path, :notice => @job.errors)
