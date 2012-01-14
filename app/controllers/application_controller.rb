@@ -29,6 +29,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def require_signed_out
+    if member_signed_in?
+      redirect_to '/members/profiles', :notice => 'Please logout before signing in to the Admin account.'
+    elsif admin_signed_in?
+      redirect_to '/admin', :notice => 'Please logout of Admin before signing in to a member account.'
+    end
+  end
+  
   def verify_changed_password
     if member_signed_in?
       unless current_member.random_password == 'replaced'
