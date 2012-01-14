@@ -1,9 +1,9 @@
 ﻿body {
-	padding: 0;
+	padding: 10px;
 	margin: auto;
 	text-align: center;
 	background: #362f2d;
-  overflow-y: scroll;
+  	overflow-y: scroll;
 }
 
 a	{

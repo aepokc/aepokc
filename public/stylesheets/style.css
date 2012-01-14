@@ -1,5 +1,6 @@
 .wrapper	{
 	position: relative;
+	margin: auto;
 	border: 5px solid #fff;
 	width: 850px;
 	\width: 860px;
@@ -262,13 +263,13 @@
 .nav	{
 	position: absolute;
 	top: 125px;
-  left: 0;  
+  	left: 0;  
 	width: 850px;
-  z-index: 20;  
+  	z-index: 20;  
 }
 
 .footer	{
-	padding: 10px 0 0 0;
+	padding: 10px 0;
 	width: 860px;
 	margin: auto;
 	color: #fff;

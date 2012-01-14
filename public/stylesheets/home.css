@@ -8,7 +8,7 @@
 
 .logo {
 	position: absolute;
-	top: 55px;
+	top: 45px;
 	left: 10px;
 	width: 300px;
 	height: 110px;
@@ -18,14 +18,14 @@
 
 .mainimg	{
 	position: absolute;
-	top: 45px;
+	top: 35px;
 	left: 0;
 	z-index: 10;
 }
 
 .eventsheader	{
 	position: absolute;
-	top: 437px;
+	top: 427px;
 	left: 0;
 	padding: 8px 0 8px 10px;
 	width: 840px;
@@ -37,7 +37,7 @@
 
 .eventsfeed	{
 	position: absolute;
-	top: 467px;
+	top: 457px;
 	left: 0;
 	border: 10px solid #534741;
 	width: 830px;
@@ -74,13 +74,11 @@
 
 .nav	{
 	position: absolute;
-	top: 10px;
 	left: 0;
 	width: 850px;
 }
 
 .footer	{
-	padding: 10px 0 0 0;
 	width: 851px;
 	margin: auto;
 	color: #fff;
