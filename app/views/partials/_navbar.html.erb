@@ -1,6 +1,6 @@
 <div class="nav font11">
 	<div class="login">
-		<% if member_signed_in? %>
+		<% if member_signed_in? || admin_signed_in? %>
 			<%= link_to "Members Area", members_profiles_path %>
 		<% else %>
 		  <%= link_to "Member Login", new_member_session_path %>

@@ -23,8 +23,7 @@
 		</div>
 		<div class="wrapper">
 			<%= render "/partials/logout" %>
-			<div class="header">
-			</div>
+			<%= render "/partials/header" %>
 			<%= render "/partials/navbar" %>
 			<div class="content">
 				<div class="contentlt">
@@ -47,10 +46,10 @@
 							<% end %>
 						</div>
 						<div class="ltnavitem">
-							<%= link_to_unless(controller_name == "payments", "Payments", '/payments') %>
+							<%= link_to_unless(controller_name == "payments", "Payments", payments_path) %>
 						</div>
 						<div class="ltnavitem">
-							<%= link_to_unless(controller_name == "membership_applications", "Applicants", '/membership/applications') %>
+							<%= link_to_unless(controller_name == "membership_applications", "Applicants", membership_applications_path) %>
 						</div>
 					</div>
 					<div class="clear">

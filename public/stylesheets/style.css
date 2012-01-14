@@ -11,13 +11,61 @@
 }
 
 .header	{
+	background-color: white;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 850px;
 	height: 162px;
 	z-index: 5;
-	background: url(/images/header.jpg) no-repeat #fff;
+}
+
+#controls {
+	padding: 5px 0 0;
+	position: relative;
+	width: 350px;
+	height: 27px;
+	top: -33px;
+	background-color: white;
+	z-index: 6;
+}
+
+.control a {
+	padding: 3px 0 0;
+	text-decoration: none;
+	height: 19px;
+	width: 70px;
+	float: left;
+	text-align: center;
+	background-color: black;
+}
+
+.control a:hover {
+	background-color: #357D50;
+}
+
+.control a:active {
+	background-color: white;
+	color: black;
+}
+
+.action a {
+	padding: 3px 0 0;
+	text-decoration: none;
+	height: 19px;
+	width: 70px;
+	float: left;
+	text-align: center;
+	background-color: gray;
+}
+
+.action a:hover {
+	background-color: #357D50;
+}
+
+.action a:active {
+	background-color: white;
+	color: gray;
 }
 
 .logo a	{

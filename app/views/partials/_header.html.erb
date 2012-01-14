@@ -1,0 +1,26 @@
+<% if admin_signed_in? %>
+	<div class="header">
+		<%= link_to image_tag('/images/admin_header.jpg'), admin_path %>
+		<div id="controls">
+			<div class="control">
+				<%= link_to "Pages", pages_path, :class => 'font11' %>
+			</div>
+			<div class="control">
+				<%= link_to "Members", members_path, :class => 'font11' %>
+			</div>
+			<div class="control">
+				<%= link_to "Payments", payments_path, :class => 'font11' %>
+			</div>
+			<div class="control">
+				<%= link_to "Applicants", membership_applications_path, :class => 'font11' %>
+			</div>
+			<div class="action">
+				<%= link_to 'Logout', destroy_admin_session_path, :class => 'font11' %>
+			</div>
+		</div>
+	</div>
+<% else %>
+	<div class="header">
+		<%= image_tag('/images/header.jpg') %>
+	</div>
+<% end %>

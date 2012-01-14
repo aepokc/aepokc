@@ -2,11 +2,4 @@
 	<div class="logout font10">
 		Logged in as <%= current_member.email %> | <%= link_to 'Logout', destroy_member_session_path %>
 	</div>
-<% else %>
-	<% if admin_signed_in? %>
-		<div class="logout font10">
-			<%= link_to 'Admin Area', '/admin' %> | Logged in as Admin | <%= link_to 'Logout', destroy_admin_session_path %>
-		</div>
-	<% else %>
-	<% end %>
 <% end %>
