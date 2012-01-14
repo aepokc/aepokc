@@ -132,7 +132,6 @@ input, textarea, select	{
 
 .signup a {
 	background: url(/images/signup.png) no-repeat;
-	display: scroll;
 	position: fixed;
 	right: 0;
 	top: 200px;

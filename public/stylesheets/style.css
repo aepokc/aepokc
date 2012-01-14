@@ -21,6 +21,15 @@
 	z-index: 5;
 }
 
+.easter-egg {
+	position: absolute;
+	z-index: 40;
+	top: 38px;
+	left: 488px;
+	height: 40px;
+	width: 20px;
+}
+
 #controls {
 	padding: 5px 0 0;
 	position: relative;
