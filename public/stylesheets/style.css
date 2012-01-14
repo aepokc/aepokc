@@ -269,8 +269,9 @@
 }
 
 .footer	{
-	padding: 10px 0;
+	padding: 10px 0 0;
 	width: 860px;
+	height: 72px;
 	margin: auto;
 	color: #fff;
 	border-top: 0;
