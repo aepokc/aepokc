@@ -33,18 +33,17 @@ class MembershipApplicationsController < ApplicationController
   
   def approve
     if params[:token]
-      count = Member.count
       applicants = MembershipApplication.find(:all, :limit => 10, :order => "id DESC")
       applicants.each do |a|
         s = a.firstname + a.lastname + a.email + a.created_at.to_s
         if Digest::MD5.hexdigest(s)==params[:token]
-          a.create_member
+          success = a.create_member
         end
       end
-      if Member.count>count
+      if success==true
         redirect_to members_path, :notice => 'Applicant converted to member.'
       else
-        redirect_to members_path, :notice => 'Token missing or expired.'
+        redirect_to members_path, :notice => success
       end
     else
       redirect_to admin_path, :notice => 'Token missing.'

@@ -12,6 +12,11 @@ class MembershipApplication < ActiveRecord::Base
     m.committee_name = self.committee_name
     m.birthday = self.birthday
     m.save
-    m.subscribe
+    if m.errors
+      return m.errors
+    else
+      m.subscribe
+      return true
+    end
   end
 end

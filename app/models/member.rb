@@ -1,5 +1,4 @@
 class Member < ActiveRecord::Base
-
   has_one :profile
   has_many :payments
   has_many :events
