@@ -20,7 +20,7 @@ Aepokc::Application.routes.draw do |map|
   get 'members' => 'users#index'
   delete 'member/:id' => 'users#destroy', :as => 'destroy_member'
   
-  get 'approve/:token' => 'membership_applications#approve'
+  get 'approve' => 'membership_applications#approve'
   get 'membership/applications' => 'membership_applications#index'
   get 'membership/application' => 'membership_applications#new'
   post 'membership/applications' => 'membership_applications#create'
