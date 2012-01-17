@@ -23,8 +23,9 @@ Aepokc::Application.routes.draw do |map|
   get 'membership/applications' => 'membership_applications#index'
   get 'membership/application' => 'membership_applications#new'
   post 'membership/applications' => 'membership_applications#create'
+  get 'membership/applications/:id' => 'membership_applications#show', :as => 'applicant'
   
-  resources :membership_applications, :except => [:index, :new, :create]
+  resources :membership_applications, :except => [:index, :new, :create, :show]
   
   #  devise_scope :member do
   #   resources :registrations, :module => "members", :only => [:index, :show], :as => :members

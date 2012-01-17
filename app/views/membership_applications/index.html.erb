@@ -5,33 +5,26 @@
 </div>
 <table>
   <tr>
-  	<th>Member? |</th>
+  	<th>Approved</th>
+    <th></th>
     <th>Firstname</th>
     <th>Lastname</th>
     <th>Email</th>
-    <th>Company</th>
-    <th></th>
     <th></th>
   </tr>
 <% @membership_applications.each do |ma| %>
 	<tr>
-		<% if Member.all(:conditions => {:email => ma.email}).blank? %>
-		 	<td><span class="pending">*NO*</span></td>
-			<td><%= ma.firstname %></td>
-			<td><%= ma.lastname %></td>
-			<td><%= ma.email %></td>
-			<td><%= ma.company %></td>
-			<td><%= link_to 'Show', ma %></td>
-			<td><%= link_to 'Destroy', ma, :confirm => 'Are you sure?', :method => :delete %></td>
-		<% else %>
-			<td><%= image_tag('/images/check.gif') %></td>
-			<td><%= ma.firstname %></td>
-			<td><%= ma.lastname %></td>
-			<td><%= ma.email %></td>
-			<td><%= ma.company %></td>
-			<td><%= link_to 'Show', ma %></td>
-			<td><%= link_to 'Destroy', ma, :confirm => 'Are you sure?', :method => :delete %></td>
-		<% end %>
+	<% if Member.all(:conditions => {:email => ma.email}).blank? %>
+	 	<td><span class="pending">*NO*</span></td>
+		<td><b><%= link_to 'APPROVE', applicant_path(ma) %></b></td>
+	<% else %>
+		<td><%= image_tag('/images/check.gif') %></td>
+		<td><%= link_to 'Show', applicant_path(ma) %></td>
+	<% end %>
+		<td><%= ma.firstname %></td>
+		<td><%= ma.lastname %></td>
+		<td><%= ma.email %></td>
+		<td><%= link_to 'Destroy', ma, :confirm => 'Are you sure?', :method => :delete %></td>
 	</tr>	
 <% end %>
 </table>
