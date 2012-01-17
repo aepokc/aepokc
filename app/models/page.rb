@@ -2,7 +2,7 @@ class Page < ActiveRecord::Base
 	has_many :subpages, :class_name => 'Page', :foreign_key => 'parent_id'
 	belongs_to :parent, :class_name => 'Page', :foreign_key => 'parent_id'
 	validates_presence_of :title, :link, :position
-	validates_uniqueness_of :title, :link, :position
+	validates_uniqueness_of :title, :link, :position, :scope => :parent_id
 	
 	def self.find_parents
 		Page.find(:all, :conditions => ["parent_id IS NULL", true], :order => 'position')
