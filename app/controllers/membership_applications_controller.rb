@@ -39,7 +39,6 @@ class MembershipApplicationsController < ApplicationController
         if Digest::MD5.hexdigest(s)==params[:token]
           a.create_member
           redirect_to members_path, :notice => 'Applicant converted to member.'
-          break
         end
       end
       redirect_to members_path, :notice => 'Token missing or expired.'
