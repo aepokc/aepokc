@@ -1,6 +1,6 @@
 class MembershipApplicationsController < ApplicationController
 	layout 'applicants'
-	before_filter :authenticate_admin!, :only => [:index, :show]
+	before_filter :authenticate_admin!, :only => [:index, :show, :approve]
 
   def index
     @membership_applications = MembershipApplication.all(:order => 'id DESC')
@@ -29,6 +29,23 @@ class MembershipApplicationsController < ApplicationController
     else
       render :action => "new"
     end      
+  end
+  
+  def approve
+    if params[:token]
+      applicants = MembershipApplication.find(:all, :limit => 10, :order => "id DESC")
+      applicants.each do |a|
+        s = a.firstname + a.lastname + a.email + a.created_at.to_s
+        if Digest::MD5.hexdigest(s)==params[:token]
+          a.create_member
+          redirect_to members_path, :notice => 'Applicant converted to member.'
+          break
+        end
+      end
+      redirect_to members_path, :notice => 'Token missing or expired.'
+    else
+      redirect_to admin_path, :notice => 'Token missing.'
+    end
   end
 
   def destroy
