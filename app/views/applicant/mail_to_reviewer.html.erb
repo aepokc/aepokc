@@ -2,70 +2,56 @@
   <b>Firstname:</b>
   <%= @membership_application.firstname %>
 </p>
-
 <p>
   <b>Lastname:</b>
   <%= @membership_application.lastname %>
 </p>
-
 <p>
   <b>Email:</b>
   <%= @membership_application.email %>
 </p>
-
 <p>
   <b>Address:</b>
   <%= @membership_application.address %>
 </p>
-
 <p>
   <b>City:</b>
   <%= @membership_application.city %>
 </p>
-
 <p>
   <b>State:</b>
   <%= @membership_application.state %>
 </p>
-
 <p>
   <b>Zip:</b>
   <%= @membership_application.zip %>
 </p>
-
 <p>
   <b>Phone:</b>
   <%= @membership_application.phone %>
 </p>
-
 <p>
   <b>Company:</b>
   <%= @membership_application.company %>
 </p>
-
 <p>
   <b>Title:</b>
   <%= @membership_application.title %>
 </p>
-
 <p>
   <b>Associations:</b>
   <%= @membership_application.associations %>
 </p>
-
 <p>
   <b>Interests:</b>
   <%= @membership_application.interests %>
 </p>
-
 <p>
   <b>Committee:</b>
   <%= @membership_application.committee_name %>
 </p>
-
 <p>
   <b>Birthday:</b>
   <%= @membership_application.birthday %>
 </p>
-
-<%= link_to 'Add this member to aepokc.com', "http://aepokc.com" + new_member_registration_path %>
+<%= link_to 'Approve this applicant?', @url %>
