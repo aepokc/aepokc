@@ -32,11 +32,13 @@ class MembershipApplicationsController < ApplicationController
   end
   
   def approve
+    debugger
     if params[:token]
+      success = nil
       applicants = MembershipApplication.find(:all, :limit => 10, :order => "id DESC")
       applicants.each do |a|
-        s = a.firstname + a.lastname + a.email + a.created_at.to_s
-        if Digest::MD5.hexdigest(s)==params[:token]
+        string = a.firstname + a.lastname + a.email + a.created_at.to_s
+        if Digest::MD5.hexdigest(string)==params[:token]
           success = a.create_member
         end
       end

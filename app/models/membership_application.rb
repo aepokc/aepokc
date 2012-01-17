@@ -6,14 +6,17 @@ class MembershipApplication < ActiveRecord::Base
   def create_member
     m = Member.new
     m.leader = false
+    rp = ActiveSupport::SecureRandom.hex(5)
+    m.password = rp
+    m.password_confirmation = rp
     m.email = self.email
     m.firstname = self.firstname
     m.lastname = self.lastname
     m.committee_name = self.committee_name
     m.birthday = self.birthday
     m.save
-    if m.errors
-      return m.errors
+    if !m.errors.blank?
+      return m.errors.full_messages.to_sentence+'.'
     else
       m.subscribe
       return true
