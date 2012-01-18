@@ -7,6 +7,7 @@ class MembershipApplication < ActiveRecord::Base
     m = Member.new
     m.leader = false
     rp = ActiveSupport::SecureRandom.hex(5)
+    m.random_password = rp
     m.password = rp
     m.password_confirmation = rp
     m.email = self.email
