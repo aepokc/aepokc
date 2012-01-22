@@ -14,12 +14,6 @@
 		<%= link_to image_tag(@profile.avatar.url(:display)), @profile.avatar.url %>
 	<% end %>
 </div>
-<% unless @profile.email.blank? %>
-	<p>
-		<b>Email:</b>
-		<%= link_to @profile.email, "mailto:" + @profile.email %>
-	</p>
-<% end %>
 <% unless @profile.phone.blank? %>
 	<p>
 		<b>Phone:</b>
