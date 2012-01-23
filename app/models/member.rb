@@ -18,16 +18,7 @@ class Member < ActiveRecord::Base
   
   def subscribe
     Gibbon.list_subscribe({
-      :id => '2d515044ee', 
-      :email_address => self.email, 
-      :merge_vars => ({
-        'FNAME' => self.firstname,
-        'LNAME' => self.lastname
-      }),
-      :double_optin => false
-    })
-    Gibbon.list_subscribe({
-      :id => '7fca37265a',
+      :id => '2d515044ee',
       :email_address => self.email,
       :merge_vars => ({
         'FNAME' => self.firstname,
@@ -40,12 +31,6 @@ class Member < ActiveRecord::Base
   def unsubscribe
     Gibbon.list_unsubscribe({
       :id => '2d515044ee',
-      :email_address => self.email,
-      :send_goodbye => false,
-      :send_notify => false
-    })
-    Gibbon.list_unsubscribe({
-      :id => '7fca37265a',
       :email_address => self.email,
       :send_goodbye => false,
       :send_notify => false
