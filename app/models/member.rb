@@ -22,7 +22,12 @@ class Member < ActiveRecord::Base
       :email_address => self.email,
       :merge_vars => ({
         'FNAME' => self.firstname,
-        'LNAME' => self.lastname
+        'LNAME' => self.lastname,
+        'GROUPINGS'=>([
+          {
+            :id => 7645, :groups => 'Profile Notifications\,Job Notifications\,Event Notifications\,Official Correspondence'
+          }
+        ])
       }),
       :double_optin => false
     })

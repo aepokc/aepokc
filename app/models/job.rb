@@ -17,13 +17,21 @@ class Job < ActiveRecord::Base
     campaign = Gibbon.campaign_create({
       :type => 'regular',
       :options => ({
-        :list_id => '7fca37265a',
+        :list_id => '2d515044ee',
         :subject => 'aep | OKC Career Opportunity',
         :from_email => 'admin@aepokc.com',
         :from_name => 'aep Admin',
         :to_name => '*|FNAME|* *|LNAME|*',
         :title => 'Job Notification: '+self.title,
         :auto_tweet => true
+      }),
+      :segment_opts => ({
+        :match => "all",
+        :conditions => [
+          :field => 'interests-7645',
+          :op => 'one',
+          :value => 'Job Notifications'
+        ]
       }),
       :content => ({
         :url => url,
