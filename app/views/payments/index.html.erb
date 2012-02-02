@@ -26,7 +26,13 @@
   </tr>
 <% @payments.each do |payment| %>
   <tr>
-    <td><%= payment.member.last_name_first %></td>
+    <td>
+      <% if payment.member %>
+        <%= payment.member.last_name_first %>
+      <% else %>
+        <%= 'Member no more :(' %>
+      <% end %>
+    </td>
     <td><%= link_to payment.date, payment %></td>
     <td><%= payment.source %></td>
     <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
