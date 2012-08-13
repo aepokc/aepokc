@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta property="og:title" content="*|MC:SUBJECT|*">
+    <title>aep | Upcoming Events</title>
+    <style>
+    	a {
+    		color:#387D50;
+    	}
+    	
+    	a:hover {
+    		color:#CCCCCC;
+    	}
+    	
+    	a:active {
+    		color:#E0E0E0;
+    	}
+    </style>
+  </head>
+  <body style="font-family:Helvetica;background-color:#362F2D;margin:0;top:0;left:0;color:#505050;">
+    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#362F2D;">
+      <tr>
+        <td align="center">
+          <table cellspacing="0" cellpadding="0" border="0" width="620" style="font-size:10px;">
+            <tr>
+              <td height="50">
+              </td>
+              <td height="50" style="text-align:right;">
+              	<%= link_to 'aepokc.com', root_url, style: 'color:#387D50;text-decoration:none;' %> is growing!
+              </td>
+              <td height="50">
+              </td>
+            </tr>
+            <tr>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+            </tr>
+            <tr>
+              <td width="10" style="background-color:#ffffff;">
+              </td>
+              <td style="background-color:#ffffff;">
+              	<%= image_tag('http://gallery.mailchimp.com/ea16da08a7d1eb53d26fffc19/images/profiles_email_header.jpg', width: '600px', height: '120px') %>
+              </td>
+              <td width="10" style="background-color:#ffffff;">
+              </td>
+            </tr>
+            <tr>
+              <td width="10" style="background-color:#fff;">
+              </td>
+              <td align="center" width="600" style="background-color:#ffffff;">
+                <p style="padding:10px 30px;font-size:16px;text-align:left;">
+                  <%= @email.preface %>
+                </p>
+              <% @events.each do |e| %>
+                <hr width="50%">
+                <p style="padding:10px 30px;line-height:1.5;font-size:16px;text-align:justify;">
+				  <% unless e.image_file_name.nil? %>
+					<%= image_tag(e.image.url(:display), style: 'width:200px;float:left;padding:0 20px 0 0;') %>
+				  <% end %>
+                  <%= link_to e.title, resources_event_url(e), style: 'color:#387D50;font-weight:bold;' %><br />
+                  Date: <%= e.date.to_s(:formatted_date) %><br />
+                  Time: <%= e.time %><br />
+                  Location: <%= e.location %><br />
+                  <%= auto_link(simple_format(e.details, style: 'padding:10px 30px;line-height:1.5;font-size:16px;text-align:justify;')) %>
+                </p>
+              <% end %>
+              <% if !@email.html.blank? %>
+              	<hr width="50%">
+              	<p style="padding:10px 30px;line-height:1.5;font-size:16px;text-align:justify;"><%= @email.html.html_safe %></p>
+              <% end %>
+                <hr width="50%">
+                <p style="padding:10px 30px;font-size:18px;text-align:left;">
+                  <b>Are you in the <%= link_to 'aepokc', root_url, style: 'color:#387D50;font-weight:bold;' %> member directory?</b>
+                </p>
+              </td>
+              <td width="10" style="background-color:#ffffff;">
+              </td>
+            </tr>
+            <tr>
+              <td width="10" style="background-color:#ffffff;">
+              </td>
+              <td style="background-color:#ffffff;">
+              	<%= link_to image_tag('/images/headshot_gallery.jpg'), members_profiles_url %>
+              </td>
+              <td width="10" style="background-color:#ffffff;">
+              </td>
+            </tr>
+            <tr>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+              <td height="10" style="background-color:#ffffff;">
+              </td>
+            </tr>    
+            <tr>
+              <td height="50">
+              </td>
+              <td align="center" height="50" style="color:#505050;font-size:10px;text-align:right;">
+                &#169; 2012 Alliance of Emerging Professionals, Inc. All rights reserved.
+              </td>
+              <td height="50">
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

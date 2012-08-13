@@ -15,10 +15,10 @@
       </ul>
     </div>
   <% end %>
-	<div class="field">
-		<%= f.label :avatar %><span class="ghost"> (Will be resized to 150 x 150 pixels)</span><br />
-    <%= f.file_field :avatar %>
-	</div>
+  <div class="field">
+	<%= f.label :avatar %><span class="ghost"> (Will be resized to 150 x 150 pixels)</span><br />
+	<%= f.file_field :avatar %>
+  </div>
   <div class="field">
     <%= f.hidden_field :member_id, :value => current_member.id %>
   </div>

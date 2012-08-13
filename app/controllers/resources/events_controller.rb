@@ -1,6 +1,6 @@
 class Resources::EventsController < ApplicationController
 	before_filter :verify_changed_password
-	before_filter :authenticate_member!, :except => [:index, :show]
+	before_filter :authenticate_someone, :except => [:index, :show]
 
 	layout 'resources'
 	
@@ -23,7 +23,7 @@ class Resources::EventsController < ApplicationController
     if @event.member.nil?
     	redirect_to "/resources/events", :notice => 'Members can only edit their own events.'
     else
-		  if @event.member.id == current_member.id
+		  if current_admin || @event.member.id == current_member.id
 		  	render :view => "edit"
 		  else
 		  	redirect_to "/resources/events", :notice => 'Members can only edit their own events.'

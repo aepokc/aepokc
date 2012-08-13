@@ -1,0 +1,13 @@
+<%= content_for :head do %>
+	<%= javascript_include_tag 'tinybox' %>
+	<%= stylesheet_link_tag 'tinybox' %>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			TINY.box.show({url:'<%= email_url(@email) %>',width:700,fixed:false})
+		});
+	</script>
+<% end %>
+<%= render 'form' %>
+<div style="padding-top:10px;">
+	<%= link_to 'Back', emails_path %>
+</div>

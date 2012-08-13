@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <th>Created</th>
+    <th>Title</th>
+    <th>Sent</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @emails.each do |email| %>
+  <tr>
+    <td><%= email.created_at.to_s(:formatted_datetime) %></td>
+  <% if email.sent_at %>
+    <td><%= link_to email.title, email %></td>
+    <td><%= email.sent_at.to_s(:formatted_datetime) %></td>
+	<td></td>
+  <% else %>
+    <td><%= link_to email.title, edit_email_path(email) %></td>
+    <td style="color:red;">Not yet...</td>
+	<td><%= link_to 'Destroy', email, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'New Email', new_email_path %>

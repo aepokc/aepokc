@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 15) do
+ActiveRecord::Schema.define(:version => 18) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -37,6 +37,24 @@ ActiveRecord::Schema.define(:version => 15) do
     t.datetime "updated_at"
   end
 
+  create_table "emails", :force => true do |t|
+    t.datetime "sent_at"
+    t.string   "title"
+    t.string   "from_name"
+    t.string   "reply_to"
+    t.string   "subject_line"
+    t.string   "recipients"
+    t.text     "preface"
+    t.text     "html"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "emails_events", :id => false, :force => true do |t|
+    t.integer "email_id"
+    t.integer "event_id"
+  end
+
   create_table "events", :force => true do |t|
     t.integer  "member_id"
     t.string   "title"
@@ -48,6 +66,10 @@ ActiveRecord::Schema.define(:version => 15) do
     t.boolean  "sanctioned"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "jobs", :force => true do |t|

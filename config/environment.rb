@@ -5,4 +5,5 @@ require File.expand_path('../application', __FILE__)
 Aepokc::Application.initialize!
 
 Date::DATE_FORMATS[:formatted_date] = "%A, %B %d, %Y"
+Time::DATE_FORMATS[:formatted_datetime] = "%B %d @ %I:%M %p"
 Time::DATE_FORMATS[:formatted_time] = "%I:%M %p"

@@ -1,0 +1,111 @@
+<h3>
+	This form is for creating email newsletters. The structure and design are pre-programmed. Use this feature to announce events that are already created. If you want to announce something other than an event, use the html box at the bottom.
+</h3>
+
+<%= form_for(@email) do |f| %>
+<script type="text/javascript">
+	var eventIds = [];
+	
+	function considerRemoval(event) {
+		el = event.srcElement;
+		var selection = $(el).val();
+		var hClass = $(el).attr('class');
+		if (selection==='') {
+			$(el).remove();
+		} else {
+			var anEmpty = false;
+			$('select').each(function() {
+				if ($(this).val()==='') {
+					anEmpty = true;
+				}
+			});
+			if (!anEmpty) {
+				$('.collections').append('<%= escape_javascript(f.collection_select :event_ids, @events, :id, :title, {include_blank: 'None', selected: 0}, onchange: 'considerRemoval(event);') %>');
+			}
+		}
+	}
+	
+	$(document).ready(function() {
+		function assembleEvents() {
+			var eventIds = [];
+			var selections = document.getElementsByTagName('select')
+			var count = selections.length;
+			for (i=0;i<count;i++) {
+				if (selections[i].value!=='') {
+					eventIds.push(selections[i].value);
+				}
+			}
+			$('#calculated_event_ids').val(eventIds);
+			$('.collections').empty();
+			$('.collections').append('<%= escape_javascript(image_tag('/images/preload.gif')) %>');
+		}
+		
+		$('#preview').click(function(e) {
+			e.preventDefault();
+			assembleEvents();
+			setTimeout(function() {
+				$('form').submit();
+			},1000);
+		});
+		
+		$('#send').click(function(e) {
+			e.preventDefault();
+			var prompt = confirm('Are you 100% SURE that you are ready to send this email? This will immediately arrive in 1,000+ inboxes, so be confident that you are ready!');
+			if (prompt===true) {
+				assembleEvents();
+				$('#email_sendable').attr({'value':true});
+				setTimeout(function() {
+					$('form').submit();
+				},1000);
+			}
+		});
+	});
+</script>
+  <% if @email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@email.errors.count, "error") %> prohibited this email from being saved:</h2>
+      <ul>
+      <% @email.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field 'sendable', value: false %>
+  <%= f.hidden_field :from_name, value: 'aep Info' %>
+  <%= f.hidden_field :reply_to, value: 'info@aepokc.com' %>
+  <%= f.hidden_field :subject_line, value: 'TEST: aep | Upcoming Events' %>
+  <%= f.hidden_field :recipients, value: '05eb8fff67' %>
+  <%= f.hidden_field 'events', value: [], id: 'calculated_event_ids' %>
+  <div class="field" style="padding-top:10px;">
+    Title (internal use):<br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field" style="padding-top:10px;">
+    Opening Line (See you tonight...Join us this Saturday...):<br />
+    <%= f.text_area :preface %><br />
+  </div>
+  <br />
+  Choose events to include. The information and picture will autmatically be populated from the event listing.<br />
+  <b>Events will automatically be re-ordered chronologically from top to bottom.</b><br />
+  <div class="collections" style="padding-top:10px;">
+  	<% if action_name==='new' %>
+		<%= f.collection_select :event_ids, @events, :id, :title, {include_blank: 'None'}, onchange: 'considerRemoval(event);' %>
+	<% else %>
+		<% @email.events.order("date asc").each do |event| %>
+			<%= collection_select :email, :event_ids, @events, :id, :title, {include_blank: 'None', selected: event.id}, onchange: 'considerRemoval(event);' %>
+		<% end %>
+		<%= collection_select :email, :event_ids, @events, :id, :title, {include_blank: 'None', selected: 0}, onchange: 'considerRemoval(event);' %>
+	<% end %>
+  </div>
+  <div class="field" style="padding-top:10px;">
+    Enter additional html here:<br />
+    <%= f.text_area :html %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'SAVE', id: 'preview', style: 'color:green;' %>
+  <% unless action_name=='new' %>
+    <%= submit_tag 'SEND', id: 'send', style: 'color:red;' %>
+  <% end %>
+  </div>
+<% end %>

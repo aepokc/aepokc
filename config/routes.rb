@@ -1,4 +1,6 @@
 Aepokc::Application.routes.draw do |map|
+  resources :emails
+
   get 'membership/profiles/directory' => 'profiles#directory'
 
   namespace "members" do

@@ -9,5 +9,4 @@ tmp/**/*
 config/database.yml
 config/initializers/mailer.rb
 public/assets/*
-Rakefile
 db/schema.rb

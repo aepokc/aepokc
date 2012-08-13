@@ -1,6 +1,6 @@
 class Resources::JobsController < ApplicationController
   before_filter :verify_changed_password
-	before_filter :authenticate_member!, :except => [:email]
+	before_filter :authenticate_someone, :except => [:email]
 
 	layout 'resources'
 	
