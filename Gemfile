@@ -11,3 +11,10 @@ gem 'will_paginate', '3.0.2'
 gem 'gibbon', '0.3.5'
 # database
 gem 'mysql', '2.8.1'
+# server
+gem 'unicorn', '4.1.1'
+
+group :development do
+  gem 'capistrano', '2.12.0'
+end
+
