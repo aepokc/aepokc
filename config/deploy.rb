@@ -6,16 +6,16 @@ set :branch,                      "origin/master"
 set :migrate_target,              :current
 set :ssh_options,                 { :forward_agent => true }
 set :rails_env,                   "production"
-set :deploy_to,                   "/home/aepokc/aepokc"
+set :deploy_to,                   "/home/aepadmin/aepokc"
 set :normalize_asset_timestamps,  false
 
-set :user,            "aepokc"
-set :group,           "aepokc"
-set :use_sudo,        false
+set :user,                        "aepadmin"
+set :group,                       "aepokc"
+set :use_sudo,                    false
 
-role :web,    "66.216.100.222"
-role :app,    "66.216.100.222"
-role :db,     "66.216.100.222", :primary => true
+role :web,                        "198.101.242.247"
+role :app,                        "198.101.242.247"
+role :db,                         "198.101.242.247", :primary => true
 
 set(:latest_release)  { fetch(:current_path) }
 set(:release_path)    { fetch(:current_path) }
@@ -26,9 +26,9 @@ set(:latest_revision)   { capture("cd #{current_path}; git rev-parse --short HEA
 set(:previous_revision) { capture("cd #{current_path}; git rev-parse --short HEAD@{1}").strip }
 
 default_environment["RAILS_ENV"]    = "production"
-default_environment["PATH"]         = "/home/aepokc/.rvm/gems/ruby-1.9.2-p320/bin:/home/aepokc/.rvm/gems/ruby-1.9.2-p320@global/bin:/home/aepokc/.rvm/rubies/ruby-1.9.2-p320/bin:/home/aepokc/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
-default_environment["GEM_HOME"]     = "/home/aepokc/.rvm/gems/ruby-1.9.2-p320"
-default_environment["GEM_PATH"]     = "/home/aepokc/.rvm/gems/ruby-1.9.2-p320:/home/aepokc/.rvm/gems/ruby-1.9.2-p320@global"
+default_environment["PATH"]         = "/home/aepadmin/.rvm/gems/ruby-1.9.2-p320/bin:/home/aepadmin/.rvm/gems/ruby-1.9.2-p320@global/bin:/home/aepadmin/.rvm/rubies/ruby-1.9.2-p320/bin:/home/aepadmin/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+default_environment["GEM_HOME"]     = "/home/aepadmin/.rvm/gems/ruby-1.9.2-p320"
+default_environment["GEM_PATH"]     = "/home/aepadmin/.rvm/gems/ruby-1.9.2-p320:/home/aepadmin/.rvm/gems/ruby-1.9.2-p320@global"
 default_environment["RUBY_VERSION"] = "1.9.2p320"
 
 default_run_options[:shell] = 'bash'

@@ -11,11 +11,11 @@ timeout 60
 pid "/tmp/unicorn.aepokc.pid"
 
 if env == "production"
-  working_directory "/home/aepokc/aepokc/current"
+  working_directory "/home/aepadmin/aepokc/current"
 
-  user 'aepokc'
+  user 'aepadmin'
 
-  shared_path = "/home/aepokc/aepokc/shared"
+  shared_path = "/home/aepadmin/aepokc/shared"
 
   stderr_path "#{shared_path}/log/unicorn.stderr.log"
   stdout_path "#{shared_path}/log/unicorn.stdout.log"
