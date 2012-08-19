@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
 	
   has_attached_file :image, :styles => { :display => "200x200>" },
                     :url  => "/assets/images/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/images/:id/:style/:basename.:extension"
+                    :path => "/home/aepadmin/aepokc/shared/public/assets/images/:id/:style/:basename.:extension"
 
 	def self.find_current
 		Event.where(:date => Date.today)
