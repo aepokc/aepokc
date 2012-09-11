@@ -15,8 +15,10 @@
 <% @membership_applications.each do |ma| %>
 	<tr>
 	<% if Member.all(:conditions => {:email => ma.email}).blank? %>
+		<% string = ma.firstname + ma.lastname + ma.email + ma.created_at.to_s %>
+		<% token = Digest::MD5.hexdigest(string) %>
 	 	<td><span class="pending">*NO*</span></td>
-		<td><b><%= link_to 'APPROVE', applicant_path(ma) %></b></td>
+		<td><b><%= link_to 'APPROVE', '/approve?token='+token %></b></td>
 	<% else %>
 		<td><%= image_tag('/images/check.gif') %></td>
 		<td><%= link_to 'Show', applicant_path(ma) %></td>

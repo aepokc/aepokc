@@ -4,4 +4,16 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
+# Rake Fix Code start
+# NOTE: change 'Anelis' to your app's module name (see config/application.rb)
+module ::Aepokc
+  class Application
+    include Rake::DSL
+  end
+end
+
+module ::RakeFileUtils
+  extend Rake::FileUtilsExt
+end
+
 Aepokc::Application.load_tasks

@@ -32,7 +32,6 @@ class MembershipApplicationsController < ApplicationController
   end
   
   def approve
-    debugger
     if params[:token]
       success = nil
       applicants = MembershipApplication.find(:all, :limit => 10, :order => "id DESC")
@@ -42,10 +41,12 @@ class MembershipApplicationsController < ApplicationController
           success = a.create_member
         end
       end
-      if success==true
+      if success && success==true
         redirect_to members_path, :notice => 'Applicant converted to member.'
-      else
+      elsif success
         redirect_to members_path, :notice => success
+      else
+        redirect_to members_path, :notice => 'Applicant has expired.'
       end
     else
       redirect_to admin_path, :notice => 'Token missing.'
