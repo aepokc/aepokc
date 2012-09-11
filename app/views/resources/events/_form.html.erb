@@ -11,7 +11,11 @@
   <% end %>
   <% unless action_name=='edit' %>
     <div class="field">
-      <%= f.hidden_field :member_id, :value => current_member.id %>
+    	<% if current_member.nil? %>
+    	<%= f.hidden_field :member_id, :value => @event.member_id %>
+    	<% else %>
+    	<%= f.hidden_field :member_id, :value => current_member.id %>
+    	<% end %>
     </div>
   <% end %>
   <% if current_admin || current_member.leader? %>
