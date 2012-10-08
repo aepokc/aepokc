@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_admin!, :except => [:db, :mail, :show, :home, :application]
+  before_filter :authenticate_admin!, :except => [:db, :mail, :show, :home, :application, :holiday]
   before_filter :authenticate_someone, :only => [:db]
   layout 'admin'
+  
+  def holiday
+    redirect_to 'http://aepokc.eventbrite.com'
+  end
   
   def db
     if !current_admin && current_member.leader == false

@@ -1,6 +1,6 @@
 Aepokc::Application.routes.draw do |map|
   resources :emails
-
+  get 'holiday' => 'pages#holiday'
   get 'membership/profiles/directory' => 'profiles#directory'
 
   namespace "members" do
