@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   layout 'admin'
   
   def holiday
-    redirect_to 'http://aepokc.eventbrite.com'
+    render :layout => false
+#    redirect_to 'http://aepokc.eventbrite.com'
   end
   
   def db
