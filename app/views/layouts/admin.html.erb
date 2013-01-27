@@ -17,6 +17,11 @@
 		<%= javascript_include_tag "analytics.js" %>
 		<%= yield :head %>
 		<%= csrf_meta_tag %>
+		<style>
+			.ui-datepicker {
+				display: none
+			}
+		</style>
 	</head>
 	<body>
 		<div class="signup" >
