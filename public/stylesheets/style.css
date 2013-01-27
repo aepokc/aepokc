@@ -356,3 +356,13 @@
 	text-decoration: none;
 	color: #e0e0e0;
 }
+
+.account-current {
+	margin: 40px 0px;
+	color: #387d50;
+}
+
+.account-due {
+	margin: 40px 0px;
+	color: red;
+}

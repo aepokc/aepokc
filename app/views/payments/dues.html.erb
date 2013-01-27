@@ -36,4 +36,14 @@ We offer three convenient payment methods:<br />
 <br />
 <br />
 <br />
+<% if current_member.is_current %>
+	<div class="account-current">Your membership is current through <%= current_member.due_date.to_s(:formatted_date) %>.</div>
+<% else %>
+	<div class="account-due">
+		<h3>Your membership is past due!</h3>
+		<% if current_member.payments.count>0 %>
+			Your last payment was recorded on <%= current_member.payments.last.date.to_s(:formatted_date) %>.
+		<% end %>
+	</div>
+<% end %>
 If you have any questions or concerns, please feel free to <%= link_to 'contact', '/contact' %> us anytime.

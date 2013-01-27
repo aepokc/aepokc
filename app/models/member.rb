@@ -16,6 +16,23 @@ class Member < ActiveRecord::Base
     "#{lastname}, #{firstname}"
   end
   
+  def is_current
+    if due_date>Date.today
+      return true
+    else
+      return false
+    end
+  end
+  
+  def due_date
+    if payments.count>0
+      pay_date = payments.last.date
+      return pay_date+365
+    else
+      created_at.to_date
+    end
+  end
+  
   def subscribe
     Gibbon.list_subscribe({
       :id => 'e683465573',
