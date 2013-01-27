@@ -13,6 +13,7 @@ We offer three convenient payment methods:<br />
 		<input type="hidden" name="first_name" value="<%= current_member.firstname %>">
 		<input type="hidden" name="last_name" value="<%= current_member.lastname %>">
 		<input type="hidden" name="email" value="<%= current_member.email %>">
+		<input type="hidden" name="invoice" value="<%= current_member.id %>">
 		<input type="image" src="/images/paypal.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
 		<img alt="" border="0" src="/images/paypal.jpg" width="1" height="1">
 	</form>

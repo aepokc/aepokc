@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
-	before_filter :authenticate_admin!, :except => [:dues, :mail, :cancelled, :processed]
+  protect_from_forgery :except => [:create]
+	before_filter :authenticate_admin!, :except => [:dues, :mail, :cancelled, :processed, :create]
 	before_filter :authenticate_member!, :only => [:dues]
 	layout 'admin'
 	
@@ -38,10 +39,19 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = Payment.new(params[:payment])
-    
+    if params[:invoice]
+      @payment.source = "PayPal"
+      @payment.member_id = params[:invoice]
+      @payment.amount = params[:mc_gross]
+      @payment.date = Date.today
+    end
     if @payment.save
       Receipt.mail_to_payer(@payment).deliver
-      redirect_to(@payment, :notice => 'Payment was successfully recorded.')
+      if @payment.source=="PayPal"
+        render :nothing => true
+      else
+        redirect_to(@payment, :notice => 'Payment was successfully recorded.')
+      end
     else
       render :action => "new"
     end
