@@ -262,13 +262,13 @@
                           <tr>
                             <td valign="top">
                               <div style="color: #505050;font-family: Arial;font-size: 14px;line-height: 150%;text-align: left;">
-                                Welcome <%= @member.firstname %>!<br />
+                                Hey <%= @member.firstname %>!<br />
                                 <br />
-                                An account has been created for you to take full advantage of the online aep community!<br />
+                                Your account at <%= link_to 'aepokc.com', 'http://aepokc.com' %> has not yet been confirmed. Please join our online community to connect with fellow young professionals, receive job opportunities, and get access to our private event calendar.<br />
                                 <br />
                                 Your temporary password is: <span class="a"><b><%= @member.random_password %></b></span>. We recommend changing this to something that is easy to remember.<br />
                                 <br />
-                                <b>Please <%= link_to 'CLICK HERE', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %> to confirm your account.</b><br />
+                                <b>Please <%= link_to 'CLICK HERE', confirmation_url(@member, :confirmation_token => @member.confirmation_token) %> to confirm your account.</b><br />
                                 <br />
                                 We look forward to seeing you at our next event. If you have any questions or concerns, please feel free to reply to this email.<br />
                                 <br />

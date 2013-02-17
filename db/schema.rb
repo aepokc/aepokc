@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 18) do
+ActiveRecord::Schema.define(:version => 20) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -72,6 +72,16 @@ ActiveRecord::Schema.define(:version => 18) do
     t.datetime "image_updated_at"
   end
 
+  create_table "invoices", :force => true do |t|
+    t.integer  "member_id"
+    t.integer  "amount"
+    t.string   "token"
+    t.boolean  "paid",       :default => false
+    t.integer  "send_count", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "jobs", :force => true do |t|
     t.integer  "member_id"
     t.string   "title"
@@ -92,9 +102,9 @@ ActiveRecord::Schema.define(:version => 18) do
   end
 
   create_table "members", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "email",                               :default => "",    :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -114,6 +124,7 @@ ActiveRecord::Schema.define(:version => 18) do
     t.string   "random_password"
     t.string   "committee_name"
     t.date     "birthday"
+    t.boolean  "active",                              :default => false
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true

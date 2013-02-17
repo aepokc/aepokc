@@ -357,12 +357,18 @@
 	color: #e0e0e0;
 }
 
+.payment-options {
+	margin: 20px 0px;
+	height: 71px;
+}
+
 .account-current {
 	margin: 40px 0px;
 	color: #387d50;
+	font-weight: bold;
 }
 
 .account-due {
-	margin: 40px 0px;
+	margin: 80px 0px 20px;
 	color: red;
 }

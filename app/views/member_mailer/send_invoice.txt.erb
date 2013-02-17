@@ -1,0 +1,27 @@
+Hey <%= @member.firstname %>,
+
+<% if @invoice.send_count==1 %>
+	<% if @member.created_at>6.months.ago %>
+		We are happy to have you as a new member of aep. We are a membership organization that would not exist without your support, and we would like to invite you to pay your membership dues today with PayPal.
+	<% else %>
+		Time flies when you’re having fun! We have thoroughly enjoyed the help and support of members like you over the past year. It is time for you to renew your annual membership, and we would like to invite you pay your dues today with PayPal. Please visit http://aepokc.com/dues to review the available options.
+	<% end %>
+<% elsif @invoice.send_count==2 %>
+	We enjoy your involvement and participation as an aep member!  Please remember that you have an outstanding invoice for your membership dues. You can now pay your balance with PayPal at http://aepokc.com/dues. Please contact us if you have any trouble.
+<% elsif @invoice.send_count==3 %>
+	We hope you have had a great time as an aep member so far!  Don’t forget that you have an outstanding invoice for your memberhsip dues. You can resolve this by paying with PayPal at http://aepokc.com/dues. Please let us know if we need to update any of your information.
+<% elsif @invoice.send_count==4 %>
+	We hope all is well with you. We noticed that you still have an outstanding invoice for your membership dues. Please let us know if we can be of any assistance with this. You can convieniently pay with PayPal at http://aepokc.com/dues today.
+<% elsif @invoice.send_count==5 %>
+	As a friendly reminder, your annual membership dues have not been paid for this year. We just want to remind you that you can choose from several payment options at http://aepokc.com/dues.
+<% elsif @invoice.send_count==6 %>
+	This is our final invoice to remind you about your outstanding balance. Please consider visiting http://aepokc.com/dues and paying your membership dues today with PayPal.
+<% end %>
+
+  Date: <%= @member.due_date.to_s(:formatted_date) %>
+
+  Amount: <%= number_to_currency(@invoice.amount) %>
+
+Thank you for being a part of our community. We hope to see you at our next event!
+
+aepAdmin

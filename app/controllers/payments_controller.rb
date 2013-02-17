@@ -40,13 +40,15 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(params[:payment])
     if params[:invoice]
+      invoice = Invoice.find_by_token(params[:invoice])
+      invoice.paid = true
+      @payment.member_id = invoice.member.id
       @payment.source = "PayPal"
-      @payment.member_id = params[:invoice]
       @payment.amount = params[:mc_gross]
       @payment.date = Date.today
     end
     if @payment.save
-      Receipt.mail_to_payer(@payment).deliver
+      MemberMailer.send_receipt(@payment).deliver
       if @payment.source=="PayPal"
         render :nothing => true
       else

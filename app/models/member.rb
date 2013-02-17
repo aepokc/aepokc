@@ -1,8 +1,10 @@
 class Member < ActiveRecord::Base
   has_one :profile
+  has_many :invoices
   has_many :payments
   has_many :events
   has_many :jobs
+  
   belongs_to :committee
   
   validates_presence_of :firstname, :lastname
@@ -12,8 +14,42 @@ class Member < ActiveRecord::Base
 
   attr_accessible :leader, :firstname, :lastname, :email, :password, :password_confirmation, :random_password, :committee_name, :birthday
   
+  def full_name
+    "#{firstname} #{lastname}"
+  end
+  
   def last_name_first
     "#{lastname}, #{firstname}"
+  end
+  
+  def has_balance
+    invoiced_at && !invoices.last.paid
+  end
+  
+  def invoiced_at
+    if invoices.count>0
+      return invoices.last.updated_at
+    else
+      return nil
+    end
+  end
+  
+  def invoice(dollars)
+    if has_balance
+      invoice = invoices.last
+    else
+      invoice = invoices.create(:amount => dollars, :member_id => self.id)
+    end
+    invoice.send_count+=1
+    if invoice.send_count>6
+      self.active = false
+      self.save
+      p 'Deactivated '+full_name
+    else
+      invoice.save
+      MemberMailer.send_invoice(invoice).deliver
+      p 'Sent invoice #'+invoice.send_count.to_s+' to '+full_name
+    end
   end
   
   def is_current

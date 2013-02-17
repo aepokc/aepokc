@@ -1,0 +1,11 @@
+Hey <%= @member.firstname %>!
+
+Your account at aepokc.com has not yet been confirmed. Please join our online community to connect with fellow young professionals, receive job opportunities, and get access to our private event calendar.
+
+Your temporary password is: "<%= @member.random_password %>"</b></span>". We recommend changing this to something that is easy to remember.
+
+Please visit <%= confirmation_url(@member, :confirmation_token => @member.confirmation_token) %> to confirm your account.
+
+We look forward to seeing you at our next event. If you have any questions or concerns, please feel free to reply to this email.
+
+aepAdmin

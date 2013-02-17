@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Facebook sharing information tags -->
     <meta property="og:title" content="*|MC:SUBJECT|*">
-    <title>aep | Account Confirmation</title>
+    <title>aep | Membership Dues Invoice</title>
     <style type="text/css">
       #outlook a{
         padding:0;
@@ -108,11 +108,6 @@
         font-weight:normal;
         text-decoration:underline;
       }
-      #header{
-        background-color: #ffffff;
-        border-bottom: 10px solid #362F2D;
-        padding: 10px;
-      }
       #templateHeader{
         background-color:#ffffff;
         border-bottom:10px solid #362F2D;
@@ -155,10 +150,6 @@
       .bodyContent img{
         display:inline;
         height:auto;
-      }
-      .indent {
-        position: relative;
-        left: 20px;
       }
       #templateFooter{
         background-color:#FDFDFD;
@@ -227,7 +218,7 @@
                     <tr>
                       <td valign="top">
                         <div style="color: #505050;font-family: Arial;font-size: 10px;line-height: 100%;text-align: left;">
-                          aepokc.com account confirmation.<br>
+                          Your aep membership dues invoice.<br>
                         </div>
                       </td>
                     </tr>
@@ -241,13 +232,19 @@
               <tr>
                 <td align="center" valign="top">
                   <!-- // Begin Template Header \\ -->
-                  <div id="header">                                                            
-                    <div style="text-align: left;">
-                      <a href="http://aepokc.com/" style="color: #336699;text-decoration: underline;font-weight: normal;">
-                        <img src="http://gallery.mailchimp.com/ea16da08a7d1eb53d26fffc19/images/profiles_email_header.jpg" alt="Alliance of Emerging Professionals, Inc" border="0" style="margin: 0;padding: 0;max-width: 600px;border: none;font-size: 14px;font-weight: bold;height: auto;line-height: 100%;outline: none;text-decoration: none;text-transform: capitalize;" width="600" height="120" id="headerImage campaign-icon">
-                      </a>
-                    </div> 
-                  </div>
+                  <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateHeader" style="background-color: #ffffff;border-bottom: 10px solid #362F2D;padding: 10px;">
+                    <tr>
+                      <td class="headerContent" style="color: #202020;font-family: Arial;font-size: 34px;font-weight: bold;line-height: 100%;padding: 0;text-align: center;vertical-align: middle;">
+                        <!-- // Begin Module: Standard Header Image \\ -->
+                        <div style="text-align: left;">
+                          <a href="http://aepokc.com/" style="color: #336699;text-decoration: underline;font-weight: normal;">
+                            <img src="http://gallery.mailchimp.com/ea16da08a7d1eb53d26fffc19/images/dues_email_header.jpg" alt="Alliance of Emerging Professionals, Inc" border="0" style="margin: 0;padding: 0;max-width: 600px;border: none;font-size: 14px;font-weight: bold;height: auto;line-height: 100%;outline: none;text-decoration: none;text-transform: capitalize;" width="600" height="120" id="headerImage campaign-icon">
+                          </a>
+                        </div>
+                    	  <!-- // End Module: Standard Header Image \\ -->
+                      </td>
+                    </tr>
+                  </table>
                   <!-- // End Template Header \\ -->
                 </td>
               </tr>
@@ -262,15 +259,31 @@
                           <tr>
                             <td valign="top">
                               <div style="color: #505050;font-family: Arial;font-size: 14px;line-height: 150%;text-align: left;">
-                                Welcome <%= @member.firstname %>!<br />
+                              	Hey <%= @member.firstname %>,<br />
+                              	<br />
+                              	<% if @invoice.send_count==1 %>
+                              		<% if @member.created_at>6.months.ago %>
+                              			We are happy to have you as a new member of <%= link_to 'aep', 'http://aepokc.com' %>. We are a membership organization that would not exist without your support, and we would like to invite you to <%= link_to 'pay your membership dues today with PayPal', 'http://aepokc.com/dues' %>.<br />
+                              		<% else %>
+										Time flies when you’re having fun! We have thoroughly enjoyed the help and support of members like you over the past year. It is time for you to renew your annual membership, and we would like to invite you <b><%= link_to 'pay your dues today with PayPal', 'http://aepokc.com/dues' %></b>. Please visit <%= link_to 'http://aepokc.com/dues', 'http://aepokc.com/dues' %> to review the available options.<br />
+                              		<% end %>
+                              	<% elsif @invoice.send_count==2 %>
+                              		We enjoy your involvement and participation as an aep member!  Please remember that you have an outstanding invoice for your membership dues. You can now pay your balance with PayPal at <%= link_to 'http://aepokc.com/dues', 'http://aepokc.com/dues' %>. Please contact us if you have any trouble.<br />
+                              	<% elsif @invoice.send_count==3 %>
+                              		We hope you have had a great time as an aep member so far!  Don’t forget that you have an outstanding invoice for your memberhsip dues. You can resolve this by paying with PayPal at <%= link_to 'http://aepokc.com/dues', 'http://aepokc.com/dues' %>. Please let us know if we need to update any of your information.<br />
+                              	<% elsif @invoice.send_count==4 %>
+                              		We hope all is well with you. We noticed that you still have an outstanding invoice for your membership dues. Please let us know if we can be of any assistance with this. You can convieniently pay with PayPal at <%= link_to 'http://aepokc.com/dues', 'http://aepokc.com/dues' %> today.<br />
+                              	<% elsif @invoice.send_count==5 %>
+                              		As a friendly reminder, your annual membership dues have not been paid for this year. We just want to remind you that you can choose from several payment options at <%= link_to 'http://aepokc.com/dues', 'http://aepokc.com/dues' %>.<br />
+                              	<% elsif @invoice.send_count==6 %>
+                              		This is our final invoice to remind you about your outstanding balance. Please consider visiting <%= link_to 'http://aepokc.com/dues', 'http://aepokc.com/dues' %> and paying your membership dues today with PayPal.<br />
+                              	<% end %>
                                 <br />
-                                An account has been created for you to take full advantage of the online aep community!<br />
+                                &nbsp;&nbsp;<b>Date:</b> <%= @member.due_date.to_s(:formatted_date) %><br />
                                 <br />
-                                Your temporary password is: <span class="a"><b><%= @member.random_password %></b></span>. We recommend changing this to something that is easy to remember.<br />
+                                &nbsp;&nbsp;<b>Amount:</b> <%= number_to_currency(@invoice.amount) %><br />
                                 <br />
-                                <b>Please <%= link_to 'CLICK HERE', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %> to confirm your account.</b><br />
-                                <br />
-                                We look forward to seeing you at our next event. If you have any questions or concerns, please feel free to reply to this email.<br />
+								Thank you for being a part of our community. We hope to see you at our <%= link_to 'next event', 'http://aepokc.com/resources/events' %>!<br />
                                 <br />
                                 <img alt="aepAdmin" border="0" height="24" src="http://gallery.mailchimp.com/ea16da08a7d1eb53d26fffc19/images/aepAdmin.jpg" width="101" style="border: none;font-size: 14px;font-weight: bold;height: auto;line-height: 100%;outline: none;text-decoration: none;text-transform: capitalize;display: inline;">
                               </div>
