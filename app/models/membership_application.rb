@@ -10,7 +10,7 @@ class MembershipApplication < ActiveRecord::Base
     m.random_password = rp
     m.password = rp
     m.password_confirmation = rp
-    m.email = self.email
+    m.email = self.email.strip
     m.firstname = self.firstname
     m.lastname = self.lastname
     m.committee_name = self.committee_name
