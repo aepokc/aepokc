@@ -16,26 +16,36 @@
   	<%= link_to @job.employer, @job.link %>
   <% end %>
 </p>
+<% unless @job.time.blank? %>
 <p>
   <b>Type:</b>
   <%= @job.time %>
 </p>
+<% end %>
+<% unless @job.location.blank? %>
 <p>
   <b>Location:</b>
   <%= @job.location %>
 </p>
+<% end %>
+<% unless @job.industry.blank? %>
 <p>
   <b>Industry:</b>
   <%= @job.industry %>
 </p>
+<% end %>
+<% unless @job.experience.blank? %>
 <p>
   <b>Experience:</b>
   <%= @job.experience %>
 </p>
+<% end %>
+<% unless @job.education.blank? %>
 <p>
   <b>Education:</b>
   <%= @job.education %>
 </p>
+<% end %>
 <p>
   <b>Salary:</b>
   <%= number_to_currency(@job.salary, :precision => 0) || 'Undetermined' %>
