@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.20'
 # authentication
 gem 'devise', '1.1.2'
 # attachment
@@ -17,6 +17,6 @@ gem 'unicorn', '4.1.1'
 gem 'whenever', '0.8.2'
 
 group :development do
-  gem 'capistrano', '2.12.0'
+  gem 'capistrano', '2.14.2'
 end
 
