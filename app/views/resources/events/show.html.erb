@@ -11,7 +11,7 @@
 <p><b>Date: </b><%= @event.date.to_s(:formatted_date) %></p>
 <p><b>Time: </b><%= @event.time %></p>
 <p><b>Location: </b><%= @event.location %></p>
-<p><%= auto_link(simple_format(@event.details)) %></p>
+<p><%= auto_link(simple_format(@event.details)).html_safe %></p>
 <p>
   <% unless @event.feid.blank? %>
 	<span class="frsvp"><%= link_to "", "http://facebook.com/event.php?eid=" + @event.feid %></span>

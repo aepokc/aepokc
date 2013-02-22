@@ -41,7 +41,7 @@
   <%= number_to_currency(@job.salary, :precision => 0) || 'Undetermined' %>
 </p>
 <p>
-  <%= auto_link(simple_format(@job.description)) %>
+  <%= auto_link(simple_format(@job.description)).html_safe %>
 </p>
 <p>
   <b>Contact:</b>
