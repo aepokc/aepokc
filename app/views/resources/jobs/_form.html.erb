@@ -31,7 +31,7 @@
   </div>
   <div class="field">
     <%= f.label 'Type' %><br />
-    <%= f.select(:time, '<option value="Full Time">Full Time</option><option value="Part Time">Part Time</option><option value="Temporary">Temporary</option><option value="Contract">Contract</option>') %>
+    <%= f.select(:time, ['Full Time','Part Time','Temporary','Contract']) %>
   </div>
   <div class="field">
     <%= f.label :location %><br />
@@ -43,11 +43,11 @@
   </div>
   <div class="field">
     <%= f.label 'Experience Required' %><br />
-    <%= f.select(:experience, '<option value="None">None</option><option value="< 2 years">< 2 Years</option><option value="> 2 Years">> 2 Years</option>') %>
+    <%= f.select(:experience, ['None','< 2 Years','> 2 Years']) %>
   </div>
   <div class="field">
     <%= f.label 'Minimum Education' %><br />
-    <%= f.select(:education, '<option value="None">None</option><option value="Associates Degree">Associates Degree</option><option value="Bachelors Degree">Bachelors Degree</option><option value="Graduate Degree">Graduate Degree</option>') %>
+    <%= f.select(:education, ['None','Associates Degree','Bachelors Degree','Graduate Degree']) %>
   </div>
   <div class="field">
     <%= f.label 'Annual Salary' %>
