@@ -66,9 +66,13 @@
 	<p>
 		<b>Job created by:</b>
 		<br />
-		<%= image_tag @job.member.profile.avatar.url(:thumb) %>
-		<br />
-		<%= link_to @job.member.firstname + " " + @job.member.lastname, '/members/profiles/' + @job.member.profile.id.to_s %>
+		<% if @job.member.profile.nil? %>
+			<%= @job.member.firstname + " " + @job.member.lastname %>
+		<% else %>
+			<%= image_tag @job.member.profile.avatar.url(:thumb) %>
+			<br />
+			<%= link_to @job.member.firstname + " " + @job.member.lastname, '/members/profiles/' + @job.member.profile.id.to_s %>
+		<% end %>
 	</p>
 	<% if @job.member_id == current_member.id %>
 		<%= link_to 'Edit This Job', edit_resources_job_path(@job) %> | <%= link_to 'Jobs List', "/resources/jobs" %>

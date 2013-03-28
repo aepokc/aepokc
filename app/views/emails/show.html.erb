@@ -66,7 +66,7 @@
                   Date: <%= e.date.to_s(:formatted_date) %><br />
                   Time: <%= e.time %><br />
                   Location: <%= e.location %><br />
-                  <%= auto_link(simple_format(e.details, style: 'padding:10px 30px;line-height:1.5;font-size:16px;text-align:justify;')) %>
+                  <%= auto_link(simple_format(e.details, style: 'padding:10px 30px;line-height:1.5;font-size:16px;text-align:justify;')).html_safe %>
                 </p>
               <% end %>
               <% if !@email.html.blank? %>
