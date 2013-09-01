@@ -15,6 +15,8 @@ gem 'mysql', '2.8.1'
 gem 'unicorn', '4.1.1'
 # cron
 gem 'whenever', '0.8.2'
+# debug
+gem 'debugger', '1.6.1'
 
 group :development do
   gem 'capistrano', '2.14.2'

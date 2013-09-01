@@ -38,6 +38,13 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     chronic (0.9.0)
+    columnize (0.3.6)
+    debugger (1.6.1)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     devise (1.1.2)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 0.10.7)
@@ -120,6 +127,7 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano (= 2.14.2)
+  debugger (= 1.6.1)
   devise (= 1.1.2)
   gibbon (= 0.3.5)
   mysql (= 2.8.1)

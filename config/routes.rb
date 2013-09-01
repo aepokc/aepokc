@@ -16,7 +16,7 @@ Aepokc::Application.routes.draw do |map|
   get 'mail' => 'pages#mail'
   get 'admin' => 'pages#admin'
   devise_for :admin, :controllers => { :sessions => "admin/sessions" }
-  devise_for :members, :controllers => { :registrations => "members/registrations", :sessions => "members/sessions" }
+  devise_for :members, :controllers => { :registrations => "members/registrations", :sessions => "members/sessions", :confirmations => "members/confirmations" }
   
   get 'members/:id' => 'users#show', :as => 'member'
   get 'members' => 'users#index'

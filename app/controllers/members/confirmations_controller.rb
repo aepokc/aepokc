@@ -7,7 +7,8 @@ class Members::ConfirmationsController < Devise::ConfirmationsController
       resource.save
       resource.invoice(20)
       set_flash_message :notice, :confirmed
-      sign_in_and_redirect_to("/members/profiles")
+      sign_in(resource_name, resource) #change redirect from edit to profiles index
+      redirect_to stored_location_for(:member) || members_profiles_path
     else
       render_with_scope :new
     end
