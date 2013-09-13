@@ -19,7 +19,7 @@
               <% if m.profile.tname.blank? %>
                 <%= image_tag('/images/noavatar.gif') %>
               <% else %>
-                <%= link_to image_tag('http://img.tweetimag.es/i/' + m.profile.tname + '_n'), 'http://twitter.com/' + m.profile.tname %>
+                <%= link_to image_tag(m.profile.twitter_avatar), 'http://twitter.com/' + m.profile.tname %>
               <% end %>
             </div>
           </td>

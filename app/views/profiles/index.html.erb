@@ -18,7 +18,7 @@ Please choose from the navigation options to your left, and feel free to <%= lin
     <% if p.avatar_file_name.blank? %>
       <% unless p.tname.blank? %>
         <span class="thumb">
-          <%= link_to image_tag('http://headhunter.heroku.com/'+p.tname), '/members/profiles/' + p.id.to_s %>
+          <%= link_to image_tag(p.twitter_avatar), '/members/profiles/' + p.id.to_s %>
         </span>
       <% end %>
     <% else %>

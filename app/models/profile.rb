@@ -12,4 +12,12 @@ class Profile < ActiveRecord::Base
   def self.get_profile_avatars
     Profile.find :all, :conditions => ('avatar_file_size > 10'), :order => "RAND()"
   end
+
+  def twitter_avatar
+  	if self.tname.blank?
+  	  return nil
+  	else
+  	  return Twitter.user(self.tname).profile_image_url
+  	end
+  end
 end
