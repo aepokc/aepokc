@@ -1,0 +1,91 @@
+<%= form_for [:members, @profile], :html => { :multipart => true } do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :avatar %><span class="ghost"> (Will be resized to 150 x 150 pixels)</span><br />
+    <%= f.file_field :avatar %>
+  </div>
+  <div class="field">
+    <% if action_name=='edit' %>
+      <%= f.hidden_field :member_id, :value => @profile.member.id %>
+    <% else %>
+      <%= f.hidden_field :member_id, :value => current_member.id %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><span class="ghost"> (Format: 4058182257)</span><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :hometown %><br />
+    <%= f.text_field :hometown %>
+  </div>
+  <div class="field">
+    <%= f.label :college %><br />
+    <%= f.text_field :college %>
+  </div>
+  <div class="field">
+    <%= f.label :degree %><br />
+    <%= f.text_field :degree %>
+  </div>
+  <div class="field">
+    <%= f.label :occupation %><br />
+    <%= f.text_field :occupation %>
+  </div>
+  <div class="field">
+    <%= f.label :interests %><br />
+    <%= f.text_area :interests %>
+  </div>
+  <div class="field">
+    <%= f.label 'Relationship Status' %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label 'Facebook username' %><br />
+    <%= f.text_field :fname %>&nbsp;&nbsp;(<span class="ghost">http://www.facebook.com/</span><span class="example"><b>markzuckerberg</b></span>)
+  </div>
+  <div class="field">
+    <%= f.label 'Twitter username' %><br />
+    <%= f.text_field :tname %>&nbsp;&nbsp;(<span class="ghost">http://www.twitter.com/</span><span class="example"><b>ev</b></span>)
+  </div>
+  <div class="field">
+    LinkedIn profile link<br />
+    <%= f.text_field :lname %>&nbsp;&nbsp;(<span class="example"><b>http://www.linkedin.com/in/reidhoffman</b></span>)
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script type="text/javascript">
+  $('#profile_fname').blur(function() {
+    var val = $(this).val();
+    if (val.indexOf('/')>=0) {
+      $(this).val(val.slice(val.lastIndexOf('/')+1));
+    }
+  });
+  $('#profile_tname').blur(function() {
+    var val = $(this).val();
+    if (val.indexOf('/')>=0) {
+      $(this).val(val.slice(val.lastIndexOf('/')+1));
+    }
+  });
+  $('#profile_lname').blur(function() {
+    var val = $(this).val();
+    if (val.indexOf('http')<0) {
+      if (val.indexOf('linkedin.com/')<0) {
+        $(this).val('http://linkedin.com/in/'+val);
+      } else {
+        $(this).val('http://'+val);
+      }
+    }
+  });
+</script>
