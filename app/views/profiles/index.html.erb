@@ -15,16 +15,12 @@ Please choose from the navigation options to your left, and feel free to <%= lin
 </div>
 <div class="gallery">
   <% @profiles.each do |p| %>
-    <% if p.avatar_file_name.blank? %>
-      <% unless p.tname.blank? %>
-        <span class="thumb">
-          <%= link_to image_tag(p.twitter_avatar), '/members/profiles/' + p.id.to_s %>
-        </span>
+    <span class="thumb">
+      <% if p.avatar_file_name.nil? %>
+        <%= link_to image_tag('/images/noavatar.gif'), '/members/profiles/' + p.id.to_s %>
+      <% else %>
+          <%= link_to image_tag(p.avatar.url(:thumb)), '/members/profiles/' + p.id.to_s %>
       <% end %>
-    <% else %>
-      <span class="thumb">
-        <%= link_to image_tag(p.avatar.url(:thumb)), '/members/profiles/' + p.id.to_s %>
-      </span>
-    <% end %>      
+    </span>    
   <% end %>
 </div>

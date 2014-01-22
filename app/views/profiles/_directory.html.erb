@@ -16,11 +16,7 @@
 				<% if m.profile.avatar_file_name.nil? %>
 					<td>
             <div class="profile-thumb">
-              <% if m.profile.tname.blank? %>
-                <%= image_tag('/images/noavatar.gif') %>
-              <% else %>
-                <%= link_to image_tag(m.profile.twitter_avatar), 'http://twitter.com/' + m.profile.tname %>
-              <% end %>
+              <%= image_tag('/images/noavatar.gif') %>
             </div>
           </td>
 				<% else %>

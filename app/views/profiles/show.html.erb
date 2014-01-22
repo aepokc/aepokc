@@ -5,11 +5,7 @@
 </div>
 <div class="profile-picture">
 	<% if @profile.avatar_file_name.nil? %>
-    <% if @profile.tname.blank? %>
       <%= image_tag('/images/noavatar.gif') %>
-    <% else %>
-      <%= link_to image_tag(@profile.twitter_avatar), 'http://twitter.com/' + @profile.tname %>
-    <% end %>
 	<% else %>
 		<%= link_to image_tag(@profile.avatar.url(:display)), @profile.avatar.url %>
 	<% end %>
