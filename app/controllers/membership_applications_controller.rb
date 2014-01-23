@@ -34,7 +34,7 @@ class MembershipApplicationsController < ApplicationController
   def approve
     if params[:token]
       success = nil
-      applicants = MembershipApplication.find(:all, :limit => 20, :order => "id DESC")
+      applicants = MembershipApplication.find(:all, :order => "id DESC")
       applicants.each do |a|
         string = a.firstname + a.lastname + a.email + a.created_at.to_s
         if Digest::MD5.hexdigest(string)==params[:token]
@@ -43,10 +43,8 @@ class MembershipApplicationsController < ApplicationController
       end
       if success && success==true
         redirect_to members_path, :notice => 'Applicant converted to member.'
-      elsif success
+      else success
         redirect_to members_path, :notice => success
-      else
-        redirect_to members_path, :notice => 'Applicant has expired.'
       end
     else
       redirect_to admin_path, :notice => 'Token missing.'
