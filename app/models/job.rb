@@ -6,6 +6,7 @@ class Job < ActiveRecord::Base
 	end
 	
 	validates :title, :presence => true
+  validates :location, :presence => true
 	validates :employer, :presence => true
 	
 	validates_format_of :phone, :with => /[1-9][0-9]{9}/, 

@@ -19,6 +19,7 @@ class MembershipApplication < ActiveRecord::Base
     if !m.errors.blank?
       return m.errors.full_messages.to_sentence+'.'
     else
+      m.invoice(20)
       m.subscribe
       return true
     end
