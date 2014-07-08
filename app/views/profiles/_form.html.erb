@@ -80,7 +80,7 @@
   });
   $('#profile_lname').blur(function() {
     var val = $(this).val();
-    if (val.indexOf('http')<0) {
+    if (val.length>0 && val.indexOf('http')<0) {
       if (val.indexOf('linkedin.com/')<0) {
         $(this).val('http://linkedin.com/in/'+val);
       } else {

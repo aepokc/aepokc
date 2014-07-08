@@ -7,6 +7,7 @@ tmp/**/*
 config/database.yml
 config/initializers/api.rb
 config/initializers/mailer.rb
+config/initializers/gibbon.rb
 public/assets/*
 db/schema.rb
 ServerSetup.txt
