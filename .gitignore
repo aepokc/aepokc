@@ -1,6 +1,6 @@
 .bundle
 .DS_Store
-db/dump.sql
+dump.sql
 db/*.sqlite3
 log/
 tmp/**/*
